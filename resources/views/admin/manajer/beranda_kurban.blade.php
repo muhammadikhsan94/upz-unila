@@ -1,0 +1,230 @@
+@extends('template.app')
+
+@section('content')
+
+<div class="row">
+
+	<div class="alert alert-success alert-dismissible">
+		<h5><i class="fa fa-exclamation-circle red"></i> Selamat Datang, <b>{{ strtoupper(Auth::user()->nama) }}</b>.</h5>
+		<span style="text-align: justify;">Berikut ini adalah halaman aplikasi zakat untuk anda sebagai Manager Group. Jika anda bukan sebagai Manager Group, silahkan hubungi Panzisda Anda. Terima Kasih.</span>
+	</div>
+	
+</div>
+
+<div class="box box-info">
+	<div class="row">
+        <div class="col-lg-6">
+			<div id="myCharts" style="width: 100%;text-align:center;"></div>
+		</div>
+        <div class="col-lg-6">
+			<div id="myCharts_" style="width: 100%;text-align:center;"></div>
+		</div>
+	</div>
+</div>
+
+@push('scripts')
+<script type="text/javascript">
+	$(document).ready(function() {
+		var duta = <?php echo json_encode($data['duta']); ?>;
+        
+		var target = [];
+		for(x in duta) {
+			target.push([duta[x].name, duta[x].target]);
+		}
+
+		// Create the chart
+		let charts = Highcharts.chart('myCharts', {
+			chart: {
+				type: 'column'
+			},
+			title: {
+				text: 'Transaksi Kurban'
+			},
+			subtitle: {
+				text: 'Data Duta Zakat'
+			},
+			accessibility: {
+				announceNewData: {
+					enabled: true
+				}
+			},
+			xAxis: {
+				type: 'category',
+			},
+			yAxis: {
+				title: {
+					text: 'Total Transaksi'
+				},
+				labels: {
+					formatter: function() {
+						var absValue = Math.abs(this.value);
+						if (absValue >= 1000000 && absValue < 1000000000) {
+							absValue = (this.value / 1000000) + ' JUTA';
+						} else if (absValue >= 1000000000) {
+							absValue = (this.value / 1000000000) + ' MILIAR';
+						}
+						return absValue;
+						// return Highcharts.numberFormat(this.value, 0);
+					}
+				}
+			},
+			legend: {
+				align: 'right',
+				verticalAlign: 'middle',
+				layout: 'vertical'
+			},
+			tooltip: {
+				shared: true,
+				useHTML: true,
+				headerFormat: '<table>',
+				pointFormat: '<tr>'+
+					'<td style="color: {series.color}">Duta Zakat: </td>' +
+					'<td style="text-align: right"><b>{point.name}</b></td>' +
+					'</tr><tr>'+
+					'<td>Target: </td>' +
+					'<td style="text-align: right"><b>{point.y}</b></td></tr>',
+				footerFormat: '</table>'
+			},
+			series: [{
+				name: 'Target',
+				data: target,
+				color: '#000000',
+			},
+			{
+				name: 'Realisasi',
+				data: duta,
+				color: '#008000',
+				tooltip: {
+					shared: true,
+					useHTML: true,
+					headerFormat: '<table>',
+					pointFormat: '<tr><td>Kambing/Domba: </td>' +
+						'<td style="text-align: right"><b>{point.kambing}</b></td></tr>'+
+						'<tr><td>Sapi/Kerbau: </td>' +
+						'<td style="text-align: right"><b>{point.sapi}</b></td></tr>' +
+						'<tr><td>Pekurban: </td>' +
+						'<td style="text-align: right"><b>{point.y}</b></td></tr>'+
+						'<tr><td>% Realisasi: </td>' +
+						'<td style="text-align: right"><b>{point.persentase} %</b></td></tr>',
+					footerFormat: '</table>'
+				}
+			}],
+			responsive: {  
+				rules: [{  
+					condition: {  
+						maxWidth: 700  
+					},  
+					chartOptions: {  
+						legend: {  
+							enabled: false  
+						}  
+					}  
+				}]  
+			}
+		});
+
+		var realisasi = <?php echo json_encode($data['realisasi']); ?>;
+        
+		var target_ = [];
+		for(x in realisasi) {
+			target_.push([realisasi[x].name, realisasi[x].target]);
+		}
+
+		// Create the chart
+		let charts_ = Highcharts.chart('myCharts_', {
+			chart: {
+				type: 'column'
+			},
+			title: {
+				text: 'Realisasi Pengumpulan Manajer Group'
+			},
+			accessibility: {
+				announceNewData: {
+					enabled: true
+				}
+			},
+			xAxis: {
+				type: 'category',
+			},
+			yAxis: {
+				title: {
+					text: 'Total Transaksi'
+				},
+				labels: {
+					formatter: function() {
+						var absValue = Math.abs(this.value);
+						if (absValue >= 1000000 && absValue < 1000000000) {
+							absValue = (this.value / 1000000) + ' JUTA';
+						} else if (absValue >= 1000000000) {
+							absValue = (this.value / 1000000000) + ' MILIAR';
+						}
+						return absValue;
+						// return Highcharts.numberFormat(this.value, 0);
+					}
+				}
+			},
+			legend: {
+				align: 'right',
+				verticalAlign: 'middle',
+				layout: 'vertical'
+			},
+			tooltip: {
+				shared: true,
+				useHTML: true,
+				headerFormat: '<table>',
+				pointFormat: '<tr>'+
+					'<td style="color: {series.color}">Duta Zakat: </td>' +
+					'<td style="text-align: right"><b>{point.name}</b></td>' +
+					'</tr><tr>'+
+					'<td>Target: </td>' +
+					'<td style="text-align: right"><b>{point.y}</b></td></tr>',
+				footerFormat: '</table>'
+			},
+			series: [{
+				name: 'Target',
+				data: target_,
+				color: '#000000',
+			},
+			{
+				name: 'Realisasi',
+				data: realisasi,
+				color: '#008000',
+				tooltip: {
+					shared: true,
+					useHTML: true,
+					headerFormat: '<table>',
+					pointFormat: '<tr><td>Kambing/Domba: </td>' +
+						'<td style="text-align: right"><b>{point.kambing}</b></td></tr>'+
+						'<tr><td>Sapi/Kerbau: </td>' +
+						'<td style="text-align: right"><b>{point.sapi}</b></td></tr>' +
+						'<tr><td>Pekurban: </td>' +
+						'<td style="text-align: right"><b>{point.y}</b></td></tr>'+
+						'<tr><td>% Realisasi: </td>' +
+						'<td style="text-align: right"><b>{point.persentase} %</b></td></tr>',
+					footerFormat: '</table>'
+				}
+			}],
+			responsive: {  
+				rules: [{  
+					condition: {  
+						maxWidth: 700  
+					},  
+					chartOptions: {  
+						legend: {  
+							enabled: false  
+						}  
+					}  
+				}]  
+			}
+		});
+	});
+</script>
+<script src="{{asset('lte/dist/js/highcharts.js')}}"></script>
+<script src="{{asset('lte/dist/js/data.js')}}"></script>
+<script src="{{asset('lte/dist/js/drilldown.js')}}"></script>
+<script src="{{asset('lte/dist/js/exporting.js')}}"></script>
+<script src="{{asset('lte/dist/js/export-data.js')}}"></script>
+<script src="{{asset('lte/dist/js/accessibility.js')}}"></script>
+@endpush
+
+@endsection

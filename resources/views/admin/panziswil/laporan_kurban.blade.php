@@ -1,0 +1,82 @@
+@extends('template.app')
+
+@section('title')
+- Laporan Realisasi Duta Zakat
+@endsection
+
+@section('content')
+
+<div class="box box-info">
+
+    <div class="box-header with-border">
+        <h3 class="box-title"><strong>Laporan Kurban Duta Zakat</strong></h3>
+    </div>
+
+    <div class="box-body">
+        <div class="dataTables_scrollBody">
+            <div class="col-md-12">
+                <table id="tabel-realisasi" class="display" style="width: 100%">
+                    <thead>
+                        <tr class="bg-success">
+                            <th> No </th>
+                            <th> Tgl Transaksi </th>
+                            <th> No Punggung </th>
+                            <th> Duta Zakat </th>
+                            <th> Pekurban </th>
+                            <th> Jenis Kurban </th>
+                            <th> Jumlah </th>
+                            <th> Lokasi </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@push('scripts')
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+<script>
+    $(document).ready(function() {
+
+        var table = $('#tabel-realisasi').DataTable({
+            dom: 'Blfrtip',
+            buttons: [
+                {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Kurban Duta Zakat', className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
+                {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Kurban Duta Zakat', className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true},
+                {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Kurban Duta Zakat', className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true}
+            ],
+            "language": {
+                "sEmptyTable": "DATA KOSONG ATAU TIDAK DITEMUKAN !",
+                "sLengthMenu": "Tampilkan _MENU_ records",
+                "sSearch": "Cari Data/Filter:",
+            },
+            // "order": [[ 6, "DESC" ]],
+            ajax: {
+                url: "{{ url('/panziswil/laporan/kurban/getdata') }}",
+            },
+            columns: [{
+                    data: "id",
+                    render: function (data, type, row, meta) {
+                        return meta.row + meta.settings._iDisplayStart + 1;
+                    }
+                },
+                { data: 'tgl_transaksi' },
+                { data: 'no_punggung' },
+                { data: 'dutazakat' },
+                { data: 'pekurban' },
+                { data: 'jenis' },
+                { data: 'jumlah' },
+                { data: 'lokasi' }
+            ]
+        });
+    });
+</script>
+@endpush
+@endsection

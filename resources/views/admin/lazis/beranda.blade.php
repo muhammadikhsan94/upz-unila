@@ -4,11 +4,11 @@
 
 <div class="row">
 
-	<div class="alert alert-success alert-dismissible">
+	<div class="alert alert-warning alert-dismissible">
 		<h5><i class="fa fa-exclamation-circle red"></i> Selamat Datang, <b>{{ strtoupper(Auth::user()->nama) }}</b>.</h5>
 		<span style="text-align: justify;">Berikut ini adalah halaman aplikasi zakat untuk anda sebagai LAZIS. Jika anda bukan sebagai LAZIS, silahkan hubungi Panziswil anda. Terima Kasih.</span>
 	</div>
-	
+
 </div>
 
 <div class="box box-info">
@@ -83,17 +83,17 @@
 					borderWidth: 0
 				}
 			},
-			responsive: {  
-				rules: [{  
-					condition: {  
-						maxWidth: 700  
-					},  
-					chartOptions: {  
-						legend: {  
-							enabled: false  
-						}  
-					}  
-				}]  
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 700
+					},
+					chartOptions: {
+						legend: {
+							enabled: false
+						}
+					}
+				}]
 			}
 		});
 
@@ -157,17 +157,17 @@
 					borderWidth: 0
 				}
 			},
-			responsive: {  
-				rules: [{  
-					condition: {  
-						maxWidth: 700  
-					},  
-					chartOptions: {  
-						legend: {  
-							enabled: false  
-						}  
-					}  
-				}]  
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 700
+					},
+					chartOptions: {
+						legend: {
+							enabled: false
+						}
+					}
+				}]
 			}
 		});
 	});

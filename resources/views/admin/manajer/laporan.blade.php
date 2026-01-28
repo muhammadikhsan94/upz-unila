@@ -16,7 +16,7 @@
             <div class="col-md-12">
                 <table id="tabel-realisasi" class="display" style="width: 100%">
                     <thead>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th> No </th>
                             <th> No Punggung </th>
                             <th> Duta Zakat </th>
@@ -54,7 +54,7 @@
 
         function convertToRupiah(angka)
         {
-            var rupiah = '';		
+            var rupiah = '';
             var angkarev = angka.toString().split('').reverse().join('');
             for(var i = 0; i < angkarev.length; i++) if(i%3 == 0) rupiah += angkarev.substr(i,3)+'.';
             return rupiah.split('',rupiah.length-1).reverse().join('');

@@ -21,7 +21,7 @@
 
                 <table id="tabel-transaksi" class="display" style="width: 100%">
                     <thead>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th> No </th>
                             <th> Muzakki </th>
                             <th> Duta Zakat </th>
@@ -138,7 +138,7 @@
                             <input class="form-control" id="rek_bank" name="rek_bank" disabled>
                         </div>
                     </div>
-                    
+
                     <div class="form-group" id="transfer">
                         <label for="tanggal_transfer" class="col-sm-3 control-label">Tanggal Transfer/Kirim</label>
                         <div class="col-sm-5">

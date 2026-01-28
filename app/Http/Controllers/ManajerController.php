@@ -151,10 +151,10 @@ class ManajerController extends Controller
                         ->groupBy('status_transaksi.panzisda_status')
                         ->orderBy('status_transaksi.panzisda_status', 'DESC')
                         ->get();
-        
+
         foreach($target as $value1) {
             $value1->name = Auth::user()->nama;
-            
+
             $sumY = 0;
             foreach($y as $value2) {
                 if ($value2->panzisda_status != null) {
@@ -167,7 +167,7 @@ class ManajerController extends Controller
             $value1->target_ = format_uang($value1->target);
             $value1->persentase = ($sumY != 0) ? number_format(($sumY / $value1->target) * 100, 2) : 0;
         }
-        
+
         $data['realisasi']        = $target;
 
         return view('admin.manajer.beranda', compact('data'));
@@ -276,7 +276,7 @@ class ManajerController extends Controller
             if ($transaksi->status == NULL) {
                 $button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-sm">VERIFIKASI</button></center>';
             } else {
-                $button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-sm">DETAIL</button></center>';
+                $button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-sm"><i class="fa fa-eye"></i></button></center>';
             }
             return $button;
         })
@@ -436,7 +436,7 @@ class ManajerController extends Controller
         $data['user_manajerarea']   = $this->user_manajerarea->where('id', Auth::user()->id)->first();
         $data['user_panzisda']      = $this->user_panzisda->where('id', Auth::user()->id)->first();
         $data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
-        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();      
+        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();
         return view('admin.manajer.laporan', compact('data'));
     }
 
@@ -550,7 +550,7 @@ class ManajerController extends Controller
     {
         $donatur        = DB::table('donatur')->leftJoin('transaksi','transaksi.id_donatur','=','donatur.id')->leftJoin('users','users.id','=','transaksi.id_users')->select('donatur.*')->where('transaksi.id_users', Auth::user()->id)->orWhere('users.id_wilayah', Auth::user()->id_wilayah)->orWhereNull('transaksi.id_donatur')->orderBy('donatur.nama', 'ASC')->orderBy('donatur.penghasilan', 'DESC')->get();
         $donatur = $donatur->unique('nama', 'alamat');
-        
+
         return DataTables::of($donatur)
         ->addIndexColumn()
         ->addColumn('aksi', function($donatur) {
@@ -594,7 +594,7 @@ class ManajerController extends Controller
                 if ($transaksi->manajer_status == NULL) {
                 $button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-xs">VERIFIKASI</button></center>';
             } else {
-                $button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-sm">DETAIL</button></center>';
+                $button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-sm"><i class="fa fa-eye"></i></button></center>';
             }
             return $button;
             })
@@ -747,7 +747,7 @@ class ManajerController extends Controller
                             ->whereNotNull('status.panziswil_status')
                             ->first();
 
-			
+
 			$dummy_['target'] 		= count($duta);
             $dummy_['name'] 		= $item_->nama;
 			$dummy_['y'] 			= ($y->y != NULL) ? count(explode(";", $y->y)) : 0;
@@ -769,7 +769,7 @@ class ManajerController extends Controller
         $data['user_manajerarea']   = $this->user_manajerarea->where('id', Auth::user()->id)->first();
         $data['user_panzisda']      = $this->user_panzisda->where('id', Auth::user()->id)->first();
         $data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
-        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();      
+        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();
         return view('admin.manajer.laporan_kurban', compact('data'));
     }
 
@@ -777,7 +777,7 @@ class ManajerController extends Controller
     {
         $duta   = Role::where('id_jabatan', 5)->where('id_atasan', Auth::user()->id)->pluck('id_users');
         $data   = DB::table('users')->whereIn('id', $duta)->select('id', 'nama', 'no_punggung')->get();
-        
+
         foreach($data as $item) {
             $item->target       = 1;
             $transaksi          = TransaksiKurban::where('id_users', $item->id)->pluck('id');

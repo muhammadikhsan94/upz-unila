@@ -30,6 +30,6 @@ class RegisterSuccess extends Mailable
      */
     public function build()
     {
-        return $this->subject('Informasi Akun CATATZISWAF.ID')->from('admin@catatziswaf.id', 'Admin CATATZISWAF.ID')->view('register_success');
+        return $this->subject('Informasi Akun UPZ UNILA')->from('admin@upz.unila.ac.id', 'Admin UPZ UNILA')->view('register_success');
     }
 }

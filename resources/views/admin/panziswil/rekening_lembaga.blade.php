@@ -25,7 +25,7 @@
             <div class="col-md-12">
                 <table id="tabel_rekening_lembaga" class="display" style="width: 100%">
                     <thead>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th> No </th>
                             <th> Lembaga </th>
                             <th> No Rekening </th>

@@ -25,7 +25,7 @@
             <div class="col-md-12">
                 <table id="tabel_distribusi" class="display" style="width: 100%">
                     <thead>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th> No </th>
                             <th> Jenis Paket Zakat </th>
                             <th> Panzisnas (%) </th>

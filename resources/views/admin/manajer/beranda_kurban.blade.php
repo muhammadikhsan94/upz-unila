@@ -4,11 +4,11 @@
 
 <div class="row">
 
-	<div class="alert alert-success alert-dismissible">
+	<div class="alert alert-warning alert-dismissible">
 		<h5><i class="fa fa-exclamation-circle red"></i> Selamat Datang, <b>{{ strtoupper(Auth::user()->nama) }}</b>.</h5>
 		<span style="text-align: justify;">Berikut ini adalah halaman aplikasi zakat untuk anda sebagai Manager Group. Jika anda bukan sebagai Manager Group, silahkan hubungi Panzisda Anda. Terima Kasih.</span>
 	</div>
-	
+
 </div>
 
 <div class="box box-info">
@@ -26,7 +26,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		var duta = <?php echo json_encode($data['duta']); ?>;
-        
+
 		var target = [];
 		for(x in duta) {
 			target.push([duta[x].name, duta[x].target]);
@@ -109,22 +109,22 @@
 					footerFormat: '</table>'
 				}
 			}],
-			responsive: {  
-				rules: [{  
-					condition: {  
-						maxWidth: 700  
-					},  
-					chartOptions: {  
-						legend: {  
-							enabled: false  
-						}  
-					}  
-				}]  
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 700
+					},
+					chartOptions: {
+						legend: {
+							enabled: false
+						}
+					}
+				}]
 			}
 		});
 
 		var realisasi = <?php echo json_encode($data['realisasi']); ?>;
-        
+
 		var target_ = [];
 		for(x in realisasi) {
 			target_.push([realisasi[x].name, realisasi[x].target]);
@@ -204,17 +204,17 @@
 					footerFormat: '</table>'
 				}
 			}],
-			responsive: {  
-				rules: [{  
-					condition: {  
-						maxWidth: 700  
-					},  
-					chartOptions: {  
-						legend: {  
-							enabled: false  
-						}  
-					}  
-				}]  
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 700
+					},
+					chartOptions: {
+						legend: {
+							enabled: false
+						}
+					}
+				}]
 			}
 		});
 	});

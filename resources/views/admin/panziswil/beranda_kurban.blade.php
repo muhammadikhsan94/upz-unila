@@ -4,11 +4,11 @@
 
 <div class="row">
 
-	<div class="alert alert-success alert-dismissible">
+	<div class="alert alert-warning alert-dismissible">
 		<h5><i class="fa fa-exclamation-circle red"></i> Selamat Datang, <b>{{ strtoupper(Auth::user()->nama) }}</b>.</h5>
 		<span style="text-align: justify;">Berikut ini adalah halaman aplikasi zakat untuk anda sebagai Panziswil. Jika anda bukan sebagai Panziswil, silahkan hubungi Administrator. Terima Kasih.</span>
 	</div>
-	
+
 </div>
 
 <div class="box box-info">
@@ -16,7 +16,7 @@
 		<div class="col-lg-6">
 			<div id="myCharts" style="height:500px;width: 100%;text-align:center;"></div>
 		</div>
-		
+
 		<div class="col-lg-6">
 			<div id="myCharts__" style="width: 100%;text-align:center;"></div>
 		</div>
@@ -31,7 +31,7 @@
 		var realisasi = 0;
 		var targets = 0;
 		var percent = 0;
-        
+
 		var target = [];
 		var persentase = [];
 
@@ -122,17 +122,17 @@
 					footerFormat: '</table>'
 				}
 			}],
-			responsive: {  
-				rules: [{  
-					condition: {  
-						maxWidth: 700  
-					},  
-					chartOptions: {  
-						legend: {  
-							enabled: false  
-						}  
-					}  
-				}]  
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 700
+					},
+					chartOptions: {
+						legend: {
+							enabled: false
+						}
+					}
+				}]
 			}
 		});
 

@@ -30,6 +30,6 @@ class UpdateProfilNotify extends Mailable
      */
     public function build()
     {
-        return $this->subject('Informasi Akun CATATZISWAF.ID')->from('admin@catatziswaf.id', 'Admin CATATZISWAF.ID')->view('update_notify');
+        return $this->subject('Informasi Akun UPZ UNILA')->from('admin@upz.unila.ac.id', 'Admin UPZ UNILA')->view('update_notify');
     }
 }

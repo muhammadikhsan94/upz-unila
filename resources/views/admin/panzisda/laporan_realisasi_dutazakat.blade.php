@@ -17,13 +17,13 @@
             <div class="col-md-12">
                 <table id="tabel-realisasi" class="display" style="width: 100%;">
                     <thead>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th rowspan="2" width="5%"> No </th>
                             <th rowspan="2"> Paket Ziswaf </th>
                             <th colspan="{{ $data['jumlah_lembaga'] }}"> <center>LEMBAGA</center> </th>
                             <th rowspan="2"> Jumlah </th>
                         </tr>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             @foreach($data['lembaga'] as $lembaga)
                             <th width="17%"> {{ strtoupper(strtolower($lembaga->nama_lembaga)) }} </th>
                             @endforeach
@@ -57,12 +57,12 @@
     $(document).ready(function() {
         function convertToRupiah(angka)
         {
-            var rupiah = '';		
+            var rupiah = '';
             var angkarev = angka.toString().split('').reverse().join('');
             for(var i = 0; i < angkarev.length; i++) if(i%3 == 0) rupiah += angkarev.substr(i,3)+'.';
             return rupiah.split('',rupiah.length-1).reverse().join('');
         }
-        
+
         var asal = <?php echo json_encode($data['user']) ?>;
         var jumlah_lembaga = <?php echo json_encode($data['jumlah_lembaga']) ?>;
         console.log(jumlah_lembaga);

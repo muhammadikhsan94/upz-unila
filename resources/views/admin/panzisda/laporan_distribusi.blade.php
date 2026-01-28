@@ -17,7 +17,7 @@
             <div class="col-md-12">
                 <table id="tabel-realisasi" class="display" style="width: 100%;">
                     <thead>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th rowspan="2" width="5%"> No </th>
                             <th rowspan="2" width="15%"> Paket Ziswaf </th>
                             <th rowspan="2" width="10%"> Panzisnas </th>
@@ -26,7 +26,7 @@
                             <th colspan="{{ $data['jumlah_lembaga'] }}" style="text-align: center"> Mitra </th>
                             <th rowspan="2" width="10%"> Jumlah </th>
                         </tr>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             @foreach($data['lembaga'] as $lembaga)
                             <th width="10%"> {{ strtoupper(strtolower($lembaga->nama_lembaga)) }} </th>
                             @endforeach
@@ -69,7 +69,7 @@
 
         function convertToRupiah(angka)
         {
-            var rupiah = '';		
+            var rupiah = '';
             var angkarev = angka.toString().split('').reverse().join('');
             for(var i = 0; i < angkarev.length; i++) if(i%3 == 0) rupiah += angkarev.substr(i,3)+'.';
             return rupiah.split('',rupiah.length-1).reverse().join('');

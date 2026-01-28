@@ -4,7 +4,7 @@
 
 <div class="row">
 
-	<div class="alert alert-success alert-dismissible">
+	<div class="alert alert-warning alert-dismissible">
 		<h5><i class="fa fa-exclamation-circle red"></i> Selamat Datang, <b>{{ strtoupper(Auth::user()->nama) }}</b>.</h5>
 		<span style="text-align: justify;">Berikut ini adalah halaman aplikasi zakat untuk anda sebagai Panzisda. Jika anda bukan sebagai Panzisda, silahkan hubungi Panziswil anda. Terima Kasih.</span>
 	</div>
@@ -33,7 +33,7 @@
 	$(document).ready(function() {
 		function convertToRupiah(angka)
         {
-            var rupiah = '';		
+            var rupiah = '';
             var angkarev = angka.toString().split('').reverse().join('');
             for(var i = 0; i < angkarev.length; i++) if(i%3 == 0) rupiah += angkarev.substr(i,3)+'.';
             return 'Rp. '+rupiah.split('',rupiah.length-1).reverse().join('');
@@ -137,17 +137,17 @@
 					footerFormat: '</table>'
 				}
 			}],
-			responsive: {  
-				rules: [{  
-					condition: {  
-						maxWidth: 700  
-					},  
-					chartOptions: {  
-						legend: {  
-							enabled: false  
-						}  
-					}  
-				}]  
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 700
+					},
+					chartOptions: {
+						legend: {
+							enabled: false
+						}
+					}
+				}]
 			}
 		});
 		var target = <?php echo json_encode($data['target']); ?>;

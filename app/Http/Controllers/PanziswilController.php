@@ -358,7 +358,7 @@ class PanziswilController extends Controller
 		return DataTables::of($data)
 		->addIndexColumn()
 		->addColumn('aksi', function($data) {
-			$button = '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-xs">Edit</button>&nbsp;<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-xs">Hapus</button>';
+			$button = '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-xs"><i class="fa fa-edit"></i></button>&nbsp;<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>';
 			return $button;
 		})
 		->editColumn('jenis_transaksi', function($data){
@@ -421,7 +421,7 @@ class PanziswilController extends Controller
 		return DataTables::of($data)
 		->addIndexColumn()
 		->addColumn('aksi', function($data) {
-			$button = '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-xs">Edit</button>&nbsp;<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-xs">Hapus</button>';
+			$button = '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-xs"><i class="fa fa-edit"></i></button>&nbsp;<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>';
 			return $button;
 		})
 		->editColumn('nama_lembaga', function($data){
@@ -490,7 +490,7 @@ class PanziswilController extends Controller
 		return DataTables::of($data)
 		->addIndexColumn()
 		->addColumn('aksi', function($data) {
-			$button = '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-xs">Edit</button>&nbsp;<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-xs">Hapus</button>';
+			$button = '<button type="button" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-xs"><i class="fa fa-edit"></i></button>&nbsp;<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>';
 			return $button;
 		})
 		->rawColumns(['aksi'])
@@ -663,9 +663,9 @@ class PanziswilController extends Controller
 					}
 				}
 				if ($status == 1) {
-					$button = '<center><button type="button" name="edit" id="'.$user->id.'" class="edit btn btn-warning btn-xs">Verifikasi</button>&nbsp;<button type="button" name="delete" id="'.$user->id.'" class="delete btn btn-danger btn-xs">Hapus</button></center>';
+					$button = '<center><button type="button" name="edit" id="'.$user->id.'" class="edit btn btn-warning btn-xs">Verifikasi</button>&nbsp;<button type="button" name="delete" id="'.$user->id.'" class="delete btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button></center>';
 				} else {
-					$button = '<center><button type="button" name="edit" id="'.$user->id.'" class="edit btn btn-secondary btn-xs">Edit</button>&nbsp;<button type="button" name="delete" id="'.$user->id.'" class="delete btn btn-danger btn-xs">Hapus</button></center>';
+					$button = '<center><button type="button" name="edit" id="'.$user->id.'" class="edit btn btn-secondary btn-xs"><i class="fa fa-edit"></i></button>&nbsp;<button type="button" name="delete" id="'.$user->id.'" class="delete btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button></center>';
 				}
 				return $button;
 			})
@@ -870,7 +870,7 @@ class PanziswilController extends Controller
 		return DataTables::of($wilayah)
 		->addIndexColumn()
 		->addColumn('aksi', function($wilayah) {
-			$button = '<button type="button" name="edit" id="'.$wilayah->id.'" class="edit btn btn-secondary btn-xs">Edit</button>&nbsp;<button type="button" name="delete" id="'.$wilayah->id.'" class="delete btn btn-danger btn-xs">Hapus</button>';
+			$button = '<button type="button" name="edit" id="'.$wilayah->id.'" class="edit btn btn-secondary btn-xs"><i class="fa fa-edit"></i></button>&nbsp;<button type="button" name="delete" id="'.$wilayah->id.'" class="delete btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>';
 			return $button;
 		})
 		->rawColumns(['aksi'])
@@ -914,7 +914,7 @@ class PanziswilController extends Controller
 		return DataTables::of($lembaga)
 		->addIndexColumn()
 		->addColumn('aksi', function($lembaga) {
-			$button = '<button type="button" name="edit" id="'.$lembaga->id.'" class="edit btn btn-secondary btn-xs">Edit</button>&nbsp;<button type="button" name="delete" id="'.$lembaga->id.'" class="delete btn btn-danger btn-xs">Hapus</button>';
+			$button = '<button type="button" name="edit" id="'.$lembaga->id.'" class="edit btn btn-secondary btn-xs"><i class="fa fa-edit"></i></button>&nbsp;<button type="button" name="delete" id="'.$lembaga->id.'" class="delete btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>';
 			return $button;
 		})
 		->editColumn('nama_lembaga', function($lembaga){
@@ -940,7 +940,7 @@ class PanziswilController extends Controller
 		return DataTables::of($paket)
 		->addIndexColumn()
 		->addColumn('aksi', function($paket) {
-			$button = '<button type="button" name="edit" id="'.$paket->id.'" class="edit btn btn-secondary btn-xs">Edit</button>&nbsp;<button type="button" name="delete" id="'.$paket->id.'" class="delete btn btn-danger btn-xs">Hapus</button>';
+			$button = '<button type="button" name="edit" id="'.$paket->id.'" class="edit btn btn-secondary btn-xs"><i class="fa fa-edit"></i></button>&nbsp;<button type="button" name="delete" id="'.$paket->id.'" class="delete btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>';
 			return $button;
 		})
 		->rawColumns(['aksi'])
@@ -1096,9 +1096,9 @@ class PanziswilController extends Controller
 		->addIndexColumn()
 		->addColumn('aksi', function($transaksi) {
 			if ($transaksi->lazis_status != null or $transaksi->komentar != NULL) {
-				$button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-xs">DETAIL</button>&nbsp;<button type="button" name="edit" id="'.$transaksi->id.'" class="edit btn btn-warning btn-xs">EDIT</button>&nbsp;<button type="button" name="delete" id="'.$transaksi->id.'" class="delete btn btn-danger btn-xs">Hapus</button></center>';
+				$button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-xs"><i class="fa fa-eye"></i></button>&nbsp;<button type="button" name="edit" id="'.$transaksi->id.'" class="edit btn btn-warning btn-xs"><i class="fa fa-edit"></i></button>&nbsp;<button type="button" name="delete" id="'.$transaksi->id.'" class="delete btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button></center>';
 			} else {
-				$button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-xs">DETAIL</button></center>';
+				$button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-xs"><i class="fa fa-eye"></i></button></center>';
 			}
 				return $button;
 		})
@@ -1263,7 +1263,7 @@ class PanziswilController extends Controller
 		return DataTables::of($group)
 			->addIndexColumn()
 			->addColumn('aksi', function($group) {
-				$button = '<center><button type="button" name="edit" id="'.$group->id.'" class="edit btn btn-secondary btn-xs">Edit</button>&nbsp;<button type="button" name="delete" id="'.$group->id.'" class="delete btn btn-danger btn-xs">Hapus</button></center>';
+				$button = '<center><button type="button" name="edit" id="'.$group->id.'" class="edit btn btn-secondary btn-xs"><i class="fa fa-edit"></i></button>&nbsp;<button type="button" name="delete" id="'.$group->id.'" class="delete btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button></center>';
 				return $button;
 			})
 			->editColumn('target', function($group){
@@ -2591,7 +2591,7 @@ class PanziswilController extends Controller
 				} else if ($transaksi->panzisda_status == NULL) {
 					$button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-xs" disabled>VERIFIKASI</button></center>';
 				} else {
-					$button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-xs">Detail</button>&nbsp;<button type="button" name="edit" id="'.$transaksi->id.'" class="edit btn btn-warning btn-xs">Ubah</button>&nbsp;<button type="button" name="delete" id="'.$transaksi->id.'" class="delete btn btn-danger btn-xs">Hapus</button></center>';
+					$button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-xs">Detail</button>&nbsp;<button type="button" name="edit" id="'.$transaksi->id.'" class="edit btn btn-warning btn-xs">Ubah</button>&nbsp;<button type="button" name="delete" id="'.$transaksi->id.'" class="delete btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button></center>';
 				}
 				return $button;
             })

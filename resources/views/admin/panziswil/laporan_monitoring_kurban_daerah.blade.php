@@ -17,7 +17,7 @@
             <div class="col-md-12">
                 <table id="tabel-capaian" class="display" style="width: 100%">
                     <thead>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th rowspan="2"> No </th>
                             <th rowspan="2"> Daerah </th>
                             <th rowspan="2"> Target Group </th>
@@ -26,7 +26,7 @@
                             <th colspan="3" style="text-align: center"> Laporan Panzisda </th>
                             <th rowspan="2"> Data Valid </th>
                         </tr>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th> Kambing </th><th> Sapi </th><th> Pekurban </th>
                             <th> Kambing </th><th> Sapi </th><th> Pekurban </th>
                             <th> Kambing </th><th> Sapi </th><th> Pekurban </th>
@@ -66,12 +66,12 @@
     $(document).ready(function() {
         function convertToRupiah(angka)
         {
-            var rupiah = '';		
+            var rupiah = '';
             var angkarev = angka.toString().split('').reverse().join('');
             for(var i = 0; i < angkarev.length; i++) if(i%3 == 0) rupiah += angkarev.substr(i,3)+'.';
             return rupiah.split('',rupiah.length-1).reverse().join('');
         }
-        
+
         var asal = <?php echo json_encode($data['user']) ?>;
 
         var table = $('#tabel-capaian').DataTable({

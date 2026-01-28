@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <!-- favicon -->
+    <link rel="icon" href="{{ asset('images/logo-unila.png') }}" type="image/png">
 
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" type="text/css" href="{{asset('lte/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
@@ -30,7 +32,7 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-    <!-- Latest compiled and minified JavaScript -->  
+    <!-- Latest compiled and minified JavaScript -->
     <script>
         $(document).ready(function() {
             $('select').selectpicker();
@@ -44,7 +46,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><center>Reset Password</center></div>
                     <div class="panel-body">
-     
+
                         <form id="formRegister" class="form-horizontal" method="post" action="{{ route('password.update') }}" enctype="multipart/form-data">
                             @csrf
 

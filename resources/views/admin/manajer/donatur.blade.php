@@ -24,7 +24,7 @@
             <div class="col-md-12">
                 <table id="tabel-donatur" class="display" style="width: 100%">
                     <thead>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th width="3%"> No </th>
                             <th> ID Muzakki </th>
                             <th> Nama </th>

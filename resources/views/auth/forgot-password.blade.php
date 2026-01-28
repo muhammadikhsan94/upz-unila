@@ -1,80 +1,268 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register</title>
+    <title>Lupa Kata Sandi - Unit Pengelola Zakat Universitas Lampung</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" type="text/css" href="{{asset('lte/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('lte/bower_components/font-awesome/css/font-awesome.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('lte/bower_components/Ionicons/css/ionicons.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('lte/dist/css/AdminLTE.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('lte/dist/css/skins/_all-skins.min.css')}}">
-    <!-- <link rel="stylesheet" type="text/css" href="{{asset('css/jquery-confirm.min.css')}}"> -->
-    @yield('styles')
-
-    <script type="text/javascript" src="{{asset('lte/bower_components/jquery/dist/jquery.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('lte/bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('lte/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('lte/dist/js/adminlte.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('lte/plugins/iCheck/icheck.min.js')}}"></script>
-
-    <!-- DataTables -->
-    <script type="text/javascript" src="{{asset('lte/dist/js/jquery.dataTables.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('lte/dist/js/dataTables.bootstrap4.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('lte/dist/js/bootstrap-select.min.js')}}"></script>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-    <!-- Latest compiled and minified JavaScript -->  
-    <script>
-        $(document).ready(function() {
-            $('select').selectpicker();
-        });
-    </script>
+    <!-- favicon -->
+    <link rel="icon" href="{{ asset('images/logo-unila.png') }}" type="image/png">
+    <link rel="stylesheet" type="text/css" href="{{ asset('lte/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('lte/bower_components/font-awesome/css/font-awesome.min.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #2c3e50 0%, #3c8dbc 50%, #5faee3 100%);
+            padding: 20px;
+        }
+        .forgot-container {
+            width: 100%;
+            max-width: 420px;
+        }
+        .forgot-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        .forgot-header {
+            background: linear-gradient(135deg, #357ca5 0%, #3c8dbc 100%);
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        .forgot-header .logo-container {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .forgot-header .logo-container img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+        .forgot-header h1 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .forgot-header p {
+            font-size: 13px;
+            opacity: 0.9;
+            margin: 0;
+        }
+        .forgot-body {
+            padding: 35px 30px;
+        }
+        .forgot-body h2 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        .forgot-body .subtitle {
+            font-size: 13px;
+            color: #777;
+            text-align: center;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .form-group label {
+            font-size: 13px;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .form-group .input-wrapper {
+            position: relative;
+        }
+        .form-group .input-wrapper i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+            font-size: 16px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 14px 15px 14px 45px;
+            border: 2px solid #e8e8e8;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: #f9f9f9;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #3c8dbc;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(60, 141, 188, 0.1);
+        }
+        .form-group input::placeholder {
+            color: #aaa;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #357ca5 0%, #3c8dbc 100%);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #2c6a91 0%, #367fa9 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(60, 141, 188, 0.4);
+        }
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+        .forgot-footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            margin-top: 25px;
+        }
+        .forgot-footer p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 25px;
+            background: transparent;
+            border: 2px solid #3c8dbc;
+            border-radius: 8px;
+            color: #3c8dbc;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-back:hover {
+            background: #3c8dbc;
+            color: white;
+            text-decoration: none;
+        }
+        .alert {
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+        .alert-success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .alert-danger {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 12px;
+        }
+        .copyright a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
 </head>
-<body class="hold-transition" background="{{ url('images/bg.png') }}" style="background-size: 100%;">
-    <div class="container" style="padding-top: 5%;">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="panel panel-default">
-                    <div class="panel-heading"><center>Lupa Password</center></div>
-                    <div class="panel-body">
+<body>
+    <div class="forgot-container">
+        <div class="forgot-card">
+            <div class="forgot-header">
+                <div class="logo-container">
+                    <img src="{{ asset('images/logo-unila.png') }}" alt="Logo Unila">
+                </div>
+                <h1>Unit Pengelola Zakat</h1>
+                <p>Universitas Lampung</p>
+            </div>
 
-                        @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+            <div class="forgot-body">
+                <h2>Lupa Kata Sandi?</h2>
+                <p class="subtitle">Masukkan alamat email yang terdaftar. Kami akan mengirimkan tautan untuk mengatur ulang kata sandi Anda.</p>
+
+                @if (session('status'))
+                <div class="alert alert-success">
+                    <i class="fa fa-check-circle"></i> {{ session('status') }}
+                </div>
+                @endif
+
+                @error('email')
+                <div class="alert alert-danger">
+                    <i class="fa fa-exclamation-circle"></i> {{ $message }}
+                </div>
+                @enderror
+
+                <form method="post" action="{{ route('password.email') }}">
+                    @csrf
+                    <div class="form-group">
+                        <label for="email">Alamat Email</label>
+                        <div class="input-wrapper">
+                            <i class="fa fa-envelope"></i>
+                            <input type="email" name="email" id="email" placeholder="Masukkan alamat email" value="{{ old('email') }}" required autofocus>
                         </div>
-                        @endif
-
-                        @error('email')
-                        <div class="alert alert-danger mt-2">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                        @enderror
-     
-                        <form id="formRegister" class="form-horizontal" method="post" action="{{ route('password.email') }}" >
-                            @csrf
-
-                            <div class="form-group ">
-                                <label for="email" class="control-label col-sm-4">Masukkan Email</label>
-                                <div class="col-sm-8">
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email" oninvalid="this.setCustomValidity('alamat email salah!')" onchange="setCustomValidity('')" required>
-                                </div>
-                            </div>
-
-                            @if (Route::has('password.request'))
-                                <button type="submit" class="btn btn-primary btn-block">Kirim</button>
-                            @endif
-                        </form>
                     </div>
+
+                    @if (Route::has('password.request'))
+                    <button type="submit" class="btn-submit">
+                        <i class="fa fa-paper-plane"></i> Kirim Tautan Reset
+                    </button>
+                    @endif
+                </form>
+
+                <div class="forgot-footer">
+                    <p>Sudah ingat kata sandi?</p>
+                    <a href="{{ url('/login') }}" class="btn-back">
+                        <i class="fa fa-arrow-left"></i> Kembali ke Login
+                    </a>
                 </div>
             </div>
         </div>
+
+        <p class="copyright">
+            &copy; {{ date('Y') }} Unit Pengelola Zakat - <a href="https://unila.ac.id" target="_blank">Universitas Lampung</a>
+        </p>
     </div>
 </body>
 </html>

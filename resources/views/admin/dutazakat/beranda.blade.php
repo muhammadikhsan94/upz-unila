@@ -1,9 +1,9 @@
 @extends('template.app')
 
 @section('content')
-<div class="row">		
+<div class="row">
 	<div class="col-md-9">
-		<div class="alert alert-success alert-dismissible">
+		<div class="alert alert-warning alert-dismissible">
 			<h5><i class="fa fa-exclamation-circle red"></i> Selamat Datang, <b>{{ strtoupper(Auth::user()->nama) }}</b>.</h5>
 			<span style="text-align: justify;">Berikut ini adalah halaman aplikasi zakat untuk anda sebagai Duta Zakat. Jika anda bukan sebagai Duta Zakat, silahkan hubungi Panzisda wilayah anda. Terima Kasih.</span>
 		</div>
@@ -147,7 +147,7 @@
 								<span class="input-group-addon">/Kg </span>
 							</div>
 						</div>
-							
+
 						<div class="hit form-group">
 							<a type="button" class="btn_ btn btn-info" id="zakat_fitrah">Hitung</a>
 						</div>
@@ -201,7 +201,7 @@
 								<span class="input-group-addon">/gram</span>
 							</div>
 						</div>
-							
+
 						<div class="hit form-group">
 							<a type="button" class="btn_ btn btn-info" id="zakat_perdagangan">Hitung</a>
 						</div>
@@ -387,7 +387,7 @@
 
 		function convertToRupiah(angka)
         {
-            var rupiah = '';		
+            var rupiah = '';
             var angkarev = angka.toString().split('').reverse().join('');
             for(var i = 0; i < angkarev.length; i++) if(i%3 == 0) rupiah += angkarev.substr(i,3)+'.';
             return 'Rp. '+rupiah.split('',rupiah.length-1).reverse().join('');

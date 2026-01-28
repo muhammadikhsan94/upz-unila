@@ -20,7 +20,7 @@
             <div class="col-md-12">
                 <table id="tabel-donatur" class="display" style="width: 100%">
                     <thead>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th> ID </th>
                             <th width="20%"> Nama </th>
                             <th width="10%"> No HP </th>

@@ -52,7 +52,7 @@
     <div class="container">
         <table>
             <caption>
-                APLIKASI PENCATATAN ZISWAF
+                Aplikasi Unit Pengelola Zakat
             </caption>
             <thead>
                 <tr>

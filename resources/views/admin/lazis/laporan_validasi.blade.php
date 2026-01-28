@@ -17,7 +17,7 @@
             <div class="col-md-12">
                 <table id="tabel-validasi" class="display" style="width: 100%">
                     <thead>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th> No </th>
                             <th> Wilayah </th>
                             <th width="20%"> Transaksi Duta Zakat </th>
@@ -54,12 +54,12 @@
     $(document).ready(function() {
         function convertToRupiah(angka)
         {
-            var rupiah = '';		
+            var rupiah = '';
             var angkarev = angka.toString().split('').reverse().join('');
             for(var i = 0; i < angkarev.length; i++) if(i%3 == 0) rupiah += angkarev.substr(i,3)+'.';
             return rupiah.split('',rupiah.length-1).reverse().join('');
         }
-        
+
         var asal = <?php echo json_encode($data['user']) ?>;
 
         var table = $('#tabel-validasi').DataTable({

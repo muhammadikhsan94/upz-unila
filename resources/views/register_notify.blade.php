@@ -16,7 +16,7 @@
             margin:20%;
             text-align:center;
             margin:0px auto;
-            width: 580px; 
+            width: 580px;
             max-width: 580px;
             margin-top:10%;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -25,13 +25,13 @@
         .garis {
             width: 75%;
         }
-        
+
     </style>
 </head>
 <body>
     <div class="card">
         <p>Selamat bergabung, <b>{{ $user->nama }}</b>.</p>
-        <p>Email anda sudah terdaftar di Aplikasi Pencatatan Ziswaf (<b>www.catatziswaf.id</b>).</p>
+        <p>Email anda sudah terdaftar di Aplikasi Unit Pengelola Zakat (<b>www.upz.unila.ac.id</b>).</p>
         <p>Silahkan login dengan username menggunakan email anda (<b>{{ $user->email }}</b>) atau dapat juga menggunakan kode punggung anda yaitu <b>{{ $user->no_punggung }}</b>.</p>
         <p>Password sementara anda adalah <b>password</b>.</p>
         <p>Silahkan login dan ganti password anda pada menu <b>Kelola Profil</b>.</p>

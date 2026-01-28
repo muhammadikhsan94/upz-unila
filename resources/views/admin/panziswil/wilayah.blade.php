@@ -25,7 +25,7 @@
             <div class="col-md-12">
                 <table id="tabel-wilayah" class="display" style="width: 100%">
                     <thead>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th> No </th>
                             <th> Nama Wilayah </th>
                             <th width="13%"> <center>Aksi</center> </th>

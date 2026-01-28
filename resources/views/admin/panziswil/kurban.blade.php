@@ -36,7 +36,7 @@
             <div class="col-md-12">
                 <table id="tabel-transaksi" class="display" style="width: 100%">
                     <thead>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th> No </th>
                             <th> Tgl Transaksi </th>
                             <th width="30%"> Nama Pekurban </th>
@@ -44,7 +44,7 @@
                             <th> Jumlah </th>
                             <th> Status </th>
                             <th width="15%"> <center>Aksi</center> </th>
-                        </tr> 
+                        </tr>
                     </thead>
                 </table>
             </div>

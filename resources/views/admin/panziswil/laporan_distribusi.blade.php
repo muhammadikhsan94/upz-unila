@@ -31,7 +31,7 @@
             <div class="col-md-12">
                 <table id="tabel-realisasi" class="display" style="width: 100%;">
                     <thead>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th rowspan="2"> No </th>
                             <th rowspan="2"> Wilayah </th>
                             <th rowspan="2"> Paket Ziswaf </th>
@@ -41,7 +41,7 @@
                             <th colspan="4"> <center>Mitra</center> </th>
                             <th rowspan="2" width="10%"> Jumlah </th>
                         </tr>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th width="10%"> IZI </th>
                             <th width="10%"> LAZDAI </th>
                             <th width="10%"> YAYASAN </th>
@@ -82,7 +82,7 @@
 
         function convertToRupiah(angka)
         {
-            var rupiah = '';		
+            var rupiah = '';
             var angkarev = angka.toString().split('').reverse().join('');
             for(var i = 0; i < angkarev.length; i++) if(i%3 == 0) rupiah += angkarev.substr(i,3)+'.';
             return rupiah.split('',rupiah.length-1).reverse().join('');

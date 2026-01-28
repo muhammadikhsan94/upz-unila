@@ -25,7 +25,7 @@
             <div class="col-md-12">
                 <table id="tabel_jenis_transaksi" class="display" style="width: 100%">
                     <thead>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th> No </th>
                             <th> Jenis Transaksi </th>
                             <th width="13%"> <center>Aksi</center> </th>

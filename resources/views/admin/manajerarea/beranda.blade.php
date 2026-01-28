@@ -4,11 +4,11 @@
 
 <div class="row">
 
-	<div class="alert alert-success alert-dismissible">
+	<div class="alert alert-warning alert-dismissible">
 		<h5><i class="fa fa-exclamation-circle red"></i> Selamat Datang, <b>{{ strtoupper(Auth::user()->nama) }}</b>.</h5>
 		<span style="text-align: justify;">Berikut ini adalah halaman aplikasi zakat untuk anda sebagai Manajer Area. Jika anda bukan sebagai Manajer Area, silahkan hubungi Panzisda wilayah anda. Terima Kasih.</span>
 	</div>
-	
+
 </div>
 
 <div class="box box-info">
@@ -128,17 +128,17 @@
 			drilldown: {
 				series: duta,
 			},
-			responsive: {  
-				rules: [{  
-					condition: {  
-						maxWidth: 700  
-					},  
-					chartOptions: {  
-						legend: {  
-							enabled: false  
-						}  
-					}  
-				}]  
+			responsive: {
+				rules: [{
+					condition: {
+						maxWidth: 700
+					},
+					chartOptions: {
+						legend: {
+							enabled: false
+						}
+					}
+				}]
 			}
 		});
 	});

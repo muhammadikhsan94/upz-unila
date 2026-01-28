@@ -24,7 +24,7 @@
                         <div class="col-md-12">
                             <table id="tabel-rekonsiliasi" class="display" style="width: 100%">
                                 <thead>
-                                    <tr class="bg-success">
+                                    <tr class="bg-primary">
                                         <th> No </th>
                                         <th> No Punggung </th>
                                         <th> Tanggal Transfer/Kirim </th>

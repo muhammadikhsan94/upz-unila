@@ -7,17 +7,17 @@
 @section('content')
 
 <div class="box box-info">
-    
+
     @if ($message = Session::get('success'))
         <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button> 
+            <button type="button" class="close" data-dismiss="alert">×</button>
             <strong>{{ $message }}</strong>
         </div>
     @endif
 
     @if ($message = Session::get('errors'))
         <div class="alert alert-danger alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button> 
+            <button type="button" class="close" data-dismiss="alert">×</button>
             <strong>{{ $message }}</strong>
         </div>
     @endif
@@ -39,7 +39,7 @@
             <div class="col-md-12">
                 <table id="tabel-user" class="display" style="width: 100%">
                     <thead>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th> No </th>
                             <th> No Punggung </th>
                             <th> Nama </th>

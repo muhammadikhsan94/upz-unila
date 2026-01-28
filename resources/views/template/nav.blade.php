@@ -31,7 +31,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="header" style="background-color:#1c2529;color:#fff"><strong>Zakat</strong></li>
+                    <li class="header" style="background-color:#1c2529;color:#fff;margin-top: 10px"><strong>Zakat</strong></li>
                     <li><a href="{{route('panziswil.beranda')}}"><i class="fa fa-home"></i>  <span>Beranda Zakat</span></a></li>
                     <li><a href="{{route('panziswil.user')}}"><i class="fa fa-users"></i>  <span>Kelola Pengguna</span></a></li>
                     <li><a href="{{route('panziswil.transaksi')}}"><i class="fa fa-list"></i>  <span>Kelola Transaksi Zakat</span></a></li>
@@ -102,7 +102,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="header" style="background-color:#1c2529;color:#fff"><strong>Zakat</strong></li>
+                    <li class="header" style="background-color:#1c2529;color:#fff;margin-top: 10px"><strong>Zakat</strong></li>
                     <li><a href="{{route('panzisda.beranda')}}"><i class="fa fa-home"></i>  <span>Beranda Zakat</span></a></li>
                     <li><a href="{{route('panzisda.transaksi')}}"><i class="fa fa-list"></i>  <span>Kelola Transaksi Zakat</span></a></li>
                     <li><a href="{{route('panzisda.user')}}"><i class="fa fa-users"></i>  <span>Kelola Pengguna</span></a></li>
@@ -128,7 +128,7 @@
                     <li class="header" style="background-color:#1c2529;color:#fff"><strong>Kurban</strong></li>
                     <li><a href="{{ route('panzisda.kurbanIndex') }}"><i class="fa fa-home"></i>  <span>Beranda Kurban</span></a></li>
                     <li><a href="{{route('panzisda.kurban')}}"><i class="fa fa-list"></i>  <span>Kelola Transaksi Kurban</span></a></li>
-                    
+
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-list"></i>  <span>Kelola Laporan</span>
@@ -156,7 +156,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="header" style="background-color:#1c2529;color:#fff"><strong>Zakat</strong></li>
+                    <li class="header" style="background-color:#1c2529;color:#fff;margin-top: 10px"><strong>Zakat</strong></li>
                     <li><a href="{{route('manajerarea.beranda')}}"><i class="fa fa-home"></i>  <span>Beranda Zakat</span></a></li>
                     <li><a href="{{ route('manajerarea.laporanRealisasi') }}"><i class="fa fa-files-o"></i>  <span>Kelola Laporan Realisasi</span></a></li>
                     <li class="header" style="background-color:#1c2529;color:#fff"><strong>Kurban</strong></li>
@@ -176,7 +176,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="header" style="background-color:#1c2529;color:#fff"><strong>Zakat</strong></li>
+                    <li class="header" style="background-color:#1c2529;color:#fff;margin-top: 10px"><strong>Zakat</strong></li>
                     <li><a href="{{route('manajer.beranda')}}"><i class="fa fa-home"></i>  <span>Beranda Zakat</span></a></li>
                     <li><a href="{{route('manajer.transaksi')}}"><i class="fa fa-list"></i>  <span>Kelola Transaksi Zakat</span></a></li>
                     <li><a href="{{route('manajer.user')}}"><i class="fa  fa-users"></i>  <span>Kelola Duta Zakat</span></a></li>
@@ -200,7 +200,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="header" style="background-color:#1c2529;color:#fff"><strong>Zakat</strong></li>
+                    <li class="header" style="background-color:#1c2529;color:#fff;margin-top: 10px"><strong>Zakat</strong></li>
                     <li><a href="{{route('duta.beranda')}}"><i class="fa fa-home"></i>  <span>Beranda Zakat</span></a></li>
                     <li><a href="{{route('duta.transaksi')}}"><i class="fa fa-list"></i>  <span>Kelola Transaksi Zakat</span></a></li>
                     <li><a href="{{route('duta.donatur')}}"><i class="fa  fa-users"></i>  <span>Kelola Muzakki</span></a></li>
@@ -247,9 +247,9 @@
                 @csrf
             </form>
 
-            <li class="header"><strong>About</strong></li>
+            {{-- <li class="header"><strong>About</strong></li>
             <li><a href="{{ route('faq') }}"><i class="fa fa-question-circle"></i>  <span>FAQ</span></a></li>
-            <li><a href="{{route('informasi')}}"><i class="fa fa-info-circle"></i>  <span>Informasi</span></a></li>
+            <li><a href="{{route('informasi')}}"><i class="fa fa-info-circle"></i>  <span>Informasi</span></a></li> --}}
 
         </ul>
     </section>

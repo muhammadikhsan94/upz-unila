@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Aplikasi Pencatatan Ziswaf @yield('title')</title>
+    <title>Aplikasi Unit Pengelola Zakat @yield('title')</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <!-- favicon -->
+    <link rel="icon" href="{{ asset('images/logo-unila.png') }}" type="image/png">
 
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" type="text/css" href="{{asset('lte/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
@@ -76,7 +78,7 @@
         }
     </style>
 </head>
-<body class="hold-transition skin-green sidebar-mini" background="#">
+<body class="hold-transition skin-blue sidebar-mini" background="#">
     <div class="wrapper">
         @include('template.header')
         @include('template.nav')

@@ -115,7 +115,7 @@ class PanzisdaController extends Controller
 							->join('group','group.id','=','role.id_group')
 							->select(DB::raw('CAST(SUM(group.target) as UNSIGNED) as target'))
 							->first();
-			
+
 			$y              = DB::table('users')
 							->where('users.deleted_at', NULL)
 							->join('role','role.id_users','=','users.id')
@@ -179,7 +179,7 @@ class PanzisdaController extends Controller
 				$dummyss['persentase'] = ($dummyss['y'] != 0) ? number_format(($dummyss['y'] / $target->target) * 100, 2) : 0;
 				$tmp3[] = $dummyss;
 			}
-			
+
 			$dummys['data'] = $tmp3;
 			$tmp2[] = $dummys;
 		}
@@ -207,10 +207,10 @@ class PanzisdaController extends Controller
 						->groupBy('status_transaksi.lazis_status')
 						->orderBy('status_transaksi.lazis_status', 'DESC')
 						->get();
-		
+
 		foreach($target as $value1) {
 			$value1->name = Wilayah::where('id', Auth::user()->id_wilayah)->pluck('nama_wilayah')->first();
-			
+
 			$sumY = 0;
 			foreach($y as $value2) {
 				if ($value2->lazis_status != null) {
@@ -223,7 +223,7 @@ class PanzisdaController extends Controller
 			$value1->target_ = format_uang($value1->target);
 			$value1->persentase = ($sumY != 0) ? number_format(($sumY / $value1->target) * 100, 2) : 0;
 		}
-		
+
 		$data['realisasi']        = $target;
 
 		//paket zakat
@@ -353,7 +353,7 @@ class PanzisdaController extends Controller
 				$role->save();
 			}
 		}
-		
+
 		Mail::to($user->email)->send(new MailNotify($user));
 
 		return response()->json(['success' => 'success stored!']);
@@ -557,9 +557,9 @@ class PanzisdaController extends Controller
 				}
 
 				if ($status == 1) {
-					$button = '<center><button type="button" name="edit" id="'.$user->id.'" class="edit btn btn-warning btn-xs">Verifikasi</button>&nbsp;<button type="button" name="delete" id="'.$user->id.'" class="delete btn btn-danger btn-xs">Hapus</button></center>';
+					$button = '<center><button type="button" name="edit" id="'.$user->id.'" class="edit btn btn-warning btn-xs">Verifikasi</button>&nbsp;<button type="button" name="delete" id="'.$user->id.'" class="delete btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button></center>';
 				} else {
-					$button = '<center><button type="button" name="edit" id="'.$user->id.'" class="edit btn btn-secondary btn-xs">Edit</button>&nbsp;<button type="button" name="delete" id="'.$user->id.'" class="delete btn btn-danger btn-xs">Hapus</button></center>';
+					$button = '<center><button type="button" name="edit" id="'.$user->id.'" class="edit btn btn-secondary btn-xs"><i class="fa fa-edit"></i></button>&nbsp;<button type="button" name="delete" id="'.$user->id.'" class="delete btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button></center>';
 				}
 				return $button;
 
@@ -574,7 +574,7 @@ class PanzisdaController extends Controller
 			})
 			->rawColumns(['aksi'])
 			->make(true);
-		
+
 	}
 
 	public function editUser($id)
@@ -714,12 +714,12 @@ class PanzisdaController extends Controller
 			$status->save();
 		}
 	}
-	
+
 	public function resetPassword(Request $request)
 	{
 		$user = User::find($request->id);
 		$user->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
-		
+
 		if(!$user->save()) {
 			return redirect('/panzisda/user')->with(['errors' => 'Gagal reset password!']);
 		} else {
@@ -736,7 +736,7 @@ class PanzisdaController extends Controller
 		}
 
 		$user = User::find($id);
-		
+
 		if (empty($user)) {
 			return response()->json(['errors' => [0 => 'Data not found !']]);
 		}
@@ -792,7 +792,7 @@ class PanzisdaController extends Controller
 		return DataTables::of($group)
 			->addIndexColumn()
 			->addColumn('aksi', function($group) {
-				$button = '<center><button type="button" name="edit" id="'.$group->id.'" class="edit btn btn-secondary btn-xs">Edit</button>&nbsp;<button type="button" name="delete" id="'.$group->id.'" class="delete btn btn-danger btn-xs">Hapus</button></center>';
+				$button = '<center><button type="button" name="edit" id="'.$group->id.'" class="edit btn btn-secondary btn-xs"><i class="fa fa-edit"></i></button>&nbsp;<button type="button" name="delete" id="'.$group->id.'" class="delete btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button></center>';
 				return $button;
 			})
 			->editColumn('target', function($group){
@@ -805,7 +805,7 @@ class PanzisdaController extends Controller
 	public function editGroup($id)
 	{
 		$group = Group::find($id);
-		
+
 		return json_encode($group);
 	}
 
@@ -934,7 +934,7 @@ class PanzisdaController extends Controller
 		DB::table('perencanaan')->where('id',$id)->delete();
 		return redirect()->back();
 	}
-	
+
 	public function getLaporanDZ()
 	{
 		$data['user']               = $this->user->where('id', Auth::user()->id)->first();
@@ -943,7 +943,7 @@ class PanzisdaController extends Controller
 		$data['user_manajerarea']   = $this->user_manajerarea->where('id', Auth::user()->id)->first();
 		$data['user_panzisda']      = $this->user_panzisda->where('id', Auth::user()->id)->first();
 		$data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
-		$data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();      
+		$data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();
 		return view('admin.panzisda.laporan_dz', compact('data'));
 	}
 
@@ -955,7 +955,7 @@ class PanzisdaController extends Controller
 		$data['user_manajerarea']   = $this->user_manajerarea->where('id', Auth::user()->id)->first();
 		$data['user_panzisda']      = $this->user_panzisda->where('id', Auth::user()->id)->first();
 		$data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
-		$data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();      
+		$data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();
 		return view('admin.panzisda.laporan_realisasi', compact('data'));
 	}
 
@@ -967,7 +967,7 @@ class PanzisdaController extends Controller
 		$data['user_manajerarea']   = $this->user_manajerarea->where('id', Auth::user()->id)->first();
 		$data['user_panzisda']      = $this->user_panzisda->where('id', Auth::user()->id)->first();
 		$data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
-		$data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();      
+		$data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();
 		return view('admin.panzisda.laporan_rekonsiliasi', compact('data'));
 	}
 
@@ -979,10 +979,10 @@ class PanzisdaController extends Controller
 		$data['user_manajerarea']   = $this->user_manajerarea->where('id', Auth::user()->id)->first();
 		$data['user_panzisda']      = $this->user_panzisda->where('id', Auth::user()->id)->first();
 		$data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
-		$data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();      
+		$data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();
 		return view('admin.panzisda.laporan_validasi', compact('data'));
 	}
-	
+
 	public function getLaporanRealisasiPaketZiswaf()
 	{
 		$data['user']               = $this->user->where('id', Auth::user()->id)->first();
@@ -991,10 +991,10 @@ class PanzisdaController extends Controller
 		$data['user_manajerarea']   = $this->user_manajerarea->where('id', Auth::user()->id)->first();
 		$data['user_panzisda']      = $this->user_panzisda->where('id', Auth::user()->id)->first();
 		$data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
-		$data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();      
+		$data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();
 		$data['lembaga']            = DB::table('lembaga')->leftJoin('lembaga_khusus','lembaga.id','=','lembaga_khusus.id_lembaga')->leftJoin('wilayah','wilayah.id','=','lembaga_khusus.id_wilayah')->select('lembaga.nama_lembaga')->where('lembaga_khusus.id_wilayah', Auth::user()->id_wilayah)->orWhere('lembaga_khusus.id_lembaga', NULL)->orderBy('lembaga.id', 'ASC')->get();
 		$data['jumlah_lembaga']     = count($data['lembaga']);
-		
+
 		return view('admin.panzisda.laporan_realisasi_paket_ziswaf', compact('data'));
 	}
 
@@ -1006,13 +1006,13 @@ class PanzisdaController extends Controller
 		$data['user_manajerarea']   = $this->user_manajerarea->where('id', Auth::user()->id)->first();
 		$data['user_panzisda']      = $this->user_panzisda->where('id', Auth::user()->id)->first();
 		$data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
-		$data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();      
+		$data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();
 		$data['lembaga']            = DB::table('lembaga')->leftJoin('lembaga_khusus','lembaga.id','=','lembaga_khusus.id_lembaga')->leftJoin('wilayah','wilayah.id','=','lembaga_khusus.id_wilayah')->select('lembaga.nama_lembaga')->where('lembaga_khusus.id_wilayah', Auth::user()->id_wilayah)->orWhere('lembaga_khusus.id_lembaga', NULL)->orderBy('lembaga.id', 'ASC')->get();
 		$data['jumlah_lembaga']     = count($data['lembaga']);
-		
+
 		return view('admin.panzisda.laporan_realisasi_dutazakat', compact('data'));
 	}
-	
+
 	public function getDataLaporanDZ()
 	{
 		$duta = DB::table('users')->where('users.deleted_at', NULL)->join('role','role.id_users','=','users.id')->whereNotIn('role.id_jabatan', [1, 2, 3, 6])->join('wilayah','wilayah.id','=','users.id_wilayah')->select(DB::raw('ROW_NUMBER() OVER(order by users.id_wilayah ASC) AS nomor'), 'users.id', 'users.no_punggung', 'users.nama', 'wilayah.nama_wilayah', DB::raw('group_concat(role.id_jabatan SEPARATOR ",") as id_jabatan'), DB::raw('group_concat(IF(role.id_atasan IS NULL, "null", role.id_atasan)) as id_atasan'))->where('users.id_wilayah', Auth::user()->id_wilayah)->groupBy('users.id','users.no_punggung','users.nama','wilayah.nama_wilayah')->orderBy('users.id_wilayah', 'ASC')->orderBy('users.nama', 'ASC')->get();
@@ -1043,7 +1043,7 @@ class PanzisdaController extends Controller
 							$dummy['manajer_group'] = '';
 						} else {
 							$dummy['manajer_group'] = $temp->nama;
-							
+
 							$role = DB::table('role')->where('role.id_users', $temp->id)->where('role.id_jabatan', 4)->first();
 
 							if($role == null) {
@@ -1165,7 +1165,7 @@ class PanzisdaController extends Controller
 						->groupBy('status_transaksi.manajer_status', 'status_transaksi.panzisda_status', 'status_transaksi.lazis_status')
 						->get();
 			// $tmp[] = $transaksi;
-			
+
 			$tmp['no_punggung'] = $value->no_punggung;
 			$tmp['nama']        = $value->nama;
 			$tmp['target']      = ($target->target != 0) ? $target->target : 0;
@@ -1188,7 +1188,7 @@ class PanzisdaController extends Controller
 
 				$total = $total + $item->jumlah;
 			}
-			
+
 			$tmp['total']       = $total;
 			$tmp['valid_mg']    = $valid_mg;
 			$tmp['valid_pz']    = $valid_pz;
@@ -1204,7 +1204,7 @@ class PanzisdaController extends Controller
 			->addIndexColumn()
 			->make(true);
 	}
-	
+
 	public function getDataLaporanRealisasiPaketZiswaf()
 	{
 		$paket      = PaketZakat::all();
@@ -1223,7 +1223,7 @@ class PanzisdaController extends Controller
 		foreach($paket as $item1) {
 			$dummy['no']    = $hitung;
 			$dummy['paket'] = $item1->nama_paket_zakat;
-			
+
 			$count = 1;
 			foreach($lembaga as $item2) {
 				$transaksi   = DB::table('transaksi')
@@ -1236,7 +1236,7 @@ class PanzisdaController extends Controller
 						->where('transaksi.id_lembaga', $item2->id)
 						->where('status_transaksi.lazis_status', '!=', NULL)
 						->first();
-				
+
 				if ($transaksi->jumlah == NULL) {
 					$transaksi->jumlah = 0;
 				}
@@ -1269,7 +1269,7 @@ class PanzisdaController extends Controller
 
 		foreach($paket as $item1) {
 			$dummy['paket'] = $item1->nama_paket_zakat;
-			
+
 			$count = 1;
 			$total = 0;
 			foreach($lembaga as $item2) {
@@ -1284,7 +1284,7 @@ class PanzisdaController extends Controller
 							->where('detail_transaksi.id_paket_zakat', $item1->id)
 							->where('transaksi.id_lembaga', $item2->id)
 							->first();
-				
+
 				if ($transaksi->jumlah == NULL) {
 					$transaksi->jumlah = 0;
 				}
@@ -1301,7 +1301,7 @@ class PanzisdaController extends Controller
 			->addIndexColumn()
 			->make(true);
 	}
-	
+
 	public function getLaporanDistribusi()
 	{
 		$data['user']               = $this->user->where('id', Auth::user()->id)->first();
@@ -1310,7 +1310,7 @@ class PanzisdaController extends Controller
 		$data['user_manajerarea']   = $this->user_manajerarea->where('id', Auth::user()->id)->first();
 		$data['user_panzisda']      = $this->user_panzisda->where('id', Auth::user()->id)->first();
 		$data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
-		$data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();      
+		$data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();
 		$data['lembaga']            = DB::table('lembaga')->leftJoin('lembaga_khusus','lembaga.id','=','lembaga_khusus.id_lembaga')->leftJoin('wilayah','wilayah.id','=','lembaga_khusus.id_wilayah')->select('lembaga.nama_lembaga')->where('lembaga_khusus.id_wilayah', Auth::user()->id_wilayah)->orWhere('lembaga_khusus.id_lembaga', NULL)->orderBy('lembaga.id', 'ASC')->get();
 		$data['jumlah_lembaga']     = count($data['lembaga']);
 
@@ -1344,14 +1344,14 @@ class PanzisdaController extends Controller
 						})
 						->where('status_transaksi.lazis_status', '!=', NULL)
 						->first();
-			
+
 			$distribusi     = Distribusi::where('id_paket_zakat', $item1->id)->get();
-			
+
 			foreach($distribusi as $dis) {
 				$dummy['panzisnas'] = ($jumlah->jumlah != NULL) ? round(($dis->panzisnas * $jumlah->jumlah) / 100) : 0;
 				$dummy['panziswil'] = ($jumlah->jumlah != NULL) ? round(($dis->panziswil * $jumlah->jumlah) / 100) : 0;
 				$dummy['panzisda'] = ($jumlah->jumlah != NULL) ? round(($dis->panzisda * $jumlah->jumlah) / 100) : 0;
-				
+
 				$total = 0;
 				foreach($lembaga as $item2) {
 					$name = '';
@@ -1364,7 +1364,7 @@ class PanzisdaController extends Controller
 					} else {
 						$name = 'yayasan';
 					}
-							
+
 					$transaksi  = DB::table('transaksi')
 								->leftJoin('users','users.id','=','transaksi.id_users')
 								->where('users.id_wilayah', Auth::user()->id_wilayah)
@@ -1375,7 +1375,7 @@ class PanzisdaController extends Controller
 								->where('transaksi.id_lembaga', $item2->id)
 								->where('status_transaksi.lazis_status', '!=', NULL)
 								->first();
-					
+
 					if ($name == 'dana_mandiri') {
 						$dummy[$name] = ($transaksi->jumlah != NULL) ? $transaksi->jumlah : 0;
 					} else {
@@ -1480,7 +1480,7 @@ class PanzisdaController extends Controller
                             ->whereNotNull('status.panziswil_status')
                             ->first();
 
-			
+
 			$dummy['target'] 		= count($duta);
             $dummy['name'] 			= $item->no_punggung;
 			$dummy['y'] 			= ($y->y != NULL) ? count(explode(";", $y->y)) : 0;
@@ -1499,7 +1499,7 @@ class PanzisdaController extends Controller
 			$dummys['id']   = $value->no_punggung;
 
 			$atasan         = Role::where('id_jabatan', 5)->where('id_atasan', $value->id)->pluck('id_users');
-			$duta			= User::whereIn('id', $atasan)->get(); 
+			$duta			= User::whereIn('id', $atasan)->get();
 
 			$tmp3 = [];
 			foreach($duta as $value1) {
@@ -1574,7 +1574,7 @@ class PanzisdaController extends Controller
                             ->where('detail.jenis', 'Sapi/Kerbau')
                             ->whereNotNull('status.panziswil_status')
                             ->first();
-			
+
 			$dummy_['target'] 		= count($duta);
             $dummy_['name'] 		= $item_->nama;
 			$dummy_['y'] 			= ($y->y != NULL) ? count(explode(";", $y->y)) : 0;
@@ -1608,7 +1608,7 @@ class PanzisdaController extends Controller
                             ->where('detail.jenis', $item__)
                             ->whereNotNull('status.panziswil_status')
                             ->first();
-			
+
             $dummy__['name'] 		= $item__;
 			$dummy__['y'] 			= ($y->y != NULL) ? $y->y : 0;
 			$dummy__['pekurban'] 	= ($y->pekurban != NULL) ? count(explode(";", $y->pekurban)) : 0;
@@ -1731,7 +1731,7 @@ class PanzisdaController extends Controller
 				} else if ($transaksi->manajer_status == NULL) {
 					$button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-xs" disabled>VERIFIKASI</button></center>';
 				} else {
-					$button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-xs">DETAIL</button></center>';
+					$button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-xs"><i class="fa fa-eye"></i></button></center>';
 				}
 				return $button;
             })
@@ -1809,8 +1809,8 @@ class PanzisdaController extends Controller
         $data['user_manajerarea']   = $this->user_manajerarea->where('id', Auth::user()->id)->first();
         $data['user_panzisda']      = $this->user_panzisda->where('id', Auth::user()->id)->first();
         $data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
-        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();   
-		
+        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();
+
 		$data['duta']				= User::where('id_wilayah', Auth::user()->id_wilayah)->orderBy('nama', 'ASC')->get();
         return view('admin.panzisda.laporan_rincian_kurban', compact('data'));
     }
@@ -1876,7 +1876,7 @@ class PanzisdaController extends Controller
         $data['user_panzisda']      = $this->user_panzisda->where('id', Auth::user()->id)->first();
         $data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
         $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();
-		
+
 		$manajer					= Role::where('id_jabatan', 4)->pluck('id_users');
 		$data['manajer']			= User::where('id_wilayah', Auth::user()->id_wilayah)->whereIn('id', $manajer)->whereNull('deleted_at')->orderBy('nama','asc')->get();
         return view('admin.panzisda.laporan_monitoring_kurban', compact('data'));
@@ -1893,7 +1893,7 @@ class PanzisdaController extends Controller
 				$duta				= User::whereIn('id', $jabatan)->whereNull('deleted_at')->pluck('id');
 				$item->target       = count($duta);
 
-				// $duta				= Role::where('id_atasan', $item->id)->where('id_jabatan', 5)->pluck('id_users'); 
+				// $duta				= Role::where('id_atasan', $item->id)->where('id_jabatan', 5)->pluck('id_users');
 				$dz					= DB::table('transaksi_kurban as kurban')
 									->whereIn('kurban.id_users', $duta)
 									->join('detail_transaksi_kurban as detail', 'detail.id_transaksi','=','kurban.id')
@@ -1914,7 +1914,7 @@ class PanzisdaController extends Controller
 									->select(DB::raw('CAST(SUM(detail.jumlah) as unsigned) as jumlah'))
 									->where('detail.jenis', 'Kambing/Domba')
 									->first();
-				
+
 				$item->jumlah_dz  	= (is_null($dz->jumlah_nama)) ? 0 : count(explode(";", $dz->jumlah_nama));
 				$item->sapi_dz      = (is_null($sapi_dz->jumlah)) ? 0 : $sapi_dz->jumlah;
 				$item->kambing_dz   = (is_null($kambing_dz->jumlah)) ? 0 : $kambing_dz->jumlah;
@@ -1985,7 +1985,7 @@ class PanzisdaController extends Controller
 				$duta				= User::whereIn('id', $jabatan)->whereNull('deleted_at')->pluck('id');
 				$item->target       = count($duta);
 
-				$duta				= Role::where('id_atasan', $item->id)->where('id_jabatan', 5)->pluck('id_users'); 
+				$duta				= Role::where('id_atasan', $item->id)->where('id_jabatan', 5)->pluck('id_users');
 				$dz					= DB::table('transaksi_kurban as kurban')
 									->whereIn('kurban.id_users', $duta)
 									->join('detail_transaksi_kurban as detail', 'detail.id_transaksi','=','kurban.id')
@@ -2006,7 +2006,7 @@ class PanzisdaController extends Controller
 									->select(DB::raw('CAST(SUM(detail.jumlah) as unsigned) as jumlah'))
 									->where('detail.jenis', 'Kambing/Domba')
 									->first();
-				
+
 				$item->jumlah_dz  	= (is_null($dz->jumlah_nama)) ? 0 : count(explode(";", $dz->jumlah_nama));
 				$item->sapi_dz      = (is_null($sapi_dz->jumlah)) ? 0 : $sapi_dz->jumlah;
 				$item->kambing_dz   = (is_null($kambing_dz->jumlah)) ? 0 : $kambing_dz->jumlah;
@@ -2084,8 +2084,8 @@ class PanzisdaController extends Controller
         $data['user_manajerarea']   = $this->user_manajerarea->where('id', Auth::user()->id)->first();
         $data['user_panzisda']      = $this->user_panzisda->where('id', Auth::user()->id)->first();
         $data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
-        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();   
-		
+        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();
+
 		$manajer					= Role::where('id_jabatan', 4)->pluck('id_users');
 		$data['duta']				= User::whereIn('id', $manajer)->where('id_wilayah', Auth::user()->id_wilayah)->orderBy('nama', 'ASC')->get();
         return view('admin.panzisda.laporan_manajer_kurban', compact('data'));
@@ -2103,7 +2103,7 @@ class PanzisdaController extends Controller
 				->select('users.id','users.nama','users.no_punggung','role.id_atasan')
 				->orderBy('users.nama', 'asc')
 				->get();
-			
+
 			foreach($data as $item) {
 				$item->target       = 1;
 				$transaksi          = TransaksiKurban::where('id_users', $item->id)->pluck('id');
@@ -2152,7 +2152,7 @@ class PanzisdaController extends Controller
 				->select('users.id','users.nama','users.no_punggung','role.id_atasan')
 				->orderBy('users.nama', 'asc')
 				->get();
-			
+
 			foreach($data as $item) {
 				$item->target       = 1;
 				$transaksi          = TransaksiKurban::where('id_users', $item->id)->pluck('id');

@@ -20,7 +20,7 @@
             <div class="col-md-12">
                 <table id="tabelGroup"  class="display" style="width: 100%">
                     <thead>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th> Kode Group </th>
                             <th> Target </th>
                             <th width="12%"> <center>Aksi</center> </th>

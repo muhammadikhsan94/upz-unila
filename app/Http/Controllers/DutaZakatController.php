@@ -386,7 +386,7 @@ class DutaZakatController extends Controller
         ->addIndexColumn()
         ->addColumn('aksi', function($transaksi) {
             if($transaksi->status == null) {
-                $button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-xs">Detail</button>&nbsp;<button type="button" name="edit" id="'.$transaksi->id.'" class="edit btn btn-warning btn-xs">Ubah</button>&nbsp;<a type="button" name="bukti" id="'.$transaksi->id.'" class="bukti btn btn-info btn-xs" target=new>Bukti</a>&nbsp;<button type="button" name="delete" id="'.$transaksi->id.'" class="delete btn btn-danger btn-xs">Hapus</button></center>';
+                $button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-xs">Detail</button>&nbsp;<button type="button" name="edit" id="'.$transaksi->id.'" class="edit btn btn-warning btn-xs">Ubah</button>&nbsp;<a type="button" name="bukti" id="'.$transaksi->id.'" class="bukti btn btn-info btn-xs" target=new>Bukti</a>&nbsp;<button type="button" name="delete" id="'.$transaksi->id.'" class="delete btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button></center>';
             } else {
                 $button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-xs">Detail</button>&nbsp;<a type="button" name="bukti" id="'.$transaksi->id.'" class="bukti btn btn-info btn-xs" target=new>Bukti</a></center>';
             }
@@ -753,7 +753,7 @@ class DutaZakatController extends Controller
             ->addIndexColumn()
             ->addColumn('aksi', function($transaksi) {
                 if($transaksi->manajer_status == null) {
-                    $button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-xs">Detail</button>&nbsp;<button type="button" name="edit" id="'.$transaksi->id.'" class="edit btn btn-warning btn-xs">Ubah</button>&nbsp;<button type="button" name="delete" id="'.$transaksi->id.'" class="delete btn btn-danger btn-xs">Hapus</button></center>';
+                    $button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-xs">Detail</button>&nbsp;<button type="button" name="edit" id="'.$transaksi->id.'" class="edit btn btn-warning btn-xs">Ubah</button>&nbsp;<button type="button" name="delete" id="'.$transaksi->id.'" class="delete btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button></center>';
                 } else {
                     $button = '<center><button type="button" name="detail" id="'.$transaksi->id.'" class="detail btn btn-secondary btn-xs">Detail</button>';
                 }

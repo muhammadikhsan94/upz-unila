@@ -41,7 +41,7 @@
             <div class="col-md-12">
                 <table id="tabel-transaksi" class="display" style="width: 100%">
                     <thead>
-                        <tr class="bg-success">
+                        <tr class="bg-primary">
                             <th width="5%"> No </th>
                             <th> Tgl Trf/Kirim </th>
                             <th> Wilayah </th>
@@ -219,7 +219,7 @@
                             <input class="form-control" id="rek_bank" name="rek_bank" disabled>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="tanggal_transfer" class="col-sm-3 control-label">Tanggal Transfer/Kirim</label>
                         <div class="col-sm-5">
@@ -336,7 +336,7 @@
     $(document).ready(function() {
         function convertToRupiah(angka)
         {
-            var rupiah = '';		
+            var rupiah = '';
             var angkarev = angka.toString().split('').reverse().join('');
             for(var i = 0; i < angkarev.length; i++) if(i%3 == 0) rupiah += angkarev.substr(i,3)+'.';
             return 'Rp. '+rupiah.split('',rupiah.length-1).reverse().join('');
@@ -506,7 +506,7 @@
                             paket = paket + '\n' + data.detail[x].nama_paket_zakat + ': ' + convertToRupiah(data.detail[x].jumlah);
                         }
                     }
-                    
+
                     $('#paket_zakat').val(paket);
                     $('#jumlah_paket').val(data.jumlah_paket);
                     $('#jenis_transaksi').val(data.jenis_transaksi);

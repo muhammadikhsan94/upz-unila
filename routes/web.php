@@ -16,7 +16,8 @@ use Illuminate\Http\Request;
 
 Route::get('/', function() {
 	return view('auth.login');
-});
+})->name('login');
+Route::get('/login-sso', [App\Http\Controllers\Auth\LoginController::class, 'signing_process'])->name('loginSSO');
 
 Route::get('/daftar', [App\Http\Controllers\RegisterController::class, 'daftar'])->name('daftar');
 Route::post('/daftar/simpan', [App\Http\Controllers\RegisterController::class, 'simpanRegister'])->name('simpanRegister');
@@ -184,7 +185,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
 		Route::get('/profil', [App\Http\Controllers\PanzisdaController::class, 'editProfil'])->name('panzisda.editProfil');
 		Route::post('/profil/update', [App\Http\Controllers\PanzisdaController::class, 'updateProfil'])->name('panzisda.updateProfil');
-		
+
 		//LAPORAN
 		Route::get('/laporan/dutazakat', [App\Http\Controllers\PanzisdaController::class, 'getLaporanDZ'])->name('panzisda.laporanDZ');
 		Route::get('/laporan/realisasi', [App\Http\Controllers\PanzisdaController::class, 'getLaporanRealisasi'])->name('panzisda.laporanRealisasi');
@@ -246,7 +247,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 		Route::delete('/transaksi_kurban/delete/{id}', [App\Http\Controllers\PanziswilController::class, 'deleteKurban'])->name('panziswil.deleteKurban');
 		Route::get('/transaksi_kurban/edit/{id}', [App\Http\Controllers\PanziswilController::class, 'editKurban'])->name('panziswil.editKurban');
 		Route::post('/transaksi_kurban/edit/update', [App\Http\Controllers\PanziswilController::class, 'updateKurban'])->name('panziswil.updateKurban');
-		
+
 		//PROFIL
 		Route::get('/profil', [App\Http\Controllers\PanziswilController::class, 'editProfil'])->name('panziswil.editProfil');
 		Route::post('/profil/update', [App\Http\Controllers\PanziswilController::class, 'updateProfil'])->name('panziswil.updateProfil');
@@ -298,14 +299,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 		Route::post('/rekening-lembaga/edit/simpan', [App\Http\Controllers\PanziswilController::class, 'updateRekeningLembaga'])->name('panziswil.updateRekeningLembaga');
 		Route::post('/rekening-lembaga/simpan', [App\Http\Controllers\PanziswilController::class, 'simpanRekeningLembaga'])->name('panziswil.simpanRekeningLembaga');
 		Route::delete('/rekening-lembaga/delete/{id}', [App\Http\Controllers\PanziswilController::class, 'deleteRekeningLembaga'])->name('panziswil.deleteRekeningLembaga');
-		
+
 		//GROUP
 		Route::get('/group', [App\Http\Controllers\PanziswilController::class, 'getGroup'])->name('panziswil.group');
 		Route::get('/group/getdata', [App\Http\Controllers\PanziswilController::class, 'getDataGroup'])->name('panziswil.getGroup');
 		Route::get('/group/edit/{id}', [App\Http\Controllers\PanziswilController::class, 'editGroup'])->name('panziswil.editGroup');
 		Route::post('/group/edit/update', [App\Http\Controllers\PanziswilController::class, 'updateGroup'])->name('panziswil.updateGroup');
 		Route::delete('/group/delete/{id}', [App\Http\Controllers\PanziswilController::class, 'deleteGroup'])->name('panziswil.deleteGroup');
-		
+
 		//LAPORAN
 		Route::get('/laporan/dutazakat', [App\Http\Controllers\PanziswilController::class, 'getLaporanDZ'])->name('panziswil.laporanDZ');
 		Route::get('/laporan/wilayah', [App\Http\Controllers\PanziswilController::class, 'getLaporanWilayah'])->name('panziswil.laporanWilayah');

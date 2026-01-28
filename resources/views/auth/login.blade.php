@@ -265,10 +265,10 @@
                 <form action="{{ url('login') }}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label for="username">Username</label>
+                        <label for="username">Username / Email</label>
                         <div class="input-wrapper">
                             <i class="fa fa-user"></i>
-                            <input type="text" name="username" id="username" placeholder="Masukkan username" required autofocus>
+                            <input type="text" name="username" id="username" placeholder="Masukkan username atau email" required autofocus>
                         </div>
                     </div>
 
@@ -291,11 +291,11 @@
                         <i class="fa fa-sign-in"></i> Masuk
                     </button>
                 </form>
-{{--
+
                 <div class="login-footer">
-                    <p>Belum memiliki akun?</p>
-                    <a href="{{ url('/daftar') }}" class="btn-register">Daftar Sekarang</a>
-                </div> --}}
+                    <p>Civitas Akademik</p>
+                    <a href="{{ route('loginSSO') }}" class="btn-register">LOGIN WITH SSO</a>
+                </div>
             </div>
         </div>
 

@@ -132,7 +132,7 @@
                 "sSearch": "Cari Data:",
             },
             ajax: {
-                url: "{{ url('paket/getdata') }}",
+                url: "{{ url('universitas/paket/getdata') }}",
             },
             columns: [{
                 data: "id",

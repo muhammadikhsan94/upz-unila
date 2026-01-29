@@ -155,7 +155,7 @@
                 "sSearch": "Cari Data:",
             },
             ajax: {
-                url: "{{ url('rekening-lembaga/getdata') }}",
+                url: "{{ url('universitas/rekening-lembaga/getdata') }}",
             },
             columns: [{
                 data: "id",

@@ -246,7 +246,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('user/getdata') }}",
+                url: "{{ url('universitas/user/getdata') }}",
             },
             columns: [{
                 data: "id",

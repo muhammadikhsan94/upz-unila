@@ -101,7 +101,7 @@
                 "sSearch": "Cari Data:",
             },
             ajax: {
-                url: "{{ url('group/getdata') }}",
+                url: "{{ url('universitas/group/getdata') }}",
             },
             columns: [{
                 data: "id",

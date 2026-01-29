@@ -230,7 +230,7 @@
                 "sSearch": "Cari Data:",
             },
             ajax: {
-                url: "{{ url('distribusi/getdata') }}",
+                url: "{{ url('universitas/distribusi/getdata') }}",
             },
             "columnDefs": [
                 {"className": "dt-center", "targets": [0, 2, 3, 4, 5, 6, 7, 8]}

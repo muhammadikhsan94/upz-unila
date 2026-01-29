@@ -338,7 +338,7 @@
                 {"className": "dt-center", "targets": [0, 7, 8, 9]}
             ],
             ajax: {
-                url: "{{ url('transaksi/getdata/0') }}",
+                url: "{{ url('universitas/transaksi/getdata/0') }}",
             },
             columns: [{
                 data: "id",

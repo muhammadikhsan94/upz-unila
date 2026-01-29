@@ -90,7 +90,7 @@
             ],
             "orderFixed": [0, 'asc'],
             ajax: {
-                url: "{{ url('/upz/laporan/realisasi-paketziswaf/getdata/0') }}",
+                url: "{{ url('laporan/realisasi-paketziswaf/getdata/0') }}",
             },
             columns: [{
                 data: "id",
@@ -126,7 +126,7 @@
 
         $('select').selectpicker();
         $('#wilayah').change(function() {
-            table.ajax.url('/upz/laporan/realisasi-paketziswaf/getdata/'+$(this).val()).load();
+            table.ajax.url('laporan/realisasi-paketziswaf/getdata/'+$(this).val()).load();
         });
         $('#wilayah').trigger("change");
     });

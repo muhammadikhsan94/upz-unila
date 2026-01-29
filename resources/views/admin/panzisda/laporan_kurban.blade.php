@@ -60,7 +60,7 @@
             },
             // "order": [[ 6, "DESC" ]],
             ajax: {
-                url: "{{ url('/fakultas_lembaga/laporan/kurban/getdata') }}",
+                url: "{{ url('laporan/kurban/getdata') }}",
             },
             columns: [{
                     data: "id",

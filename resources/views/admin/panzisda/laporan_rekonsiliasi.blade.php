@@ -87,7 +87,7 @@
                 {"className": "dt-right", "targets": [9]}
             ],
             ajax: {
-                url: "{{ url('/fakultas_lembaga/laporan/rekonsiliasi/getdata') }}",
+                url: "{{ url('laporan/rekonsiliasi/getdata') }}",
             },
             columns: [{
                 data: "id",

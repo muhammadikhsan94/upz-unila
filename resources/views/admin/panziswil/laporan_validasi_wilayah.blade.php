@@ -86,7 +86,7 @@
                 {"className": "dt-right", "targets": [2, 3, 4, 5, 6, 7, 8]}
             ],
             ajax: {
-                url: "{{ url('/universitas/laporan/validasi/wilayah/getdata') }}",
+                url: "{{ url('laporan/validasi/wilayah/getdata') }}",
             },
             columns: [{
                 data: "id",

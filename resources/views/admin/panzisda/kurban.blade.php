@@ -264,7 +264,7 @@
 
         $('select').selectpicker();
         $('#status_transaksi').change(function() {
-            table.ajax.url('/fakultas_lembaga/transaksi_kurban/getdata/'+$(this).val()).load();
+            table.ajax.url('transaksi_kurban/getdata/'+$(this).val()).load();
         });
         $('#status_transaksi').trigger("change");
 

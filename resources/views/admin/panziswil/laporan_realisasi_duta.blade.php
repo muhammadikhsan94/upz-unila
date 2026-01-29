@@ -167,7 +167,7 @@
 
         $('select').selectpicker();
         $('#user').change(function() {
-            table.ajax.url('/universitas/laporan/realisasi_duta/getdata/'+$(this).val()).load();
+            table.ajax.url('laporan/realisasi_duta/getdata/'+$(this).val()).load();
         });
         $('#user').trigger("change");
     });

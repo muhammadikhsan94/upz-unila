@@ -132,7 +132,7 @@
                 "sSearch": "Cari Data:",
             },
             ajax: {
-                url: "{{ url('/universitas/wilayah/getdata') }}",
+                url: "{{ url('wilayah/getdata') }}",
             },
             columns: [{
                 data: "id",

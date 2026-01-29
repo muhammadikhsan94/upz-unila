@@ -59,7 +59,7 @@
             },
             // "order": [[ 6, "DESC" ]],
             ajax: {
-                url: "{{ url('/universitas/laporan/kurban/getdata') }}",
+                url: "{{ url('laporan/kurban/getdata') }}",
             },
             columns: [{
                     data: "id",

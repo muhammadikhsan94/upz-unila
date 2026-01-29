@@ -143,7 +143,7 @@
 
         $('select').selectpicker();
         $('#user').change(function() {
-            table.ajax.url('/fakultas_lembaga/laporan/rincian_kurban/getdata/'+$(this).val()).load();
+            table.ajax.url('laporan/rincian_kurban/getdata/'+$(this).val()).load();
         });
         $('#user').trigger("change");
     });

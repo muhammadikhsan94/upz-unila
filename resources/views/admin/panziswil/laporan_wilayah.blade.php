@@ -74,7 +74,7 @@
                 {"className": "dt-center", "targets": [0, 2, 3, 4]}
             ],
             ajax: {
-                url: "{{ url('/universitas/laporan/wilayah/getdata') }}",
+                url: "{{ url('laporan/wilayah/getdata') }}",
             },
             columns: [{
                 data: "id",

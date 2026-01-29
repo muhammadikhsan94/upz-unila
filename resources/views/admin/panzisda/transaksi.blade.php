@@ -428,7 +428,7 @@
 
         $('select').selectpicker();
         $('#status_transaksi').change(function() {
-            table.ajax.url('/fakultas_lembaga/transaksi/getdata/'+$(this).val()).load();
+            table.ajax.url('transaksi/getdata/'+$(this).val()).load();
         });
         $('#status_transaksi').trigger("change");
 

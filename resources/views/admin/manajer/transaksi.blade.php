@@ -285,7 +285,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('/pic_jurusan/transaksi/getdata') }}",
+                url: "{{ url('transaksi/getdata') }}",
             },
             "columnDefs": [
                 {"className": "dt-center", "targets": [7, 8]}

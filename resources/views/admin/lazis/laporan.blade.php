@@ -69,7 +69,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('/fakultas_lembaga/laporan/getdata') }}",
+                url: "{{ url('laporan/getdata') }}",
             },
             columns: [{
                 data: "id",

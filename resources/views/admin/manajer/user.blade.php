@@ -139,7 +139,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('/pic_jurusan/user/getdata') }}",
+                url: "{{ url('user/getdata') }}",
             },
             columns: [{
                 data: "id",

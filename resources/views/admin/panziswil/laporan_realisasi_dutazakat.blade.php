@@ -163,7 +163,7 @@
 
         $('select').selectpicker();
         $('#pilih_wilayah').change(function() {
-            table.ajax.url('/universitas/laporan/realisasi-paketziswaf-dutazakat/getdata/'+$(this).val()).load();
+            table.ajax.url('laporan/realisasi-paketziswaf-dutazakat/getdata/'+$(this).val()).load();
         });
         $('#pilih_wilayah').trigger("change");
     });

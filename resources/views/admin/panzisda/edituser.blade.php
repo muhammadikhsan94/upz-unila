@@ -275,7 +275,7 @@
                     alert("Data berhasil diupdate!");
                     html = '<div class="alert alert-success">' + data + '</div>';
                     $('#editUser')[0].reset();
-                    window.location.replace("{{url('/fakultas_lembaga/user')}}");
+                    window.location.replace("{{url('user')}}");
                 },
                 error: function (data) {
                     var html = '';

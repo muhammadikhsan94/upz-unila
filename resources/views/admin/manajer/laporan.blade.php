@@ -79,7 +79,7 @@
                 {"className": "dt-right", "targets": [3, 4, 5]}
             ],
             ajax: {
-                url: "{{ url('/pic_jurusan/laporan/transaksi/realisasi') }}",
+                url: "{{ url('laporan/transaksi/realisasi') }}",
             },
             columns: [{
                 data: "id",

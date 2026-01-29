@@ -127,7 +127,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('/fakultas_lembaga/donatur/getdata') }}",
+                url: "{{ url('donatur/getdata') }}",
             },
             columns: [{
                 data: "id",

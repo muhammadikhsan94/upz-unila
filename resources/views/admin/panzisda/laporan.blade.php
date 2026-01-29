@@ -143,7 +143,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('/fakultas_lembaga/laporan/getdata') }}",
+                url: "{{ url('laporan/getdata') }}",
             },
             columns: [{
                 data: 'no_punggung',
@@ -183,7 +183,7 @@
                 {"className": "dt-center", "targets": [0, 8]}
             ],
             ajax: {
-                url: "{{ url('/fakultas_lembaga/laporan/transaksi/rekonsiliasi') }}",
+                url: "{{ url('laporan/transaksi/rekonsiliasi') }}",
             },
             columns: [{
                 data: "id",
@@ -257,7 +257,7 @@
             ],
             // "order": [[ 6, "DESC" ]],
             ajax: {
-                url: "{{ url('/fakultas_lembaga/laporan/transaksi/realisasi') }}",
+                url: "{{ url('laporan/transaksi/realisasi') }}",
             },
             columns: [{
                 data: "id",

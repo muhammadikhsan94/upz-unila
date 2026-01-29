@@ -325,7 +325,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('/pic_jurusan/donatur/getdata') }}",
+                url: "{{ url('donatur/getdata') }}",
             },
             "columnDefs": [
                 {"className": "dt-center", "targets": [0, 1, 4, 5, 7]}

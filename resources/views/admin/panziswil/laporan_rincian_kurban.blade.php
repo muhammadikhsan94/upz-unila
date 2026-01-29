@@ -137,7 +137,7 @@
 
         $('select').selectpicker();
         $('#wilayah').change(function() {
-            table.ajax.url('/universitas/laporan/rincian_kurban/getdata/'+$(this).val()).load();
+            table.ajax.url('laporan/rincian_kurban/getdata/'+$(this).val()).load();
         });
         $('#wilayah').trigger("change");
     });

@@ -1695,55 +1695,55 @@ class PanziswilController extends Controller
 					//get paket
 					$dummy['paket'] = $item2->nama_paket_zakat;
 
-					$lembaga    = DB::table('lembaga')
-								->leftJoin('lembaga_khusus','lembaga.id','=','lembaga_khusus.id_lembaga')
-								->leftJoin('wilayah','wilayah.id','=','lembaga_khusus.id_wilayah')
-								->select('lembaga.*')
-								->where('lembaga_khusus.id_wilayah', $item1->id)
-								->orWhere('lembaga_khusus.id_lembaga', NULL)
-								->orderBy('lembaga.id', 'ASC')
-								->get();
+					// $lembaga    = DB::table('lembaga')
+					// 			->leftJoin('lembaga_khusus','lembaga.id','=','lembaga_khusus.id_lembaga')
+					// 			->leftJoin('wilayah','wilayah.id','=','lembaga_khusus.id_wilayah')
+					// 			->select('lembaga.*')
+					// 			->where('lembaga_khusus.id_wilayah', $item1->id)
+					// 			->orWhere('lembaga_khusus.id_lembaga', NULL)
+					// 			->orderBy('lembaga.id', 'ASC')
+					// 			->get();
 
-					$count = 1;
-					$total = 0;
-					foreach($lembaga as $item3) {
+					// $count = 1;
+					// $total = 0;
+					// foreach($lembaga as $item3) {
 
-						$name = '';
-						if ($item3->nama_lembaga == 'IZI' OR $item3->nama_lembaga == 'izi' or $item3->nama_lembaga == 'Izi') {
-							$name = 'izi';
-						} else if ($item3->nama_lembaga == 'LAZDAI' OR $item3->nama_lembaga == 'lazdai' or $item3->nama_lembaga == 'Lazdai') {
-							$name = 'lazdai';
-						} else if ($item3->nama_lembaga == 'DANA MANDIRI' OR $item3->nama_lembaga == 'dana mandiri' or $item3->nama_lembaga == 'Dana Mandiri') {
-							$name = 'dana_mandiri';
-						} else {
-							$name = 'yayasan';
-						}
+					// 	$name = '';
+					// 	if ($item3->nama_lembaga == 'IZI' OR $item3->nama_lembaga == 'izi' or $item3->nama_lembaga == 'Izi') {
+					// 		$name = 'izi';
+					// 	} else if ($item3->nama_lembaga == 'LAZDAI' OR $item3->nama_lembaga == 'lazdai' or $item3->nama_lembaga == 'Lazdai') {
+					// 		$name = 'lazdai';
+					// 	} else if ($item3->nama_lembaga == 'DANA MANDIRI' OR $item3->nama_lembaga == 'dana mandiri' or $item3->nama_lembaga == 'Dana Mandiri') {
+					// 		$name = 'dana_mandiri';
+					// 	} else {
+					// 		$name = 'yayasan';
+					// 	}
 
-						$transaksi2   = DB::table('transaksi')
-									->leftJoin('users','users.id','=','transaksi.id_users')
-									->where('users.id_wilayah', $item1->id)
-									->where('users.deleted_at', NULL)
-									->join('detail_transaksi','detail_transaksi.id_transaksi','=','transaksi.id')
-									->join('status_transaksi','status_transaksi.id_transaksi','=','transaksi.id')
-									->select(DB::raw('CAST(SUM(detail_transaksi.jumlah) as UNSIGNED) as jumlah'))
-									->where('detail_transaksi.id_paket_zakat', $item2->id)
-									->where('transaksi.id_lembaga', $item3->id)
-									->where('status_transaksi.lazis_status', '!=', NULL)
-									->first();
+					// 	$transaksi2   = DB::table('transaksi')
+					// 				->leftJoin('users','users.id','=','transaksi.id_users')
+					// 				->where('users.id_wilayah', $item1->id)
+					// 				->where('users.deleted_at', NULL)
+					// 				->join('detail_transaksi','detail_transaksi.id_transaksi','=','transaksi.id')
+					// 				->join('status_transaksi','status_transaksi.id_transaksi','=','transaksi.id')
+					// 				->select(DB::raw('CAST(SUM(detail_transaksi.jumlah) as UNSIGNED) as jumlah'))
+					// 				->where('detail_transaksi.id_paket_zakat', $item2->id)
+					// 				->where('transaksi.id_lembaga', $item3->id)
+					// 				->where('status_transaksi.lazis_status', '!=', NULL)
+					// 				->first();
 
-						if ($transaksi2->jumlah == NULL) {
-							$transaksi2->jumlah = 0;
-						}
-						$dummy[$name] = $transaksi2->jumlah;
-						$total = $total + $dummy[$name];
-						$count = $count+1;
-					}
+					// 	if ($transaksi2->jumlah == NULL) {
+					// 		$transaksi2->jumlah = 0;
+					// 	}
+					// 	$dummy[$name] = $transaksi2->jumlah;
+					// 	$total = $total + $dummy[$name];
+					// 	$count = $count+1;
+					// }
 
-					if(empty($dummy['yayasan'])) {
-						$dummy['yayasan'] = 0;
-					}
+					// if(empty($dummy['yayasan'])) {
+					// 	$dummy['yayasan'] = 0;
+					// }
 
-					$dummy['jumlah'] = $total;
+					$dummy['jumlah'] = $total ?? $transaksi1->jumlah;
 					$temp[] = $dummy;
 				}
 			}
@@ -1772,55 +1772,55 @@ class PanziswilController extends Controller
 					//get paket
 					$dummy['paket'] = $item2->nama_paket_zakat;
 
-					$lembaga    = DB::table('lembaga')
-								->leftJoin('lembaga_khusus','lembaga.id','=','lembaga_khusus.id_lembaga')
-								->leftJoin('wilayah','wilayah.id','=','lembaga_khusus.id_wilayah')
-								->select('lembaga.*')
-								->where('lembaga_khusus.id_wilayah', $item1->id)
-								->orWhere('lembaga_khusus.id_lembaga', NULL)
-								->orderBy('lembaga.id', 'ASC')
-								->get();
+					// $lembaga    = DB::table('lembaga')
+					// 			->leftJoin('lembaga_khusus','lembaga.id','=','lembaga_khusus.id_lembaga')
+					// 			->leftJoin('wilayah','wilayah.id','=','lembaga_khusus.id_wilayah')
+					// 			->select('lembaga.*')
+					// 			->where('lembaga_khusus.id_wilayah', $item1->id)
+					// 			->orWhere('lembaga_khusus.id_lembaga', NULL)
+					// 			->orderBy('lembaga.id', 'ASC')
+					// 			->get();
 
-					$count = 1;
-					$total = 0;
-					foreach($lembaga as $item3) {
+					// $count = 1;
+					// $total = 0;
+					// foreach($lembaga as $item3) {
 
-						$name = '';
-						if ($item3->nama_lembaga == 'IZI' OR $item3->nama_lembaga == 'izi' or $item3->nama_lembaga == 'Izi') {
-							$name = 'izi';
-						} else if ($item3->nama_lembaga == 'LAZDAI' OR $item3->nama_lembaga == 'lazdai' or $item3->nama_lembaga == 'Lazdai') {
-							$name = 'lazdai';
-						} else if ($item3->nama_lembaga == 'DANA MANDIRI' OR $item3->nama_lembaga == 'dana mandiri' or $item3->nama_lembaga == 'Dana Mandiri') {
-							$name = 'dana_mandiri';
-						} else {
-							$name = 'yayasan';
-						}
+					// 	$name = '';
+					// 	if ($item3->nama_lembaga == 'IZI' OR $item3->nama_lembaga == 'izi' or $item3->nama_lembaga == 'Izi') {
+					// 		$name = 'izi';
+					// 	} else if ($item3->nama_lembaga == 'LAZDAI' OR $item3->nama_lembaga == 'lazdai' or $item3->nama_lembaga == 'Lazdai') {
+					// 		$name = 'lazdai';
+					// 	} else if ($item3->nama_lembaga == 'DANA MANDIRI' OR $item3->nama_lembaga == 'dana mandiri' or $item3->nama_lembaga == 'Dana Mandiri') {
+					// 		$name = 'dana_mandiri';
+					// 	} else {
+					// 		$name = 'yayasan';
+					// 	}
 
-						$transaksi2   = DB::table('transaksi')
-									->leftJoin('users','users.id','=','transaksi.id_users')
-									->where('users.id_wilayah', $item1->id)
-									->where('users.deleted_at', NULL)
-									->join('detail_transaksi','detail_transaksi.id_transaksi','=','transaksi.id')
-									->join('status_transaksi','status_transaksi.id_transaksi','=','transaksi.id')
-									->select(DB::raw('CAST(SUM(detail_transaksi.jumlah) as UNSIGNED) as jumlah'))
-									->where('detail_transaksi.id_paket_zakat', $item2->id)
-									->where('transaksi.id_lembaga', $item3->id)
-									->where('status_transaksi.lazis_status', '!=', NULL)
-									->first();
+					// 	$transaksi2   = DB::table('transaksi')
+					// 				->leftJoin('users','users.id','=','transaksi.id_users')
+					// 				->where('users.id_wilayah', $item1->id)
+					// 				->where('users.deleted_at', NULL)
+					// 				->join('detail_transaksi','detail_transaksi.id_transaksi','=','transaksi.id')
+					// 				->join('status_transaksi','status_transaksi.id_transaksi','=','transaksi.id')
+					// 				->select(DB::raw('CAST(SUM(detail_transaksi.jumlah) as UNSIGNED) as jumlah'))
+					// 				->where('detail_transaksi.id_paket_zakat', $item2->id)
+					// 				->where('transaksi.id_lembaga', $item3->id)
+					// 				->where('status_transaksi.lazis_status', '!=', NULL)
+					// 				->first();
 
-						if ($transaksi2->jumlah == NULL) {
-							$transaksi2->jumlah = 0;
-						}
-						$dummy[$name] = $transaksi2->jumlah;
-						$total = $total + $dummy[$name];
-						$count = $count+1;
-					}
+					// 	if ($transaksi2->jumlah == NULL) {
+					// 		$transaksi2->jumlah = 0;
+					// 	}
+					// 	$dummy[$name] = $transaksi2->jumlah;
+					// 	$total = $total + $dummy[$name];
+					// 	$count = $count+1;
+					// }
 
-					if(empty($dummy['yayasan'])) {
-						$dummy['yayasan'] = 0;
-					}
+					// if(empty($dummy['yayasan'])) {
+					// 	$dummy['yayasan'] = 0;
+					// }
 
-					$dummy['jumlah'] = $total;
+					$dummy['jumlah'] = $total ?? $transaksi1->jumlah;
 					$temp[] = $dummy;
 				}
 			}
@@ -1880,52 +1880,52 @@ class PanziswilController extends Controller
 						$dummy['panziswil'] = ($jumlah->jumlah != NULL) ? round(($dis->panziswil * $jumlah->jumlah) / 100) : 0;
 						$dummy['panzisda'] = ($jumlah->jumlah != NULL) ? round(($dis->panzisda * $jumlah->jumlah) / 100) : 0;
 
-						$lembaga    = DB::table('lembaga')
-									->leftJoin('lembaga_khusus','lembaga.id','=','lembaga_khusus.id_lembaga')
-									->select('lembaga.*')
-									->where('lembaga_khusus.id_wilayah', $wil->id)
-									->orWhere('lembaga_khusus.id_lembaga', NULL)
-									->orderBy('lembaga.id', 'ASC')
-									->get();
+						// $lembaga    = DB::table('lembaga')
+						// 			->leftJoin('lembaga_khusus','lembaga.id','=','lembaga_khusus.id_lembaga')
+						// 			->select('lembaga.*')
+						// 			->where('lembaga_khusus.id_wilayah', $wil->id)
+						// 			->orWhere('lembaga_khusus.id_lembaga', NULL)
+						// 			->orderBy('lembaga.id', 'ASC')
+						// 			->get();
 
-						$total = 0;
-						foreach($lembaga as $item3) {
-							$name = '';
-							if ($item3->nama_lembaga == 'IZI' OR $item3->nama_lembaga == 'izi' or $item3->nama_lembaga == 'Izi') {
-								$name = 'izi';
-							} else if ($item3->nama_lembaga == 'LAZDAI' OR $item3->nama_lembaga == 'lazdai' or $item3->nama_lembaga == 'Lazdai') {
-								$name = 'lazdai';
-							} else if ($item3->nama_lembaga == 'DANA MANDIRI' OR $item3->nama_lembaga == 'dana mandiri' or $item3->nama_lembaga == 'Dana Mandiri') {
-								$name = 'dana_mandiri';
-							} else {
-								$name = 'yayasan';
-							}
+						// $total = 0;
+						// foreach($lembaga as $item3) {
+						// 	$name = '';
+						// 	if ($item3->nama_lembaga == 'IZI' OR $item3->nama_lembaga == 'izi' or $item3->nama_lembaga == 'Izi') {
+						// 		$name = 'izi';
+						// 	} else if ($item3->nama_lembaga == 'LAZDAI' OR $item3->nama_lembaga == 'lazdai' or $item3->nama_lembaga == 'Lazdai') {
+						// 		$name = 'lazdai';
+						// 	} else if ($item3->nama_lembaga == 'DANA MANDIRI' OR $item3->nama_lembaga == 'dana mandiri' or $item3->nama_lembaga == 'Dana Mandiri') {
+						// 		$name = 'dana_mandiri';
+						// 	} else {
+						// 		$name = 'yayasan';
+						// 	}
 
-							$transaksi  = DB::table('transaksi')
-										->join('users','users.id','=','transaksi.id_users')
-										->where('users.id_wilayah', $wil->id)
-										->where('users.deleted_at', NULL)
-										->join('detail_transaksi','detail_transaksi.id_transaksi','=','transaksi.id')
-										->join('status_transaksi','status_transaksi.id_transaksi','=','transaksi.id')
-										->select(DB::raw('CAST(SUM(detail_transaksi.jumlah) as UNSIGNED) as jumlah'))
-										->where('detail_transaksi.id_paket_zakat', $item1->id)
-										->where('transaksi.id_lembaga', $item3->id)
-										->where('status_transaksi.lazis_status', '!=', NULL)
-										->first();
+						// 	$transaksi  = DB::table('transaksi')
+						// 				->join('users','users.id','=','transaksi.id_users')
+						// 				->where('users.id_wilayah', $wil->id)
+						// 				->where('users.deleted_at', NULL)
+						// 				->join('detail_transaksi','detail_transaksi.id_transaksi','=','transaksi.id')
+						// 				->join('status_transaksi','status_transaksi.id_transaksi','=','transaksi.id')
+						// 				->select(DB::raw('CAST(SUM(detail_transaksi.jumlah) as UNSIGNED) as jumlah'))
+						// 				->where('detail_transaksi.id_paket_zakat', $item1->id)
+						// 				->where('transaksi.id_lembaga', $item3->id)
+						// 				->where('status_transaksi.lazis_status', '!=', NULL)
+						// 				->first();
 
-							if($name == 'dana_mandiri') {
-								$dummy[$name] = ($transaksi->jumlah != NULL) ? $transaksi->jumlah : 0;
-							} else {
-								$dummy[$name] = ($transaksi->jumlah != NULL) ? round(($dis->mitra_strategis * $transaksi->jumlah) / 100) : 0;
-							}
-							$total = $total + $dummy[$name];
-						}
+						// 	if($name == 'dana_mandiri') {
+						// 		$dummy[$name] = ($transaksi->jumlah != NULL) ? $transaksi->jumlah : 0;
+						// 	} else {
+						// 		$dummy[$name] = ($transaksi->jumlah != NULL) ? round(($dis->mitra_strategis * $transaksi->jumlah) / 100) : 0;
+						// 	}
+						// 	$total = $total + $dummy[$name];
+						// }
 
-						if(empty($dummy['yayasan'])) {
-							$dummy['yayasan'] = 0;
-						}
+						// if(empty($dummy['yayasan'])) {
+						// 	$dummy['yayasan'] = 0;
+						// }
 					}
-					$dummy['jumlah'] = $dummy['panzisnas'] + $dummy['panziswil'] + $dummy['panzisda'] + $total;
+					$dummy['jumlah'] = $dummy['panzisnas'] + $dummy['panziswil'] + $dummy['panzisda'] + ($total ?? 0);
 					$temp[] = $dummy;
 				}
 			}
@@ -1960,48 +1960,48 @@ class PanziswilController extends Controller
 						$dummys['panziswil'] = ($jumlah->jumlah != NULL) ? round(($dis->panziswil * $jumlah->jumlah) / 100) : 0;
 						$dummys['panzisda'] = ($jumlah->jumlah != NULL) ? round(($dis->panzisda * $jumlah->jumlah) / 100) : 0;
 
-						$lembaga    = DB::table('lembaga')
-									->leftJoin('lembaga_khusus','lembaga.id','=','lembaga_khusus.id_lembaga')
-									->select('lembaga.*')
-									->where('lembaga_khusus.id_wilayah', $wil->id)
-									->orWhere('lembaga_khusus.id_lembaga', NULL)
-									->orderBy('lembaga.id', 'ASC')
-									->get();
+						// $lembaga    = DB::table('lembaga')
+						// 			->leftJoin('lembaga_khusus','lembaga.id','=','lembaga_khusus.id_lembaga')
+						// 			->select('lembaga.*')
+						// 			->where('lembaga_khusus.id_wilayah', $wil->id)
+						// 			->orWhere('lembaga_khusus.id_lembaga', NULL)
+						// 			->orderBy('lembaga.id', 'ASC')
+						// 			->get();
 
-						$totals = 0;
-						foreach($lembaga as $item3) {
-							$name = '';
-							if ($item3->nama_lembaga == 'IZI' OR $item3->nama_lembaga == 'izi' or $item3->nama_lembaga == 'Izi') {
-								$name = 'izi';
-							} else if ($item3->nama_lembaga == 'LAZDAI' OR $item3->nama_lembaga == 'lazdai' or $item3->nama_lembaga == 'Lazdai') {
-								$name = 'lazdai';
-							} else if ($item3->nama_lembaga == 'DANA MANDIRI' OR $item3->nama_lembaga == 'dana mandiri' or $item3->nama_lembaga == 'Dana Mandiri') {
-								$name = 'dana_mandiri';
-							} else {
-								$name = 'yayasan';
-							}
+						// $totals = 0;
+						// foreach($lembaga as $item3) {
+						// 	$name = '';
+						// 	if ($item3->nama_lembaga == 'IZI' OR $item3->nama_lembaga == 'izi' or $item3->nama_lembaga == 'Izi') {
+						// 		$name = 'izi';
+						// 	} else if ($item3->nama_lembaga == 'LAZDAI' OR $item3->nama_lembaga == 'lazdai' or $item3->nama_lembaga == 'Lazdai') {
+						// 		$name = 'lazdai';
+						// 	} else if ($item3->nama_lembaga == 'DANA MANDIRI' OR $item3->nama_lembaga == 'dana mandiri' or $item3->nama_lembaga == 'Dana Mandiri') {
+						// 		$name = 'dana_mandiri';
+						// 	} else {
+						// 		$name = 'yayasan';
+						// 	}
 
-							$transaksi  = DB::table('transaksi')
-										->join('users','users.id','=','transaksi.id_users')
-										->where('users.id_wilayah', $wil->id)
-										->where('users.deleted_at', NULL)
-										->join('detail_transaksi','detail_transaksi.id_transaksi','=','transaksi.id')
-										->join('status_transaksi','status_transaksi.id_transaksi','=','transaksi.id')
-										->select(DB::raw('CAST(SUM(detail_transaksi.jumlah) as UNSIGNED) as jumlah'))
-										->where('detail_transaksi.id_paket_zakat', $item1->id)
-										->where('transaksi.id_lembaga', $item3->id)
-										->where('status_transaksi.lazis_status', '!=', NULL)
-										->first();
+						// 	$transaksi  = DB::table('transaksi')
+						// 				->join('users','users.id','=','transaksi.id_users')
+						// 				->where('users.id_wilayah', $wil->id)
+						// 				->where('users.deleted_at', NULL)
+						// 				->join('detail_transaksi','detail_transaksi.id_transaksi','=','transaksi.id')
+						// 				->join('status_transaksi','status_transaksi.id_transaksi','=','transaksi.id')
+						// 				->select(DB::raw('CAST(SUM(detail_transaksi.jumlah) as UNSIGNED) as jumlah'))
+						// 				->where('detail_transaksi.id_paket_zakat', $item1->id)
+						// 				->where('transaksi.id_lembaga', $item3->id)
+						// 				->where('status_transaksi.lazis_status', '!=', NULL)
+						// 				->first();
 
-							$dummys[$name] = ($transaksi->jumlah != NULL) ? round(($dis->mitra_strategis * $transaksi->jumlah) / 100) : 0;
-							$totals = $totals + $dummys[$name];
-						}
+						// 	$dummys[$name] = ($transaksi->jumlah != NULL) ? round(($dis->mitra_strategis * $transaksi->jumlah) / 100) : 0;
+						// 	$totals = $totals + $dummys[$name];
+						// }
 
-						if(empty($dummys['yayasan'])) {
-							$dummys['yayasan'] = 0;
-						}
+						// if(empty($dummys['yayasan'])) {
+						// 	$dummys['yayasan'] = 0;
+						// }
 					}
-					$dummys['jumlah'] = $dummys['panzisnas'] + $dummys['panziswil'] + $dummys['panzisda'] + $totals;
+					$dummy['jumlah'] = $dummy['panzisnas'] + $dummy['panziswil'] + $dummy['panzisda'] + ($totals ?? 0);
 					$temps[] = $dummys;
 				}
 			}
@@ -2262,54 +2262,54 @@ class PanziswilController extends Controller
 					//get paket
 					$dummy['paket'] = $item2->nama_paket_zakat;
 
-					$lembaga    = DB::table('lembaga')
-								->leftJoin('lembaga_khusus','lembaga.id','=','lembaga_khusus.id_lembaga')
-								->leftJoin('wilayah','wilayah.id','=','lembaga_khusus.id_wilayah')
-								->select('lembaga.*')
-								->where('lembaga_khusus.id_wilayah', $item1->id)
-								->orWhere('lembaga_khusus.id_lembaga', NULL)
-								->orderBy('lembaga.id', 'ASC')
-								->get();
+					// $lembaga    = DB::table('lembaga')
+					// 			->leftJoin('lembaga_khusus','lembaga.id','=','lembaga_khusus.id_lembaga')
+					// 			->leftJoin('wilayah','wilayah.id','=','lembaga_khusus.id_wilayah')
+					// 			->select('lembaga.*')
+					// 			->where('lembaga_khusus.id_wilayah', $item1->id)
+					// 			->orWhere('lembaga_khusus.id_lembaga', NULL)
+					// 			->orderBy('lembaga.id', 'ASC')
+					// 			->get();
 
-					$count = 1;
-					$total = 0;
-					foreach($lembaga as $item3) {
+					// $count = 1;
+					// $total = 0;
+					// foreach($lembaga as $item3) {
 
-						$name = '';
-						if ($item3->nama_lembaga == 'IZI' OR $item3->nama_lembaga == 'izi' or $item3->nama_lembaga == 'Izi') {
-							$name = 'izi';
-						} else if ($item3->nama_lembaga == 'LAZDAI' OR $item3->nama_lembaga == 'lazdai' or $item3->nama_lembaga == 'Lazdai') {
-							$name = 'lazdai';
-						} else if ($item3->nama_lembaga == 'DANA MANDIRI' OR $item3->nama_lembaga == 'dana mandiri' or $item3->nama_lembaga == 'Dana Mandiri') {
-							$name = 'dana_mandiri';
-						} else {
-							$name = 'yayasan';
-						}
+					// 	$name = '';
+					// 	if ($item3->nama_lembaga == 'IZI' OR $item3->nama_lembaga == 'izi' or $item3->nama_lembaga == 'Izi') {
+					// 		$name = 'izi';
+					// 	} else if ($item3->nama_lembaga == 'LAZDAI' OR $item3->nama_lembaga == 'lazdai' or $item3->nama_lembaga == 'Lazdai') {
+					// 		$name = 'lazdai';
+					// 	} else if ($item3->nama_lembaga == 'DANA MANDIRI' OR $item3->nama_lembaga == 'dana mandiri' or $item3->nama_lembaga == 'Dana Mandiri') {
+					// 		$name = 'dana_mandiri';
+					// 	} else {
+					// 		$name = 'yayasan';
+					// 	}
 
-						$transaksi2   = DB::table('transaksi')
-									->leftJoin('users','users.id','=','transaksi.id_users')
-									->where('users.id_wilayah', $item1->id)
-									->where('users.deleted_at', NULL)
-									->join('detail_transaksi','detail_transaksi.id_transaksi','=','transaksi.id')
-									->join('status_transaksi','status_transaksi.id_transaksi','=','transaksi.id')
-									->select(DB::raw('CAST(SUM(detail_transaksi.jumlah) as UNSIGNED) as jumlah'))
-									->where('detail_transaksi.id_paket_zakat', $item2->id)
-									->where('transaksi.id_lembaga', $item3->id)
-									->first();
+					// 	$transaksi2   = DB::table('transaksi')
+					// 				->leftJoin('users','users.id','=','transaksi.id_users')
+					// 				->where('users.id_wilayah', $item1->id)
+					// 				->where('users.deleted_at', NULL)
+					// 				->join('detail_transaksi','detail_transaksi.id_transaksi','=','transaksi.id')
+					// 				->join('status_transaksi','status_transaksi.id_transaksi','=','transaksi.id')
+					// 				->select(DB::raw('CAST(SUM(detail_transaksi.jumlah) as UNSIGNED) as jumlah'))
+					// 				->where('detail_transaksi.id_paket_zakat', $item2->id)
+					// 				->where('transaksi.id_lembaga', $item3->id)
+					// 				->first();
 
-						if ($transaksi2->jumlah == NULL) {
-							$transaksi2->jumlah = 0;
-						}
-						$dummy[$name] = $transaksi2->jumlah;
-						$total = $total + $dummy[$name];
-						$count = $count+1;
-					}
+					// 	if ($transaksi2->jumlah == NULL) {
+					// 		$transaksi2->jumlah = 0;
+					// 	}
+					// 	$dummy[$name] = $transaksi2->jumlah;
+					// 	$total = $total + $dummy[$name];
+					// 	$count = $count+1;
+					// }
 
-					if(empty($dummy['yayasan'])) {
-						$dummy['yayasan'] = 0;
-					}
+					// if(empty($dummy['yayasan'])) {
+					// 	$dummy['yayasan'] = 0;
+					// }
 
-					$dummy['jumlah'] = $total;
+					$dummy['jumlah'] = $total ?? $transaksi1->jumlah;
 					$temp[] = $dummy;
 				}
 			}
@@ -2337,54 +2337,54 @@ class PanziswilController extends Controller
 					//get paket
 					$dummy['paket'] = $item2->nama_paket_zakat;
 
-					$lembaga    = DB::table('lembaga')
-								->leftJoin('lembaga_khusus','lembaga.id','=','lembaga_khusus.id_lembaga')
-								->leftJoin('wilayah','wilayah.id','=','lembaga_khusus.id_wilayah')
-								->select('lembaga.*')
-								->where('lembaga_khusus.id_wilayah', $item1->id)
-								->orWhere('lembaga_khusus.id_lembaga', NULL)
-								->orderBy('lembaga.id', 'ASC')
-								->get();
+					// $lembaga    = DB::table('lembaga')
+					// 			->leftJoin('lembaga_khusus','lembaga.id','=','lembaga_khusus.id_lembaga')
+					// 			->leftJoin('wilayah','wilayah.id','=','lembaga_khusus.id_wilayah')
+					// 			->select('lembaga.*')
+					// 			->where('lembaga_khusus.id_wilayah', $item1->id)
+					// 			->orWhere('lembaga_khusus.id_lembaga', NULL)
+					// 			->orderBy('lembaga.id', 'ASC')
+					// 			->get();
 
-					$count = 1;
-					$total = 0;
-					foreach($lembaga as $item3) {
+					// $count = 1;
+					// $total = 0;
+					// foreach($lembaga as $item3) {
 
-						$name = '';
-						if ($item3->nama_lembaga == 'IZI' OR $item3->nama_lembaga == 'izi' or $item3->nama_lembaga == 'Izi') {
-							$name = 'izi';
-						} else if ($item3->nama_lembaga == 'LAZDAI' OR $item3->nama_lembaga == 'lazdai' or $item3->nama_lembaga == 'Lazdai') {
-							$name = 'lazdai';
-						} else if ($item3->nama_lembaga == 'DANA MANDIRI' OR $item3->nama_lembaga == 'dana mandiri' or $item3->nama_lembaga == 'Dana Mandiri') {
-							$name = 'dana_mandiri';
-						} else {
-							$name = 'yayasan';
-						}
+					// 	$name = '';
+					// 	if ($item3->nama_lembaga == 'IZI' OR $item3->nama_lembaga == 'izi' or $item3->nama_lembaga == 'Izi') {
+					// 		$name = 'izi';
+					// 	} else if ($item3->nama_lembaga == 'LAZDAI' OR $item3->nama_lembaga == 'lazdai' or $item3->nama_lembaga == 'Lazdai') {
+					// 		$name = 'lazdai';
+					// 	} else if ($item3->nama_lembaga == 'DANA MANDIRI' OR $item3->nama_lembaga == 'dana mandiri' or $item3->nama_lembaga == 'Dana Mandiri') {
+					// 		$name = 'dana_mandiri';
+					// 	} else {
+					// 		$name = 'yayasan';
+					// 	}
 
-						$transaksi2   = DB::table('transaksi')
-									->leftJoin('users','users.id','=','transaksi.id_users')
-									->where('users.id_wilayah', $item1->id)
-									->where('users.deleted_at', NULL)
-									->join('detail_transaksi','detail_transaksi.id_transaksi','=','transaksi.id')
-									->join('status_transaksi','status_transaksi.id_transaksi','=','transaksi.id')
-									->select(DB::raw('CAST(SUM(detail_transaksi.jumlah) as UNSIGNED) as jumlah'))
-									->where('detail_transaksi.id_paket_zakat', $item2->id)
-									->where('transaksi.id_lembaga', $item3->id)
-									->first();
+					// 	$transaksi2   = DB::table('transaksi')
+					// 				->leftJoin('users','users.id','=','transaksi.id_users')
+					// 				->where('users.id_wilayah', $item1->id)
+					// 				->where('users.deleted_at', NULL)
+					// 				->join('detail_transaksi','detail_transaksi.id_transaksi','=','transaksi.id')
+					// 				->join('status_transaksi','status_transaksi.id_transaksi','=','transaksi.id')
+					// 				->select(DB::raw('CAST(SUM(detail_transaksi.jumlah) as UNSIGNED) as jumlah'))
+					// 				->where('detail_transaksi.id_paket_zakat', $item2->id)
+					// 				->where('transaksi.id_lembaga', $item3->id)
+					// 				->first();
 
-						if ($transaksi2->jumlah == NULL) {
-							$transaksi2->jumlah = 0;
-						}
-						$dummy[$name] = $transaksi2->jumlah;
-						$total = $total + $dummy[$name];
-						$count = $count+1;
-					}
+					// 	if ($transaksi2->jumlah == NULL) {
+					// 		$transaksi2->jumlah = 0;
+					// 	}
+					// 	$dummy[$name] = $transaksi2->jumlah;
+					// 	$total = $total + $dummy[$name];
+					// 	$count = $count+1;
+					// }
 
-					if(empty($dummy['yayasan'])) {
-						$dummy['yayasan'] = 0;
-					}
+					// if(empty($dummy['yayasan'])) {
+					// 	$dummy['yayasan'] = 0;
+					// }
 
-					$dummy['jumlah'] = $total;
+					$dummy['jumlah'] = $total ?? $transaksi1->jumlah;
 					$temp[] = $dummy;
 				}
 			}

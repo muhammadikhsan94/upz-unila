@@ -20,7 +20,7 @@
                         <tr class="bg-primary">
                             <th> No </th>
                             <th> Wilayah </th>
-                            <th width="13%"> Target Group </th>
+                            <th width="13%"> Target PIC </th>
                             <th width="13%"> Transaksi Relawan </th>
                             <th width="13%"> Validasi PIC Jurusan </th>
                             <th width="13%"> Validasi Fakultas/Lembaga/Biro </th>

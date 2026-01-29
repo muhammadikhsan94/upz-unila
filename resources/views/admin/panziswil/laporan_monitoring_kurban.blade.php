@@ -36,9 +36,9 @@
                             <th rowspan="2"> Daerah </th>
                             <th rowspan="2"> Kode Group </th>
                             <th rowspan="2"> PIC Jurusan </th>
-                            <th rowspan="2"> Target Group </th>
-                            <th colspan="3" style="text-align: center"> Laporan Duta </th>
-                            <th colspan="3" style="text-align: center"> Laporan Manager Group </th>
+                            <th rowspan="2"> Target PIC </th>
+                            <th colspan="3" style="text-align: center"> Laporan Relawan </th>
+                            <th colspan="3" style="text-align: center"> Laporan PIC Jurusan </th>
                             <th colspan="3" style="text-align: center"> Laporan Fakultas/Lembaga/Biro </th>
                             <th rowspan="2"> Data Valid </th>
                         </tr>

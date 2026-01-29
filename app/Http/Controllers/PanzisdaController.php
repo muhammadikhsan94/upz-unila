@@ -291,7 +291,7 @@ class PanzisdaController extends Controller
 		$data['user_lazis']      = $this->user_lazis->where('id', Auth::user()->id)->first();
 		$data['user_panziswil']         = $this->user_panziswil->where('id', Auth::user()->id)->first();
 		$data['user_panzisda']         = $this->user_panzisda->where('id', Auth::user()->id)->first();
-		$data['jabatan']        = Jabatan::whereNotIn('nama_jabatan', ['LAZIS','PANZISDA', 'PANZISWIL'])->get();
+		$data['jabatan']        = Jabatan::whereNotIn('id', [1,2,6])->get();
 		$data['manajerarea']    = DB::table('users')
 								->join('role','role.id_users','=','users.id')
 								->select('users.*')
@@ -529,14 +529,14 @@ class PanzisdaController extends Controller
 					->where('users.deleted_at', NULL)
 					->leftJoin('role','role.id_users','=','users.id')
 					->leftJoin('jabatan','jabatan.id','=','role.id_jabatan')
-					->select('users.id', 'users.nama', 'users.no_hp', 'users.no_punggung', DB::raw('group_concat(jabatan.nama_jabatan SEPARATOR ", ") as jabatan'), DB::raw('group_concat(IF(role.id_atasan IS NULL, "null", role.id_atasan)) as id_atasan'), DB::raw('group_concat(IF(role.id_group IS NULL, "null", role.id_group)) as id_group'))
+					->select('users.id', 'users.nama', 'users.no_hp', 'users.no_punggung', DB::raw('group_concat(jabatan.id SEPARATOR ", ") as jabatan'), DB::raw('group_concat(IF(role.id_atasan IS NULL, "null", role.id_atasan)) as id_atasan'), DB::raw('group_concat(IF(role.id_group IS NULL, "null", role.id_group)) as id_group'))
 					->where('users.id_wilayah', Auth::user()->id_wilayah)
-					->whereNotIn('jabatan.nama_jabatan', ['PANZISDA', 'PANZISWIL', 'LAZIS'])
+					->whereNotIn('jabatan.id', [1,2,6])
 					->where('users.no_punggung', '!=', '000001')
 					->orderBy(DB::raw('role.id_jabatan IS NULL'), 'DESC')
 					->orderBy(DB::raw('role.id_atasan IS NULL'), 'DESC')
 					->orderBy('users.id', 'ASC')
-					->groupBy('users.id','users.no_punggung','users.nama', 'users.no_hp')
+					->groupBy('users.id','users.no_punggung','users.nama', 'users.no_hp','jabatan.id')
 					->get();
 
 		return DataTables::of($user)
@@ -550,7 +550,7 @@ class PanzisdaController extends Controller
 				$id_group = 0;
 
 				for ($i=0;$i<count($jabatan);$i++) {
-					if (($jabatan[$i] == "null") OR ($jabatan[$i] == "DUTA ZAKAT" AND $atasan[$i] == "null") OR ($jabatan[$i] == "DUTA ZAKAT" AND $group[$i] == "null") OR ($jabatan[$i] == "MANAJER AREA" AND $atasan[$i] == "null") OR ($jabatan[$i] == "MANAJER GROUP" AND $atasan[$i] == "null")) {
+					if (($jabatan[$i] == "null") OR ($jabatan[$i] == "5" AND $atasan[$i] == "null") OR ($jabatan[$i] == "5" AND $group[$i] == "null") OR ($jabatan[$i] == "3" AND $atasan[$i] == "null") OR ($jabatan[$i] == "4" AND $atasan[$i] == "null")) {
 						$status = 1;
 						break;
 					}

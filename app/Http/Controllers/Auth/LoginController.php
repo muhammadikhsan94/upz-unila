@@ -52,7 +52,7 @@ class LoginController extends Controller
     public function username()
     {
         $login = request()->input('username');
-        $field = 'username';
+        $field = 'no_punggung';
 
         if (filter_var($login, FILTER_VALIDATE_EMAIL)) {
             $field = 'email';

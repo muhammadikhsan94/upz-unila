@@ -550,7 +550,7 @@ class PanziswilController extends Controller
 		$data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
 		$data['user_panziswil']         = $this->user_panziswil->where('id', Auth::user()->id)->first();
 
-		$data['jabatan']        = Jabatan::whereIn('nama_jabatan', ['LAZIS','PANZISDA'])->get();
+		$data['jabatan']        = Jabatan::whereIn('id', [2,6])->get();
 		$data['wilayah']        = Wilayah::all();
 		$data['group']          = Group::all();
 		$data['lembaga']        = Lembaga::all();
@@ -638,7 +638,7 @@ class PanziswilController extends Controller
             ->join('wilayah','wilayah.id','=','users.id_wilayah')
             ->leftJoin('role','role.id_users','=','users.id')
             ->leftJoin('jabatan','jabatan.id','=','role.id_jabatan')
-            ->select('users.id', 'users.nama', 'users.no_punggung', DB::raw('group_concat(jabatan.nama_jabatan SEPARATOR ",") as jabatan'), 'wilayah.nama_wilayah as wilayah', DB::raw('group_concat(IF(role.id_atasan IS NULL, "null", role.id_atasan)) as id_atasan'), DB::raw('group_concat(IF(role.id_group IS NULL, "null", role.id_group)) as id_group'), DB::raw('group_concat(IF(role.id_lembaga IS NULL, "null", role.id_lembaga)) as id_lembaga'))
+            ->select('users.id', 'users.nama', 'users.no_punggung', DB::raw('group_concat(jabatan.id SEPARATOR ",") as jabatan'), 'wilayah.nama_wilayah as wilayah', DB::raw('group_concat(IF(role.id_atasan IS NULL, "null", role.id_atasan)) as id_atasan'), DB::raw('group_concat(IF(role.id_group IS NULL, "null", role.id_group)) as id_group'), DB::raw('group_concat(IF(role.id_lembaga IS NULL, "null", role.id_lembaga)) as id_lembaga'))
             ->where('users.no_punggung', '!=', '000001')
             ->orderBy(DB::raw('MIN(role.id_jabatan) IS NULL'), 'DESC')
             ->orderBy(DB::raw('MIN(role.id_atasan) IS NULL'), 'DESC')
@@ -657,7 +657,7 @@ class PanziswilController extends Controller
 				$status = 0;
 
 				for ($i=0;$i<count($jabatan);$i++) {
-					if ($user->jabatan == null OR $jabatan[$i] == "null" OR ($jabatan[$i] == "DUTA ZAKAT" AND $atasan[$i] == "null") OR ($jabatan[$i] == "DUTA ZAKAT" AND $group[$i] == "null") OR ($jabatan[$i] == "LAZIS" AND $lembaga[$i] == "null") OR ($jabatan[$i] == "MANAJER AREA" AND $atasan[$i] == "null") OR ($jabatan[$i] == "MANAJER GROUP" AND $atasan[$i] == "null")) {
+					if ($user->jabatan == null OR $jabatan[$i] == "null" OR ($jabatan[$i] == "5" AND $atasan[$i] == "null") OR ($jabatan[$i] == "5" AND $group[$i] == "null") OR ($jabatan[$i] == "6" AND $lembaga[$i] == "null") OR ($jabatan[$i] == "3" AND $atasan[$i] == "null") OR ($jabatan[$i] == "4" AND $atasan[$i] == "null")) {
 						$status = 1;
 						break;
 					}

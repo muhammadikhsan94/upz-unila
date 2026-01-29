@@ -291,7 +291,7 @@
 
         $('#ok-button').click(function() {
             $.ajax({
-                url: "/universitas/user/delete/" + user_id,
+                url: "user/delete/" + user_id,
                 method: "DELETE",
                 data: {
                     "_token": "{{ csrf_token() }}",

@@ -371,7 +371,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/pic_jurusan/donatur/detail/" + id,
+                url: "donatur/detail/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#nama').val(data.nama);
@@ -425,7 +425,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/pic_jurusan/donatur/edit/" + id,
+                url: "donatur/edit/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('.selectpicker').selectpicker('refresh');

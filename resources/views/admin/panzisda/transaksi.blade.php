@@ -483,7 +483,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/fakultas_lembaga/transaksi/detail/" + id,
+                url: "transaksi/detail/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#id').val(id);

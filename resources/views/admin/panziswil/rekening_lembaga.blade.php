@@ -219,7 +219,7 @@
 
         $('#ok-button').click(function() {
             $.ajax({
-                url: "/universitas/rekening-lembaga/delete/" + user_id,
+                url: "rekening-lembaga/delete/" + user_id,
                 method: "DELETE",
                 data: {
                     "_token": "{{ csrf_token() }}",
@@ -253,7 +253,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/universitas/rekening-lembaga/edit/" + id,
+                url: "rekening-lembaga/edit/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#id').val(id);

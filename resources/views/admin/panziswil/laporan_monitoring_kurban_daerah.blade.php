@@ -90,7 +90,7 @@
                 {"className": "dt-center", "targets": [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]},
             ],
             ajax: {
-                url: "/universitas/laporan/monitoring_kurban_daerah/getdata",
+                url: "laporan/monitoring_kurban_daerah/getdata",
             },
             "lengthMenu": [25, 50, 100],
             columns: [{

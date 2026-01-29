@@ -491,7 +491,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/upz/transaksi/detail/" + id,
+                url: "transaksi/detail/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#id').val(id);

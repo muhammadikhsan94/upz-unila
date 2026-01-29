@@ -164,7 +164,7 @@
         var id = $(this).attr('id');
         $.ajax({
             method: "GET",
-            url: "/fakultas_lembaga/donatur/detail/" + id,
+            url: "donatur/detail/" + id,
             dataType: "json",
             success: function(data) {
                 $('#nama').val(data.nama);

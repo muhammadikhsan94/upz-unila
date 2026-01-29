@@ -3390,4 +3390,20 @@ class PanziswilController extends Controller
             ->addIndexColumn()
             ->make(true);
     }
+
+	public function deleteGroup($id)
+	{
+
+		$data = Group::find($id);
+
+		if (empty($data)) {
+			return response()->json(['errors' => [0 => 'Data not found !']]);
+		}
+
+		if (!$data->delete()) {
+			return response()->json(['errors' => [0 => 'Fail to update data']]);
+		} else {
+			return response()->json(['success' => 'Data is successfully updated']);
+		}
+	}
 }

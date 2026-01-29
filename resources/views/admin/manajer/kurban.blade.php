@@ -252,7 +252,7 @@
 
             $.ajax({
                 method: "GET",
-                url: "/pic_jurusan/transaksi_kurban/detail/" + id,
+                url: "transaksi_kurban/detail/" + id,
                 dataType: "json",
                 success: function(data) {
                     id_trx = id;

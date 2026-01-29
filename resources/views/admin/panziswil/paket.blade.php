@@ -191,7 +191,7 @@
 
         $('#ok-button').click(function() {
             $.ajax({
-                url: "/universitas/paket/delete/" + user_id,
+                url: "paket/delete/" + user_id,
                 method: "DELETE",
                 data: {
                     "_token": "{{ csrf_token() }}",
@@ -224,7 +224,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/universitas/paket/edit/" + id,
+                url: "paket/edit/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#id').val(id);

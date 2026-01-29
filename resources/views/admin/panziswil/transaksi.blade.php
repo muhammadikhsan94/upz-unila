@@ -405,7 +405,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/universitas/transaksi/detail/" + id,
+                url: "transaksi/detail/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#id').val(id);
@@ -499,7 +499,7 @@
 
         $('#ok-button').click(function() {
             $.ajax({
-                url: "/universitas/transaksi/delete/" + trxId,
+                url: "transaksi/delete/" + trxId,
                 method: "DELETE",
                 data: {
                     "_token": "{{ csrf_token() }}",

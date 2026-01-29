@@ -138,7 +138,7 @@
 
         $('#ok-button').click(function() {
             $.ajax({
-                url: "/fakultas_lembaga/user/delete/" + user_id,
+                url: "user/delete/" + user_id,
                 method: "DELETE",
                 data: {
                     "_token": "{{ csrf_token() }}",

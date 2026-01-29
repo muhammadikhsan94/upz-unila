@@ -273,7 +273,7 @@
 
             $.ajax({
                 method: "GET",
-                url: "/fakultas_lembaga/transaksi_kurban/detail/" + id,
+                url: "transaksi_kurban/detail/" + id,
                 dataType: "json",
                 success: function(data) {
                     id_trx = id;

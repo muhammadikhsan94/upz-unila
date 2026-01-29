@@ -120,7 +120,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/universitas/group/edit/" + id,
+                url: "group/edit/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#id').val(id);
@@ -167,7 +167,7 @@
 
         $('#ok-button').click(function() {
             $.ajax({
-                url: "/universitas/group/delete/" + user_id,
+                url: "group/delete/" + user_id,
                 method: "DELETE",
                 data: {
                     "_token": "{{ csrf_token() }}",

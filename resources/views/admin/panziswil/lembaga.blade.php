@@ -312,7 +312,7 @@
 
         $('#ok-button').click(function() {
             $.ajax({
-                url: "/universitas/lembaga/delete/" + user_id,
+                url: "lembaga/delete/" + user_id,
                 method: "DELETE",
                 data: {
                     "_token": "{{ csrf_token() }}",
@@ -345,7 +345,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/universitas/lembaga/edit/" + id,
+                url: "lembaga/edit/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#ubah_wilayah').show();

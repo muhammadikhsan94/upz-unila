@@ -293,7 +293,7 @@
 
             $.ajax({
                 method: "GET",
-                url: "/universitas/transaksi_kurban/detail/" + id,
+                url: "transaksi_kurban/detail/" + id,
                 dataType: "json",
                 success: function(data) {
                     id_trx = id;
@@ -416,7 +416,7 @@
 
         $('#ok-button').click(function() {
             $.ajax({
-                url: "/universitas/transaksi_kurban/delete/" + trxId,
+                url: "transaksi_kurban/delete/" + trxId,
                 method: "DELETE",
                 data: {
                     "_token": "{{ csrf_token() }}",

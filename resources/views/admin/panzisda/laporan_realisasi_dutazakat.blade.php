@@ -18,24 +18,25 @@
                 <table id="tabel-realisasi" class="display" style="width: 100%;">
                     <thead>
                         <tr class="bg-primary">
-                            <th rowspan="2" width="5%"> No </th>
-                            <th rowspan="2"> Paket Ziswaf </th>
-                            <th colspan="{{ $data['jumlah_lembaga'] }}"> <center>LEMBAGA</center> </th>
-                            <th rowspan="2"> Jumlah </th>
+                            <th width="5%"> No </th>
+                            <th> Paket Ziswaf </th>
+                            {{-- <th colspan="{{ $data['jumlah_lembaga'] }}"> <center>LEMBAGA</center> </th> --}}
+                            <th> {{ $data['lembaga'][0]->nama_lembaga }} </th>
+                            <th> Jumlah </th>
                         </tr>
-                        <tr class="bg-primary">
+                        {{-- <tr class="bg-primary">
                             @foreach($data['lembaga'] as $lembaga)
                             <th width="17%"> {{ strtoupper(strtolower($lembaga->nama_lembaga)) }} </th>
                             @endforeach
-                        </tr>
+                        </tr> --}}
                     </thead>
                     <tfoot>
                         <tr>
                             <th></th>
                             <th style="text-align:right">TOTAL:</th>
-                            @foreach ($data['lembaga'] as $lembaga)
+                            {{-- @foreach ($data['lembaga'] as $lembaga) --}}
                                 <th></th>
-                            @endforeach
+                            {{-- @endforeach --}}
                             <th></th>
                         </tr>
                     </tfoot>
@@ -82,7 +83,7 @@
                 },
                 "columnDefs": [
                     {"className": "dt-center", "targets": [0]},
-                    {"className": "dt-right", "targets": [2, 3, 4, 5]}
+                    {"className": "dt-right", "targets": [2, 3]}
                 ],
                 ajax: {
                     url: "{{ url('fakultas_lembaga/laporan/realisasi-paketziswaf-dutazakat/getdata') }}",
@@ -91,8 +92,8 @@
                     { data: "id", render: function (data, type, row, meta) { return meta.row + meta.settings._iDisplayStart + 1; } },
                     { data: 'paket' },
                     { data: 'lembaga_1', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
-                    { data: 'lembaga_2', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
-                    { data: 'lembaga_3', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
+                    // { data: 'lembaga_2', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
+                    // { data: 'lembaga_3', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
                     { data: 'jumlah', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
                 ],
                 footerCallback: function( tfoot, data, start, end, display ) {
@@ -113,22 +114,22 @@
                             return convertToRupiah(total);
                         }, 0)
                     );
-                    $(api.column(4).footer()).html(
-                        api.column(4).data().reduce(function ( a, b ) {
-                            a = parseInt(a.toString().replace(/,.*|[^0-9]/g, ''), 10);
-                            b = parseInt(b.toString().replace(/,.*|[^0-9]/g, ''), 10);
-                            total = a+b;
-                            return convertToRupiah(total);
-                        }, 0)
-                    );
-                    $(api.column(5).footer()).html(
-                        api.column(5).data().reduce(function ( a, b ) {
-                            a = parseInt(a.toString().replace(/,.*|[^0-9]/g, ''), 10);
-                            b = parseInt(b.toString().replace(/,.*|[^0-9]/g, ''), 10);
-                            total = a+b;
-                            return convertToRupiah(total);
-                        }, 0)
-                    );
+                    // $(api.column(4).footer()).html(
+                    //     api.column(4).data().reduce(function ( a, b ) {
+                    //         a = parseInt(a.toString().replace(/,.*|[^0-9]/g, ''), 10);
+                    //         b = parseInt(b.toString().replace(/,.*|[^0-9]/g, ''), 10);
+                    //         total = a+b;
+                    //         return convertToRupiah(total);
+                    //     }, 0)
+                    // );
+                    // $(api.column(5).footer()).html(
+                    //     api.column(5).data().reduce(function ( a, b ) {
+                    //         a = parseInt(a.toString().replace(/,.*|[^0-9]/g, ''), 10);
+                    //         b = parseInt(b.toString().replace(/,.*|[^0-9]/g, ''), 10);
+                    //         total = a+b;
+                    //         return convertToRupiah(total);
+                    //     }, 0)
+                    // );
                 }
             });
         } else {
@@ -146,7 +147,7 @@
                 },
                 "columnDefs": [
                     {"className": "dt-center", "targets": [0]},
-                    {"className": "dt-right", "targets": [2, 3, 4, 5, 6]}
+                    {"className": "dt-right", "targets": [2, 3]}
                 ],
                 ajax: {
                     url: "{{ url('fakultas_lembaga/laporan/realisasi-paketziswaf-dutazakat/getdata') }}",
@@ -155,9 +156,9 @@
                     { data: "id", render: function (data, type, row, meta) { return meta.row + meta.settings._iDisplayStart + 1; } },
                     { data: 'paket' },
                     { data: 'lembaga_1', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
-                    { data: 'lembaga_2', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
-                    { data: 'lembaga_3', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
-                    { data: 'lembaga_4', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
+                    // { data: 'lembaga_2', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
+                    // { data: 'lembaga_3', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
+                    // { data: 'lembaga_4', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
                     { data: 'jumlah', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
                 ],
                 footerCallback: function( tfoot, data, start, end, display ) {
@@ -178,30 +179,30 @@
                             return convertToRupiah(total);
                         }, 0)
                     );
-                    $(api.column(4).footer()).html(
-                        api.column(4).data().reduce(function ( a, b ) {
-                            a = parseInt(a.toString().replace(/,.*|[^0-9]/g, ''), 10);
-                            b = parseInt(b.toString().replace(/,.*|[^0-9]/g, ''), 10);
-                            total = a+b;
-                            return convertToRupiah(total);
-                        }, 0)
-                    );
-                    $(api.column(5).footer()).html(
-                        api.column(5).data().reduce(function ( a, b ) {
-                            a = parseInt(a.toString().replace(/,.*|[^0-9]/g, ''), 10);
-                            b = parseInt(b.toString().replace(/,.*|[^0-9]/g, ''), 10);
-                            total = a+b;
-                            return convertToRupiah(total);
-                        }, 0)
-                    );
-                    $(api.column(6).footer()).html(
-                        api.column(6).data().reduce(function ( a, b ) {
-                            a = parseInt(a.toString().replace(/,.*|[^0-9]/g, ''), 10);
-                            b = parseInt(b.toString().replace(/,.*|[^0-9]/g, ''), 10);
-                            total = a+b;
-                            return convertToRupiah(total);
-                        }, 0)
-                    );
+                    // $(api.column(4).footer()).html(
+                    //     api.column(4).data().reduce(function ( a, b ) {
+                    //         a = parseInt(a.toString().replace(/,.*|[^0-9]/g, ''), 10);
+                    //         b = parseInt(b.toString().replace(/,.*|[^0-9]/g, ''), 10);
+                    //         total = a+b;
+                    //         return convertToRupiah(total);
+                    //     }, 0)
+                    // );
+                    // $(api.column(5).footer()).html(
+                    //     api.column(5).data().reduce(function ( a, b ) {
+                    //         a = parseInt(a.toString().replace(/,.*|[^0-9]/g, ''), 10);
+                    //         b = parseInt(b.toString().replace(/,.*|[^0-9]/g, ''), 10);
+                    //         total = a+b;
+                    //         return convertToRupiah(total);
+                    //     }, 0)
+                    // );
+                    // $(api.column(6).footer()).html(
+                    //     api.column(6).data().reduce(function ( a, b ) {
+                    //         a = parseInt(a.toString().replace(/,.*|[^0-9]/g, ''), 10);
+                    //         b = parseInt(b.toString().replace(/,.*|[^0-9]/g, ''), 10);
+                    //         total = a+b;
+                    //         return convertToRupiah(total);
+                    //     }, 0)
+                    // );
                 }
             });
         }

@@ -1360,7 +1360,8 @@ class PanzisdaController extends Controller
 					} else if ($item2->nama_lembaga == 'DANA MANDIRI' OR $item2->nama_lembaga == 'dana mandiri' or $item2->nama_lembaga == 'Dana Mandiri') {
 						$name = 'dana_mandiri';
 					} else {
-						$name = 'yayasan';
+						// $name = 'yayasan';
+						$name = 'upz';
 					}
 
 					$transaksi  = DB::table('transaksi')

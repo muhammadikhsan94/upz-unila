@@ -18,19 +18,20 @@
                 <table id="tabel-realisasi" class="display" style="width: 100%;">
                     <thead>
                         <tr class="bg-primary">
-                            <th rowspan="2" width="5%"> No </th>
-                            <th rowspan="2" width="15%"> Paket Ziswaf </th>
-                            <th rowspan="2" width="10%"> Panzisnas </th>
-                            <th rowspan="2" width="10%"> Universitas </th>
-                            <th rowspan="2" width="10%"> Fakultas/Biro/Lembaga </th>
-                            <th colspan="{{ $data['jumlah_lembaga'] }}" style="text-align: center"> Mitra </th>
-                            <th rowspan="2" width="10%"> Jumlah </th>
+                            <th width="5%"> No </th>
+                            <th width="15%"> Paket Ziswaf </th>
+                            <th width="10%"> Panzisnas </th>
+                            <th width="10%"> Universitas </th>
+                            <th width="10%"> Fakultas/Biro/Lembaga </th>
+                            {{-- <th colspan="{{ $data['jumlah_lembaga'] }}" style="text-align: center"> Mitra </th> --}}
+                            <th width="10%"> {{ $data['lembaga'][0]->nama_lembaga }} </th>
+                            <th width="10%"> Jumlah </th>
                         </tr>
-                        <tr class="bg-primary">
+                        {{-- <tr class="bg-primary">
                             @foreach($data['lembaga'] as $lembaga)
                             <th width="10%"> {{ strtoupper(strtolower($lembaga->nama_lembaga)) }} </th>
                             @endforeach
-                        </tr>
+                        </tr> --}}
                     </thead>
                     <tfoot>
                         <tr>
@@ -39,9 +40,9 @@
                             <th></th>
                             <th></th>
                             <th></th>
-                            @foreach ($data['lembaga'] as $lembaga)
+                            {{-- @foreach ($data['lembaga'] as $lembaga) --}}
                                 <th></th>
-                            @endforeach
+                            {{-- @endforeach --}}
                             <th></th>
                         </tr>
                     </tfoot>
@@ -94,7 +95,7 @@
                 "lengthMenu": [25, 50, 100],
                 "columnDefs": [
                     {"className": "dt-center", "targets": [0]},
-                    {"className": "dt-body-right", "targets": [2,3,4,5,6,7,8]}
+                    {"className": "dt-body-right", "targets": [2,3,4,5,6]}
                 ],
                 ajax: {
                     url: "{{ url('fakultas_lembaga/laporan/distribusi/getdata') }}",
@@ -105,9 +106,9 @@
                     { data: 'panzisnas', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
                     { data: 'panziswil', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
                     { data: 'panzisda', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
-                    { data: 'izi', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
-                    { data: 'lazdai', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
-                    { data: 'dana_mandiri', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
+                    { data: 'upz', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
+                    // { data: 'lazdai', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
+                    // { data: 'dana_mandiri', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
                     { data: 'jumlah', render: $.fn.dataTable.render.number( ',', '.', 0 ) },
                 ],
                 footerCallback: function( tfoot, data, start, end, display ) {
@@ -152,22 +153,22 @@
                             return convertToRupiah(total);
                         }, 0)
                     );
-                    $(api.column(7).footer()).html(
-                        api.column(7).data().reduce(function ( a, b ) {
-                            a = parseInt(a.toString().replace(/,.*|[^0-9]/g, ''), 10);
-                            b = parseInt(b.toString().replace(/,.*|[^0-9]/g, ''), 10);
-                            total = a+b;
-                            return convertToRupiah(total);
-                        }, 0)
-                    );
-                    $(api.column(8).footer()).html(
-                        api.column(8).data().reduce(function ( a, b ) {
-                            a = parseInt(a.toString().replace(/,.*|[^0-9]/g, ''), 10);
-                            b = parseInt(b.toString().replace(/,.*|[^0-9]/g, ''), 10);
-                            total = a+b;
-                            return convertToRupiah(total);
-                        }, 0)
-                    );
+                    // $(api.column(7).footer()).html(
+                    //     api.column(7).data().reduce(function ( a, b ) {
+                    //         a = parseInt(a.toString().replace(/,.*|[^0-9]/g, ''), 10);
+                    //         b = parseInt(b.toString().replace(/,.*|[^0-9]/g, ''), 10);
+                    //         total = a+b;
+                    //         return convertToRupiah(total);
+                    //     }, 0)
+                    // );
+                    // $(api.column(8).footer()).html(
+                    //     api.column(8).data().reduce(function ( a, b ) {
+                    //         a = parseInt(a.toString().replace(/,.*|[^0-9]/g, ''), 10);
+                    //         b = parseInt(b.toString().replace(/,.*|[^0-9]/g, ''), 10);
+                    //         total = a+b;
+                    //         return convertToRupiah(total);
+                    //     }, 0)
+                    // );
                 }
             });
         } else {

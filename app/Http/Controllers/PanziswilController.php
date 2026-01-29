@@ -3325,7 +3325,7 @@ class PanziswilController extends Controller
 			$item->jumlah_dz  	= (is_null($dz->jumlah_nama)) ? 0 : count(explode(";", $dz->jumlah_nama));
 			$item->sapi_dz      = (is_null($sapi_dz->jumlah)) ? 0 : $sapi_dz->jumlah;
 			$item->kambing_dz   = (is_null($kambing_dz->jumlah)) ? 0 : $kambing_dz->jumlah;
-			$item->persen_dz   	= (is_null($item->jumlah_dz)) ? 0 : number_format(($item->jumlah_dz / $item->target) * 100, 2);
+			$item->persen_dz   	= (is_null($item->jumlah_dz) && $item->target == 0) ? 0 : number_format(($item->jumlah_dz / $item->target) * 100, 2);
 
 			$mg					= DB::table('transaksi_kurban as kurban')
 								->whereIn('kurban.id_users', $duta)
@@ -3354,7 +3354,7 @@ class PanziswilController extends Controller
 			$item->jumlah_mg  	= (is_null($mg->jumlah_nama)) ? 0 : count(explode(";", $mg->jumlah_nama));
 			$item->sapi_mg      = (is_null($sapi_mg->jumlah)) ? 0 : $sapi_mg->jumlah;
 			$item->kambing_mg   = (is_null($kambing_mg->jumlah)) ? 0 : $kambing_mg->jumlah;
-			$item->persen_mg   	= (is_null($item->jumlah_mg)) ? 0 : number_format(($item->jumlah_mg / $item->target) * 100, 2);
+			$item->persen_mg   	= (is_null($item->jumlah_mg) && $item->target == 0) ? 0 : number_format(($item->jumlah_mg / $item->target) * 100, 2);
 
 			$pz					= DB::table('transaksi_kurban as kurban')
 								->whereIn('kurban.id_users', $duta)
@@ -3383,7 +3383,7 @@ class PanziswilController extends Controller
 			$item->jumlah_pz  	= (is_null($pz->jumlah_nama)) ? 0 : count(explode(";", $pz->jumlah_nama));
 			$item->sapi_pz      = (is_null($sapi_pz->jumlah)) ? 0 : $sapi_pz->jumlah;
 			$item->kambing_pz   = (is_null($kambing_pz->jumlah)) ? 0 : $kambing_pz->jumlah;
-			$item->persen_pz   	= (is_null($item->jumlah_pz)) ? 0 : number_format(($item->jumlah_pz / $item->target) * 100, 2);
+			$item->persen_pz   	= (is_null($item->jumlah_pz) && $item->target == 0) ? 0 : number_format(($item->jumlah_pz / $item->target) * 100, 2);
 		}
 
         return DataTables::of($data)

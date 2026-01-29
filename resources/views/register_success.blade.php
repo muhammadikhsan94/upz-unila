@@ -31,7 +31,7 @@
 <body>
     <div class="card">
         <p>Selamat bergabung, <b>{{ $user->nama }}</b>.</p>
-        <p>Email anda sudah terdaftar di Aplikasi Unit Pengelola Zakat (<b>www.upz.unila.ac.id</b>).</p>
+        <p>Email anda sudah terdaftar di Aplikasi Unit Pengumpul Zakat (<b>www.upz.unila.ac.id</b>).</p>
         <p>Silahkan login dengan username menggunakan email anda (<b>{{ $user->email }}</b>) atau dapat juga menggunakan kode punggung anda yaitu <b>{{ $user->no_punggung }}</b>.</p>
         <p>Jika ada pertanyaan silahkan balas email ini.</p>
         <h4>Terima kasih</h4>

@@ -71,7 +71,7 @@
         <br><br>
         <p>
             Kepada Bapak/Ibu {{ $data->donatur->nama }}<br><br>
-            Kuitansi ini adalah bukti pembayaran zakat, infaq, dan shodaqoh Anda yang tercatat di Aplikasi Unit Pengelola Zakat. Berikut kami sertakan detail pembayaran Anda:<br><br>
+            Kuitansi ini adalah bukti pembayaran zakat, infaq, dan shodaqoh Anda yang tercatat di Aplikasi Unit Pengumpul Zakat. Berikut kami sertakan detail pembayaran Anda:<br><br>
             <table style="background-color: #eee;padding:5px;">
                 <tbody>
                     <tr>

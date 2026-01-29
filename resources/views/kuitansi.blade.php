@@ -52,7 +52,7 @@
     <div class="container">
         <table>
             <caption>
-                Aplikasi Unit Pengelola Zakat
+                Aplikasi Unit Pengumpul Zakat
             </caption>
             <thead>
                 <tr>

@@ -8,7 +8,7 @@
 
 <div class="box box-info">
     <div class="box-header with-border">
-        <h3 class="box-title">FAQ ZIS (Pertanyaan Seputaran Aplikasi Unit Pengelola Zakat)</h3>
+        <h3 class="box-title">FAQ ZIS (Pertanyaan Seputaran Aplikasi Unit Pengumpul Zakat)</h3>
     </div>
 <!-- wp:list -->
 <div class="box-body">

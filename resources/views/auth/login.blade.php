@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login - Unit Pengelola Zakat Universitas Lampung</title>
+    <title>Login - Unit Pengumpul Zakat Universitas Lampung</title>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- favicon -->
     <link rel="icon" href="{{ asset('images/logo-unila.png') }}" type="image/png">
@@ -236,7 +236,7 @@
                 <div class="logo-container">
                     <img src="{{ asset('images/logo-unila.png') }}" alt="Logo Unila">
                 </div>
-                <h1>Unit Pengelola Zakat</h1>
+                <h1>Unit Pengumpul Zakat</h1>
                 <p>Universitas Lampung</p>
             </div>
 
@@ -300,7 +300,7 @@
         </div>
 
         <p class="copyright">
-            &copy; {{ date('Y') }} Unit Pengelola Zakat - <a href="https://unila.ac.id" target="_blank">Universitas Lampung</a>
+            &copy; {{ date('Y') }} Unit Pengumpul Zakat - <a href="https://unila.ac.id" target="_blank">Universitas Lampung</a>
         </p>
     </div>
 </body>

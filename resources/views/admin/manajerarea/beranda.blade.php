@@ -79,7 +79,7 @@
 				useHTML: true,
 				headerFormat: '<table>',
 				pointFormat: '<tr>' +
-					'<td style="color: {series.color}">Duta Zakat: </td>' +
+					'<td style="color: {series.color}">Relawan: </td>' +
 					'<td style="text-align: right"><b>{point.name}</b></td>' +
 					'</tr><tr>' +
 					'<td style="color: {series.color}">Persentase: </td>' +

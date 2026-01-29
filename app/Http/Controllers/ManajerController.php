@@ -124,9 +124,9 @@ class ManajerController extends Controller
             $dummy['name'] = $item->nama;
             $dummy['y'] = ($y->y != NULL) ? $y->y : 0;
             $dummy['y1'] = format_uang($dummy['y']);
-            $dummy['target'] = ($target->target != NULL) ? $target->target : 0;
+            $dummy['target'] = $target->target ?? 0;
             $dummy['targets'] = format_uang($dummy['target']);
-            $dummy['persentase'] = ($dummy['y'] != 0) ? number_format(($dummy['y'] / $dummy['target']) * 100, 2) : 0;
+            $dummy['persentase'] = ($dummy['y'] != 0 && $dummy['target'] != 0) ? number_format(($dummy['y'] / $dummy['target']) * 100, 2) : 0;
             $tmp[] = $dummy;
         }
         $data['duta'] = $tmp;
@@ -164,8 +164,8 @@ class ManajerController extends Controller
 
             $value1->y = $sumY;
             $value1->y_ = format_uang($sumY);
-            $value1->target_ = format_uang($value1->target);
-            $value1->persentase = ($sumY != 0) ? number_format(($sumY / $value1->target) * 100, 2) : 0;
+            $value1->target_ = format_uang($value1->target ?? 0);
+            $value1->persentase = ($sumY != 0 && $value1->target != 0) ? number_format(($sumY / $value1->target) * 100, 2) : 0;
         }
 
         $data['realisasi']        = $target;

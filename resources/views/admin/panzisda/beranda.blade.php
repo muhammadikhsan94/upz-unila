@@ -97,7 +97,7 @@
 				useHTML: true,
 				headerFormat: '<table>',
 				pointFormat: '<tr>' +
-					'<td>Duta Zakat: </td>' +
+					'<td>Relawan: </td>' +
 					'<td style="text-align: right"><b>{point.name} {point.nama}</b></td>' +
 					'</tr><tr>' +
 					'<td style="color: black">Target: </td>' +
@@ -164,7 +164,7 @@
 				type: 'column'
 			},
 			title: {
-				text: 'Realisasi Pengumpulan Panzisda'
+				text: 'Realisasi Pengumpulan Fakultas/Lembaga/Biro'
 			},
 			accessibility: {
 				announceNewData: {

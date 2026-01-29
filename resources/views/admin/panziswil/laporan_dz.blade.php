@@ -1,14 +1,14 @@
 @extends('template.app')
 
 @section('title')
-- Laporan Data Duta Zakat
+- Laporan Data Relawan
 @endsection
 
 @section('content')
 
 <div class="box box-info">
     <div class="box-header with-border">
-        <h3 class="box-title"><strong>Laporan Data Duta Zakat</strong></h3>
+        <h3 class="box-title"><strong>Laporan Data Relawan</strong></h3>
     </div>
     <div class="box-body">
         <div class="dataTables_scrollBody">
@@ -17,9 +17,9 @@
                     <thead>
                         <tr class="bg-primary">
                             <th> No Punggung </th>
-                            <th> Duta Zakat </th>
-                            <th> Manajer Group </th>
-                            <th> Manajer Area </th>
+                            <th> Relawan </th>
+                            <th> PIC Jurusan </th>
+                            <th> PIC Fakultas </th>
                             <th> Wilayah </th>
                         </tr>
                     </thead>
@@ -51,9 +51,9 @@
         var table = $('#tabel-user').DataTable({
             dom: 'Blfrtip',
             buttons: [
-                {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to Excel', messageTop: 'Laporan Data Duta Zakat', className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }},
-                {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Data Duta Zakat', className: 'btn btn-default btn-sm', pageSize: 'A4'},
-                {name: 'print', extend: 'print', text: 'Print', messageTop: 'Laporan Data Duta Zakat', className: 'btn btn-default btn-sm', pageSize: 'A4'}
+                {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to Excel', messageTop: 'Laporan Data Relawan', className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }},
+                {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Data Relawan', className: 'btn btn-default btn-sm', pageSize: 'A4'},
+                {name: 'print', extend: 'print', text: 'Print', messageTop: 'Laporan Data Relawan', className: 'btn btn-default btn-sm', pageSize: 'A4'}
             ],
             "order": [[ 2, "desc" ]],
             "language": {

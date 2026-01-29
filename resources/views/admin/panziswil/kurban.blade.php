@@ -22,9 +22,9 @@
                     <option value="0">Tampil Semua</option>
                     <option value="1">Valid</option>
                     <option value="2">Tidak Valid</option>
-                    <option value="3">Proses Panziswil</option>
-                    <option value="4">Proses Panzisda</option>
-                    <option value="5">Proses Manajer Group</option>
+                    <option value="3">Proses Universitas</option>
+                    <option value="4">Proses Fakultas/Biro/Lembaga</option>
+                    <option value="5">Proses PIC Jurusan</option>
                 </select>
             </div>
         </div>

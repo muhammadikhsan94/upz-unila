@@ -1,7 +1,7 @@
 @extends('template.app')
 
 @section('title')
-- Laporan Realisasi Paket Ziswaf Berdasarkan Duta Zakat
+- Laporan Realisasi Paket Ziswaf Berdasarkan Relawan
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
 <div class="box box-info">
 
     <div class="box-header with-border">
-        <h3 class="box-title"><strong>Laporan Realisasi Paket Ziswaf Berdasarkan Duta Zakat</strong></h3>
+        <h3 class="box-title"><strong>Laporan Realisasi Paket Ziswaf Berdasarkan Relawan</strong></h3>
     </div>
 
     <div class="box-body">
@@ -71,9 +71,9 @@
             var table = $('#tabel-realisasi').DataTable({
                 dom: 'Blfrtip',
                 buttons: [
-                    {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
-                    {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true},
-                    {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true}
+                    {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
+                    {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true},
+                    {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true}
                 ],
                 "language": {
                     "sEmptyTable": "DATA KOSONG ATAU TIDAK DITEMUKAN !",
@@ -85,7 +85,7 @@
                     {"className": "dt-right", "targets": [2, 3, 4, 5]}
                 ],
                 ajax: {
-                    url: "{{ url('laporan/realisasi-paketziswaf-dutazakat/getdata') }}",
+                    url: "{{ url('fakultas_lembaga/laporan/realisasi-paketziswaf-dutazakat/getdata') }}",
                 },
                 columns: [
                     { data: "id", render: function (data, type, row, meta) { return meta.row + meta.settings._iDisplayStart + 1; } },
@@ -135,9 +135,9 @@
             var table = $('#tabel-realisasi').DataTable({
                 dom: 'Blfrtip',
                 buttons: [
-                    {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
-                    {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true},
-                    {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true}
+                    {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
+                    {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true},
+                    {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true}
                 ],
                 "language": {
                     "sEmptyTable": "DATA KOSONG ATAU TIDAK DITEMUKAN !",
@@ -149,7 +149,7 @@
                     {"className": "dt-right", "targets": [2, 3, 4, 5, 6]}
                 ],
                 ajax: {
-                    url: "{{ url('laporan/realisasi-paketziswaf-dutazakat/getdata') }}",
+                    url: "{{ url('fakultas_lembaga/laporan/realisasi-paketziswaf-dutazakat/getdata') }}",
                 },
                 columns: [
                     { data: "id", render: function (data, type, row, meta) { return meta.row + meta.settings._iDisplayStart + 1; } },

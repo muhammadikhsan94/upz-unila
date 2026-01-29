@@ -126,7 +126,7 @@
 
         $('select').selectpicker();
         $('#wilayah').change(function() {
-            table.ajax.url('laporan/realisasi-paketziswaf/getdata/'+$(this).val()).load();
+            table.ajax.url('realisasi-paketziswaf/getdata/'+$(this).val()).load();
         });
         $('#wilayah').trigger("change");
     });

@@ -8,7 +8,7 @@
 
 <div class="box box-info">
     <div class="box-header with-border">
-        <h3 class="box-title"><strong>Laporan Realisasi Duta Zakat</strong></h3>
+        <h3 class="box-title"><strong>Laporan Realisasi Relawan</strong></h3>
     </div>
 
     <div class="box-body">
@@ -19,7 +19,7 @@
                         <tr class="bg-primary">
                             <th> No </th>
                             <th> No Punggung </th>
-                            <th> Duta Zakat </th>
+                            <th> Relawan </th>
                             <th> Target </th>
                             <th> Realisasi </th>
                             <th> Persentase (%) </th>
@@ -65,9 +65,9 @@
         var table = $('#tabel-realisasi').DataTable({
             dom: 'Blfrtip',
             buttons: [
-                {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Realisasi Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
-                {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Realisasi Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4'},
-                {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Realisasi Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4'}
+                {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Realisasi Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
+                {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Realisasi Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4'},
+                {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Realisasi Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4'}
             ],
             "language": {
                 "sEmptyTable": "DATA KOSONG ATAU TIDAK DITEMUKAN !",
@@ -79,7 +79,7 @@
                 {"className": "dt-right", "targets": [3, 4, 5]}
             ],
             ajax: {
-                url: "{{ url('laporan/transaksi/realisasi') }}",
+                url: "{{ url('pic_jurusan/laporan/transaksi/realisasi') }}",
             },
             columns: [{
                 data: "id",

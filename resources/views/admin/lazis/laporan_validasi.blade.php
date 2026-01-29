@@ -20,9 +20,9 @@
                         <tr class="bg-primary">
                             <th> No </th>
                             <th> Wilayah </th>
-                            <th width="20%"> Transaksi Duta Zakat </th>
-                            <th width="20%"> Validasi Manajer Group </th>
-                            <th width="20%"> Validasi Panzisda </th>
+                            <th width="20%"> Transaksi Relawan </th>
+                            <th width="20%"> Validasi PIC Jurusan </th>
+                            <th width="20%"> Validasi Fakultas/Lembaga/Biro </th>
                             <th width="20%"> Validasi Lazis </th>
                         </tr>
                     </thead>
@@ -65,9 +65,9 @@
         var table = $('#tabel-validasi').DataTable({
             dom: 'Blfrtip',
             buttons: [
-                {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Data Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
-                {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Data Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true},
-                {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Data Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true}
+                {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Data Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
+                {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Data Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true},
+                {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Data Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true}
             ],
             "language": {
                 "sEmptyTable": "DATA KOSONG ATAU TIDAK DITEMUKAN !",
@@ -80,7 +80,7 @@
                 {"className": "dt-right", "targets": [2, 3, 4, 5]}
             ],
             ajax: {
-                url: "{{ url('laporan/validasi/getdata') }}",
+                url: "{{ url('upz/laporan/validasi/getdata') }}",
             },
             columns: [{
                 data: "id",

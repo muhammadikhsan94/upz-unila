@@ -9,7 +9,7 @@
 <div class="box box-info">
 
     <div class="box-header with-border">
-        <h3 class="box-title"><strong>Laporan Kurban Duta Zakat</strong></h3>
+        <h3 class="box-title"><strong>Laporan Kurban Relawan</strong></h3>
     </div>
 
     <div class="box-body">
@@ -70,7 +70,7 @@
             ],
             // "order": [[ 6, "DESC" ]],
             ajax: {
-                url: "{{ url('/realawan/laporan/kurban/getdata') }}",
+                url: "{{ url('relawan/laporan/kurban/getdata') }}",
             },
             columns: [{
                     data: "id",

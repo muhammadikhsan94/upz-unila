@@ -81,10 +81,10 @@ class DaftarDZ implements FromCollection, WithHeadings
         return [
         	'Nomor',
             'Nomor Punggung',
-            'Nama Duta Zakat',
-            'Nama Manajer Group',
-            'Nama Manajer Area',
-            'Wilayah'        
+            'Nama Relawan',
+            'Nama PIC Jurusan',
+            'Nama PIC Fakultas',
+            'Wilayah'
         ];
     }
 }

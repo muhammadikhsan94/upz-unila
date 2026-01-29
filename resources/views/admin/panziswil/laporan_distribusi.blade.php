@@ -36,8 +36,8 @@
                             <th rowspan="2"> Wilayah </th>
                             <th rowspan="2"> Paket Ziswaf </th>
                             <th rowspan="2" width="10%"> Panzisnas </th>
-                            <th rowspan="2" width="10%"> Panziswil </th>
-                            <th rowspan="2" width="10%"> Panzisda </th>
+                            <th rowspan="2" width="10%"> Universitas </th>
+                            <th rowspan="2" width="10%"> Fakultas/Lembaga/Biro </th>
                             <th colspan="4"> <center>Mitra</center> </th>
                             <th rowspan="2" width="10%"> Jumlah </th>
                         </tr>
@@ -195,7 +195,7 @@
 
         $('select').selectpicker();
         $('#pilih_wilayah').change(function() {
-            table.ajax.url('laporan/distribusi/getdata/'+$(this).val()).load();
+            table.ajax.url('distribusi/getdata/'+$(this).val()).load();
         });
         $('#pilih_wilayah').trigger("change");
     });

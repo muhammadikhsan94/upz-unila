@@ -6,7 +6,7 @@
 
 	<div class="alert alert-warning alert-dismissible">
 		<h5><i class="fa fa-exclamation-circle red"></i> Selamat Datang, <b>{{ strtoupper(Auth::user()->nama) }}</b>.</h5>
-		<span style="text-align: justify;">Berikut ini adalah halaman aplikasi zakat untuk anda sebagai Manager Group. Jika anda bukan sebagai Manager Group, silahkan hubungi Panzisda Anda. Terima Kasih.</span>
+		<span style="text-align: justify;">Berikut ini adalah halaman aplikasi zakat untuk anda sebagai PIC Jurusan. Jika anda bukan sebagai PIC Jurusan, silahkan hubungi Fakultas/Jurusan/Biro Anda. Terima Kasih.</span>
 	</div>
 
 </div>
@@ -41,7 +41,7 @@
 				text: 'Transaksi Kurban'
 			},
 			subtitle: {
-				text: 'Data Duta Zakat'
+				text: 'Data Relawan'
 			},
 			accessibility: {
 				announceNewData: {
@@ -78,7 +78,7 @@
 				useHTML: true,
 				headerFormat: '<table>',
 				pointFormat: '<tr>'+
-					'<td style="color: {series.color}">Duta Zakat: </td>' +
+					'<td style="color: {series.color}">Relawan: </td>' +
 					'<td style="text-align: right"><b>{point.name}</b></td>' +
 					'</tr><tr>'+
 					'<td>Target: </td>' +
@@ -136,7 +136,7 @@
 				type: 'column'
 			},
 			title: {
-				text: 'Realisasi Pengumpulan Manajer Group'
+				text: 'Realisasi Pengumpulan PIC Jurusan'
 			},
 			accessibility: {
 				announceNewData: {
@@ -173,7 +173,7 @@
 				useHTML: true,
 				headerFormat: '<table>',
 				pointFormat: '<tr>'+
-					'<td style="color: {series.color}">Duta Zakat: </td>' +
+					'<td style="color: {series.color}">Relawan: </td>' +
 					'<td style="text-align: right"><b>{point.name}</b></td>' +
 					'</tr><tr>'+
 					'<td>Target: </td>' +

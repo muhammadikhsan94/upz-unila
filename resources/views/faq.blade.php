@@ -17,7 +17,7 @@
             Faq ini dibuat dalam bentuk suara, dengan harapan menghemat kuota (dibandingkan dalam bentuk video) serta untuk menikmatinya dapat dilakukan sambil rebahan. Jika dalam bentuk tulisan, maka pengguna aplikasi harus membaca Faq-nya.<br>Selanjutnya, pemakai menginstal aplikasi Spotify jika menggunakan smartphone. Aplikasi ini dapat ditemukan di PlayStore ataupun di AppStore. Jika menggunakan perangkat komputer, untuk mendengarkan FAQ, pengguna tidak perlu menginstal aplikasi apapun.
         </p>
         <ul>
-            <li>Berapa target perolehan Ziswaf masing-masing Duta Zakat?</li>
+            <li>Berapa target perolehan Ziswaf masing-masing Relawan?</li>
             Silahkan disimak di <a href="https://anchor.fm/dwijim/episodes/FAQ-Target-perolehan-Ziswaf-masing-masing-Duta-Zakat-eu6fip" target=new>Podcast</a>
 
             <li>Bagaimana cara login ke dalam aplikasi?</li>

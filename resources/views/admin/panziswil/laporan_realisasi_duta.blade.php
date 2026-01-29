@@ -1,7 +1,7 @@
 @extends('template.app')
 
 @section('title')
-- Laporan Realisasi Duta Zakat
+- Laporan Realisasi Relawan
 @endsection
 
 @section('content')
@@ -9,13 +9,13 @@
 <div class="box box-info">
 
     <div class="box-header with-border">
-        <h3 class="box-title"><strong>Laporan Kurban Duta Zakat</strong></h3>
+        <h3 class="box-title"><strong>Laporan Kurban Relawan</strong></h3>
     </div>
 
     <form class="form-horizontal">
         <div class="box-body">
             <div class="col-md-6">
-                <label for="id_lembaga" class="control-label">Manajer Group:</label>
+                <label for="id_lembaga" class="control-label">PIC Jurusan:</label>
                 <select id="user" class="selectpicker col-sm-5" data-live-search="true" data-style="btn-success" data-size="5">
                     <option value="0">Tampil Semua</option>
                     @foreach($data['manajer'] as $item)
@@ -35,8 +35,8 @@
                             <th> No </th>
                             <th> Wilayah </th>
                             <th> No Punggung </th>
-                            <th> Duta Zakat </th>
-                            <th> Manajer Group </th>
+                            <th> Relawan </th>
+                            <th> PIC Jurusan </th>
                             <th> Target </th>
                             <th> Realisasi Sapi/Kerbau </th>
                             <th> Realisasi Kambing/Domba </th>
@@ -77,9 +77,9 @@
         var table = $('#tabel-realisasi').DataTable({
             dom: 'Blfrtip',
             buttons: [
-                {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Kurban Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
-                {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Kurban Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true},
-                {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Kurban Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true}
+                {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Kurban Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
+                {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Kurban Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true},
+                {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Kurban Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true}
             ],
             "language": {
                 "sEmptyTable": "DATA KOSONG ATAU TIDAK DITEMUKAN !",
@@ -167,7 +167,7 @@
 
         $('select').selectpicker();
         $('#user').change(function() {
-            table.ajax.url('laporan/realisasi_duta/getdata/'+$(this).val()).load();
+            table.ajax.url('realisasi_duta/getdata/'+$(this).val()).load();
         });
         $('#user').trigger("change");
     });

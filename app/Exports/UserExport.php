@@ -18,7 +18,7 @@ class UserExport implements FromCollection, WithHeadings
     function __construct($id) {
         $this->id = $id;
     }
-    
+
     public function collection()
     {
         $duta = DB::table('users')->join('role','role.id_users','=','users.id')->whereNotIn('role.id_jabatan', [1, 2, 3, 6])->join('wilayah','wilayah.id','=','users.id_wilayah')->where('users.id_wilayah', $this->id)->select(DB::raw('ROW_NUMBER() OVER(order by users.id_wilayah ASC) AS nomor'), 'users.id', 'users.no_punggung', 'users.nama', 'wilayah.nama_wilayah', DB::raw('group_concat(role.id_jabatan SEPARATOR ",") as id_jabatan'), DB::raw('group_concat(IF(role.id_atasan IS NULL, "null", role.id_atasan)) as id_atasan'))->groupBy('users.id','users.no_punggung','users.nama','wilayah.nama_wilayah')->orderBy('users.id_wilayah', 'ASC')->orderBy('users.id', 'ASC')->get();
@@ -85,10 +85,10 @@ class UserExport implements FromCollection, WithHeadings
         return [
         	'Nomor',
             'Nomor Punggung',
-            'Nama Duta Zakat',
-            'Nama Manajer Group',
-            'Nama Manajer Area',
-            'Wilayah'        
+            'Nama Relawan',
+            'Nama PIC Jurusan',
+            'Nama PIC Fakultas',
+            'Wilayah'
         ];
     }
 

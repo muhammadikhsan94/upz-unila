@@ -28,8 +28,8 @@
                     <option value="1">Valid</option>
                     <option value="2">Tidak Valid</option>
                     <option value="3">Proses Lazis</option>
-                    <option value="4">Proses Panzisda</option>
-                    <option value="5">Proses Manajer Group</option>
+                    <option value="4">Proses Fakultas/Lembaga/Biro</option>
+                    <option value="5">Proses PIC Jurusan</option>
                 </select>
             </div>
         </div>
@@ -45,7 +45,7 @@
                             <th> No </th>
                             <th> Wilayah </th>
                             <th> Muzakki </th>
-                            <th> Duta Zakat </th>
+                            <th> Relawan </th>
                             <th> Lembaga </th>
                             <th> Paket Zakat </th>
                             <th> Jenis Transaksi </th>

@@ -48,7 +48,7 @@ class IziExport implements FromCollection, WithHeadings
                 ->orderBy('transaksi.id', 'DESC')
                 ->get();
             }
-        
+
         return $data;
     }
 
@@ -56,7 +56,7 @@ class IziExport implements FromCollection, WithHeadings
     {
         return [
             'Nomor Kuitansi',
-            'Nama Duta Zakat',
+            'Nama Relawan',
             'Nomor Punggung',
             'Nama Daerah',
             'Nama Muzakki',

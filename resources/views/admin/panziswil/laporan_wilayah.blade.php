@@ -61,9 +61,9 @@
         var table = $('#tabel-realisasi').DataTable({
             dom: 'Blfrtip',
             buttons: [
-                {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to Excel', messageTop: 'Laporan Realiasi Duta Zakat', className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
-                {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Realiasi Duta Zakat', className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true},
-                {name: 'print', extend: 'print', text: 'Print', messageTop: 'Laporan Realiasi Duta Zakat', className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true}
+                {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to Excel', messageTop: 'Laporan Realiasi Relawan', className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
+                {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Realiasi Relawan', className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true},
+                {name: 'print', extend: 'print', text: 'Print', messageTop: 'Laporan Realiasi Relawan', className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true}
             ],
             "language": {
                 "sEmptyTable": "DATA KOSONG ATAU TIDAK DITEMUKAN !",

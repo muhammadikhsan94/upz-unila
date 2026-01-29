@@ -1,7 +1,7 @@
 @extends('template.app')
 
 @section('title')
-- Laporan Realisasi Duta Zakat
+- Laporan Realisasi Relawan
 @endsection
 
 @section('content')
@@ -36,7 +36,7 @@
                             <th> Daerah </th>
                             <th> Tgl Transaksi </th>
                             <th> No Punggung </th>
-                            <th> Duta Zakat </th>
+                            <th> Relawan </th>
                             <th width="30%"> Pekurban </th>
                             <th> Realisasi Sapi/Kerbau </th>
                             <th> Realisasi Kambing/Domba </th>
@@ -74,9 +74,9 @@
         var table = $('#tabel-realisasi').DataTable({
             dom: 'Blfrtip',
             buttons: [
-                {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Kurban Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
-                {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Kurban Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true},
-                {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Kurban Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true}
+                {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Kurban Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
+                {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Kurban Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true},
+                {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Kurban Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true}
             ],
             "language": {
                 "sEmptyTable": "DATA KOSONG ATAU TIDAK DITEMUKAN !",
@@ -137,7 +137,7 @@
 
         $('select').selectpicker();
         $('#wilayah').change(function() {
-            table.ajax.url('laporan/rincian_kurban/getdata/'+$(this).val()).load();
+            table.ajax.url('rincian_kurban/getdata/'+$(this).val()).load();
         });
         $('#wilayah').trigger("change");
     });

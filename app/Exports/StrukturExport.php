@@ -55,7 +55,7 @@ class StrukturExport implements FromCollection, WithHeadings
     {
         return [
             'Nomor Kuitansi',
-            'Nama Duta Zakat',
+            'Nama Relawan',
             'Nomor Punggung',
             'Nama Daerah',
             'Nama Muzakki',

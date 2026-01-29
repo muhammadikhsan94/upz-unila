@@ -73,7 +73,7 @@
             </div>
 
             <div class="form-group " id="edit-manajer">
-                <label for="manajer_id" class="col-sm-3 control-label">Koordinator Manajer Group</label>
+                <label for="manajer_id" class="col-sm-3 control-label">Koordinator PIC Jurusan</label>
                 <div class="col-sm-5">
                     <select data-size="5" id="manajer_id" name="manajer_id" class="selectpicker" data-live-search="true" title="Pilih Manajer.." oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')">
                         @foreach($data['manajer'] as $key => $manajer)
@@ -95,9 +95,9 @@
             </div>
 
             <div class="form-group " id="edit-spv">
-                <label for="manajer_id" class="col-sm-3 control-label">Koordinator Manajer Area</label>
+                <label for="manajer_id" class="col-sm-3 control-label">Koordinator PIC Fakultas</label>
                 <div class="col-sm-5">
-                    <select data-size="5" id="spv_id" name="spv_id" class="selectpicker" data-live-search="true" title="Pilih Koordinator Manajer Area.." oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')">
+                    <select data-size="5" id="spv_id" name="spv_id" class="selectpicker" data-live-search="true" title="Pilih Koordinator PIC Fakultas.." oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')">
                         @foreach($data['manajerarea'] as $key => $spv)
                             <option value="{{ $spv->id }}">{{ $spv->nama }}</option>
                         @endforeach
@@ -106,9 +106,9 @@
             </div>
 
             <div class="form-group " id="edit-panzisda">
-                <label for="panzisda_id" class="col-sm-3 control-label">Koordinator Panzisda</label>
+                <label for="panzisda_id" class="col-sm-3 control-label">Koordinator Fakultas/Lembaga/Biro</label>
                 <div class="col-sm-5">
-                    <select data-size="5" id="panzisda_id" name="panzisda_id" class="selectpicker" data-live-search="true" title="Pilih Panzisda.." oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')">
+                    <select data-size="5" id="panzisda_id" name="panzisda_id" class="selectpicker" data-live-search="true" title="Pilih Fakultas/Lembaga/Biro.." oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')">
                         @foreach($data['panzisda'] as $key => $panzisda)
                             <option value="{{ $panzisda->id }}">{{ $panzisda->nama }}</option>
                         @endforeach

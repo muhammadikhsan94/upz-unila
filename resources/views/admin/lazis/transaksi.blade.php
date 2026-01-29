@@ -28,8 +28,8 @@
                     <option value="1">Valid</option>
                     <option value="2">Tidak Valid</option>
                     <option value="3">Proses Lazis</option>
-                    <option value="4">Proses Panzisda</option>
-                    <option value="5">Proses Manajer Group</option>
+                    <option value="4">Proses Fakultas/Lembaga/Biro</option>
+                    <option value="5">Proses PIC Jurusan</option>
                 </select>
             </div>
         </div>
@@ -46,7 +46,7 @@
                             <th> Tgl Trf/Kirim </th>
                             <th> Wilayah </th>
                             <th> Muzakki </th>
-                            <th> Duta Zakat </th>
+                            <th> Relawan </th>
                             <th> Lembaga </th>
                             <th> Paket Zakat </th>
                             <th> Jenis Transaksi </th>
@@ -347,9 +347,9 @@
         var table = $('#tabel-transaksi').DataTable({
             dom: 'lfrtip',
             // buttons: [
-            //     {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Transaksi Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, exportOptions: { columns: [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ] }},
-            //     {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Transaksi Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', exportOptions: { columns: [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ] }},
-            //     {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Transaksi Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', exportOptions: { columns: [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ] }}
+            //     {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Transaksi Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, exportOptions: { columns: [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ] }},
+            //     {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Transaksi Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', exportOptions: { columns: [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ] }},
+            //     {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Transaksi Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', exportOptions: { columns: [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ] }}
             // ],
             "language": {
                 "sEmptyTable": "DATA KOSONG ATAU TIDAK DITEMUKAN !",

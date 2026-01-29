@@ -20,11 +20,11 @@
                         <tr class="bg-primary">
                             <th> No </th>
                             <th> Kode Group </th>
-                            <th> Manajer Group </th>
+                            <th> PIC Jurusan </th>
                             <th width="13%"> Target Group </th>
-                            <th width="13%"> Transaksi Duta Zakat </th>
-                            <th width="13%"> Validasi Manajer Group </th>
-                            <th width="13%"> Validasi Panzisda </th>
+                            <th width="13%"> Transaksi Relawan </th>
+                            <th width="13%"> Validasi PIC Jurusan </th>
+                            <th width="13%"> Validasi Fakultas/Lembaga/Biro </th>
                             <th width="13%"> Validasi Lazis </th>
                             <th> % Data Valid </th>
                         </tr>
@@ -71,9 +71,9 @@
         var table = $('#tabel-capaian').DataTable({
             dom: 'Blfrtip',
             buttons: [
-                {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Data Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
-                {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Data Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true},
-                {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Data Duta Zakat - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true}
+                {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Data Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
+                {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Data Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true},
+                {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Data Relawan - Kabupaten/Kota '+asal.nama_wilayah, className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true}
             ],
             "language": {
                 "sEmptyTable": "DATA KOSONG ATAU TIDAK DITEMUKAN !",
@@ -85,7 +85,7 @@
                 {"className": "dt-right", "targets": [3, 4, 5, 6, 7, 8]}
             ],
             ajax: {
-                url: "{{ url('laporan/validasi/getdata') }}",
+                url: "{{ url('fakultas_lembaga/laporan/validasi/getdata') }}",
             },
             columns: [{
                 data: "id",

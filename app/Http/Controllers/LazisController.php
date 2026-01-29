@@ -99,7 +99,7 @@ class LazisController extends Controller
                         ->leftJoin('lembaga', 'lembaga.id','=','role.id_lembaga')
                         ->select('lembaga.*')
                         ->first();
-        
+
         if ($id_lembaga->nama_lembaga == 'IZI' or $id_lembaga->nama_lembaga == 'LAZDAI' or $id_lembaga->nama_lembaga == 'DANA MANDIRI') {
             $wilayah        = Wilayah::all();
         } else {
@@ -281,7 +281,7 @@ class LazisController extends Controller
                         ->groupBy('transaksi.id','wilayah.nama_wilayah','donatur.nama','users.nama','jenis_transaksi.jenis_transaksi','lembaga.nama_lembaga', 'status_transaksi.panzisda_status', 'transaksi.tanggal_transfer', 'status_transaksi.lazis_status', 'status_transaksi.komentar', 'status_transaksi.updated_at', 'status_transaksi.manajer_status')
                         ->get();
         }
-        
+
         return DataTables::of($transaksi)
         ->addIndexColumn()
         ->addColumn('aksi', function($transaksi) {
@@ -381,7 +381,7 @@ class LazisController extends Controller
         $data['user_manajerarea']   = $this->user_manajerarea->where('id', Auth::user()->id)->first();
         $data['user_panzisda']      = $this->user_panzisda->where('id', Auth::user()->id)->first();
         $data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
-        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();      
+        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();
         return view('admin.lazis.laporan_validasi', compact('data'));
     }
 
@@ -424,7 +424,7 @@ class LazisController extends Controller
                         ->select('status_transaksi.manajer_status', 'status_transaksi.panzisda_status', 'status_transaksi.lazis_status', DB::raw('CAST(SUM(detail_transaksi.jumlah) as UNSIGNED) as jumlah'))
                         ->groupBy('status_transaksi.manajer_status', 'status_transaksi.panzisda_status', 'status_transaksi.lazis_status')
                         ->get();
-            
+
             $tmp['nama_wilayah'] = $value->nama_wilayah;
             $tmp['target']      = ($target->target != 0) ? $target->target : 0;
 
@@ -446,7 +446,7 @@ class LazisController extends Controller
 
                 $total = $total + $item->jumlah;
             }
-            
+
             $tmp['total']       = $total;
             $tmp['valid_mg']    = $valid_mg;
             $tmp['valid_pz']    = $valid_pz;
@@ -462,7 +462,7 @@ class LazisController extends Controller
             ->addIndexColumn()
             ->make(true);
     }
-    
+
     public function getLaporanRealisasiPaketZiswaf()
     {
         $data['user']               = $this->user->where('id', Auth::user()->id)->first();
@@ -471,7 +471,7 @@ class LazisController extends Controller
         $data['user_manajerarea']   = $this->user_manajerarea->where('id', Auth::user()->id)->first();
         $data['user_panzisda']      = $this->user_panzisda->where('id', Auth::user()->id)->first();
         $data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
-        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first(); 
+        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();
         $data['lembaga']            = DB::table('lembaga')->join('role','role.id_lembaga','=','lembaga.id')->select('lembaga.nama_lembaga')->where('role.id_users', Auth::user()->id)->where('role.id_lembaga', '!=', NULL)->first();
 
         if ($data['lembaga']->nama_lembaga == 'izi' or $data['lembaga']->nama_lembaga == 'lazdai' or $data['lembaga']->nama_lembaga == 'dana mandiri') {
@@ -479,14 +479,14 @@ class LazisController extends Controller
         } else {
             $data['wilayah']         = Wilayah::where('id', Auth::user()->id_wilayah)->get();
         }
-        
+
         return view('admin.lazis.laporan_realisasi_paket_ziswaf', compact('data'));
     }
 
     public function getDataLaporanRealisasiPaketZiswaf($id)
     {
         $paket      = PaketZakat::all();
-        
+
         $lembaga     = DB::table('users')
                         ->where('users.id', Auth::user()->id)
                         ->join('role','role.id_users','=','users.id')
@@ -564,7 +564,7 @@ class LazisController extends Controller
             ->addIndexColumn()
             ->make(true);
     }
-    
+
     public function getLaporanDistribusi()
     {
         $data['user']               = $this->user->where('id', Auth::user()->id)->first();
@@ -573,7 +573,7 @@ class LazisController extends Controller
         $data['user_manajerarea']   = $this->user_manajerarea->where('id', Auth::user()->id)->first();
         $data['user_panzisda']      = $this->user_panzisda->where('id', Auth::user()->id)->first();
         $data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
-        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();      
+        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();
         $data['lembaga']            = DB::table('lembaga')->join('role','role.id_lembaga','=','lembaga.id')->select('lembaga.nama_lembaga')->where('role.id_users', Auth::user()->id)->where('role.id_jabatan', 6)->first();
 
         return view('admin.lazis.laporan_distribusi', compact('data'));
@@ -596,14 +596,14 @@ class LazisController extends Controller
                         ->where('detail_transaksi.id_paket_zakat', $item1->id)
                         ->where('status_transaksi.lazis_status', '!=', NULL)
                         ->first();
-            
+
             $distribusi     = Distribusi::where('id_paket_zakat', $item1->id)->get();
-            
+
             foreach($distribusi as $dis) {
                 $dummy['panzisnas'] = ($jumlah->jumlah != NULL) ? round(($dis->panzisnas * $jumlah->jumlah) / 100) : 0;
                 $dummy['panziswil'] = ($jumlah->jumlah != NULL) ? round(($dis->panziswil * $jumlah->jumlah) / 100) : 0;
                 $dummy['panzisda'] = ($jumlah->jumlah != NULL) ? round(($dis->panzisda * $jumlah->jumlah) / 100) : 0;
-    
+
                 foreach($lembaga as $item2) {
                     $transaksi  = DB::table('transaksi')
                                 ->leftJoin('users','users.id','=','transaksi.id_users')
@@ -614,7 +614,7 @@ class LazisController extends Controller
                                 ->where('transaksi.id_lembaga', $lembaga)
                                 ->where('status_transaksi.lazis_status', '!=', NULL)
                                 ->first();
-                    
+
                     $dummy['lembaga'] = ($transaksi->jumlah != NULL) ? round(($dis->mitra_strategis * $transaksi->jumlah) / 100) : 0;
                 }
             }

@@ -21,8 +21,8 @@
                             <th width="5%"> No </th>
                             <th width="20%"> Paket Ziswaf </th>
                             <th width="15%"> Panzisnas </th>
-                            <th width="15%"> Panziswil </th>
-                            <th width="15%"> Panzisda </th>
+                            <th width="15%"> Universitas </th>
+                            <th width="15%"> Fakultas/Biro/Lembaga </th>
                             <th width="15%"> Mitra ( {{ strtoupper(strtolower($data['lembaga']->nama_lembaga)) }} ) </th>
                             <th width="15%"> Jumlah </th>
                         </tr>
@@ -84,7 +84,7 @@
                 {"className": "dt-right", "targets": "_all"}
             ],
             ajax: {
-                url: "{{ url('laporan/distribusi/getdata') }}",
+                url: "{{ url('upz/laporan/distribusi/getdata') }}",
             },
             columns: [
                 { data: "id", render: function (data, type, row, meta) { return meta.row + meta.settings._iDisplayStart + 1; } },

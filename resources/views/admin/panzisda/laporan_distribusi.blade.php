@@ -21,8 +21,8 @@
                             <th rowspan="2" width="5%"> No </th>
                             <th rowspan="2" width="15%"> Paket Ziswaf </th>
                             <th rowspan="2" width="10%"> Panzisnas </th>
-                            <th rowspan="2" width="10%"> Panziswil </th>
-                            <th rowspan="2" width="10%"> Panzisda </th>
+                            <th rowspan="2" width="10%"> Universitas </th>
+                            <th rowspan="2" width="10%"> Fakultas/Biro/Lembaga </th>
                             <th colspan="{{ $data['jumlah_lembaga'] }}" style="text-align: center"> Mitra </th>
                             <th rowspan="2" width="10%"> Jumlah </th>
                         </tr>
@@ -97,7 +97,7 @@
                     {"className": "dt-body-right", "targets": [2,3,4,5,6,7,8]}
                 ],
                 ajax: {
-                    url: "{{ url('laporan/distribusi/getdata') }}",
+                    url: "{{ url('fakultas_lembaga/laporan/distribusi/getdata') }}",
                 },
                 columns: [
                     { data: "id", render: function (data, type, row, meta) { return meta.row + meta.settings._iDisplayStart + 1; } },
@@ -189,7 +189,7 @@
                     {"className": "dt-right", "targets": [2,3,4,5,6,7,8,9]}
                 ],
                 ajax: {
-                    url: "{{ url('laporan/distribusi/getdata') }}",
+                    url: "{{ url('fakultas_lembaga/laporan/distribusi/getdata') }}",
                 },
                 columns: [
                     { data: "id", render: function (data, type, row, meta) { return meta.row + meta.settings._iDisplayStart + 1; } },

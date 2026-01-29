@@ -29,8 +29,8 @@
                             <th> No </th>
                             <th> Jenis Paket Zakat </th>
                             <th> Panzisnas (%) </th>
-                            <th> Panziswil (%) </th>
-                            <th> Panzisda (%) </th>
+                            <th> Universitas (%) </th>
+                            <th> Fakultas/Biro/Lembaga (%) </th>
                             <th> Cabang (%) </th>
                             <th> Mitra Strategis (%) </th>
                             <th> Duta (%) </th>
@@ -78,16 +78,16 @@
                     </div>
 
                     <div class="form-group ">
-                        <label for="panziswil" class="col-sm-3 control-label">Panziswil</label>
+                        <label for="panziswil" class="col-sm-3 control-label">Universitas</label>
                         <div class="col-sm-5">
-                            <input class="form-control" id="panziswil" name="panziswil" placeholder="Masukkan Persentase Panziswil" oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')" required>
+                            <input class="form-control" id="panziswil" name="panziswil" placeholder="Masukkan Persentase Universitas" oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')" required>
                         </div>
                     </div>
 
                     <div class="form-group ">
-                        <label for="panzisda" class="col-sm-3 control-label">Panzisda</label>
+                        <label for="panzisda" class="col-sm-3 control-label">Fakultas/Biro/Lembaga</label>
                         <div class="col-sm-5">
-                            <input class="form-control" id="panzisda" name="panzisda" placeholder="Masukkan Persentase Panzisda" oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')" required>
+                            <input class="form-control" id="panzisda" name="panzisda" placeholder="Masukkan Persentase Fakultas/Biro/Lembaga" oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')" required>
                         </div>
                     </div>
 
@@ -153,16 +153,16 @@
                     </div>
 
                     <div class="form-group ">
-                        <label for="edit_panziswil" class="col-sm-3 control-label">Panziswil</label>
+                        <label for="edit_panziswil" class="col-sm-3 control-label">Universitas</label>
                         <div class="col-sm-5">
-                            <input class="form-control" id="edit_panziswil" name="edit_panziswil" placeholder="Masukkan Persentase Panziswil" oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')" required>
+                            <input class="form-control" id="edit_panziswil" name="edit_panziswil" placeholder="Masukkan Persentase Universitas" oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')" required>
                         </div>
                     </div>
 
                     <div class="form-group ">
-                        <label for="edit_panzisda" class="col-sm-3 control-label">Panzisda</label>
+                        <label for="edit_panzisda" class="col-sm-3 control-label">Fakultas/Biro/Lembaga</label>
                         <div class="col-sm-5">
-                            <input class="form-control" id="edit_panzisda" name="edit_panzisda" placeholder="Masukkan Persentase Panzisda" oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')" required>
+                            <input class="form-control" id="edit_panzisda" name="edit_panzisda" placeholder="Masukkan Persentase Fakultas/Biro/Lembaga" oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')" required>
                         </div>
                     </div>
 

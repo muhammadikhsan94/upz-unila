@@ -398,7 +398,7 @@
             $('.selectpicker').selectpicker('refresh');
 
             $.ajax({
-                url: '/realawan/rekening/lembaga/'+lembaga,
+                url: '/relawan/rekening/lembaga/'+lembaga,
                 type: "GET",
                 dataType: "JSON",
                 success:function(data){
@@ -680,7 +680,7 @@
                     var html = '';
                     alert("Data berhasil disimpan!")
                     html = '<div class="alert alert-default">' + data + '</div>';
-                    window.location.replace("{{url('/realawan/transaksi')}}");
+                    window.location.replace("{{url('/relawan/transaksi')}}");
                 },
                 error: function (data) {
                     $('#ok-button').text('Kirim');

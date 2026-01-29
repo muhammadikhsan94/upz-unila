@@ -102,7 +102,7 @@ class HomeController extends Controller
                     return redirect()->to('/fakultas_lembaga');
                 }
                 if($role->id_jabatan == 3){
-                    return redirect()->to('/pic_jurusanarea');
+                    return redirect()->to('/pic_fakultas');
                 }
                 if($role->id_jabatan == 4){
                     return redirect()->to('/pic_jurusan');
@@ -176,12 +176,12 @@ class HomeController extends Controller
     public function userByIdExport($id)
     {
         $wilayah = Wilayah::find($id);
-        return Excel::download(new UserExport($id), 'Data Duta Zakat_'.$wilayah->nama_wilayah.'.xlsx');
+        return Excel::download(new UserExport($id), 'Data Relawan_'.$wilayah->nama_wilayah.'.xlsx');
     }
 
     public function userExport()
     {
-        return Excel::download(new DaftarDZ(), 'Data Semua Duta Zakat.xlsx');
+        return Excel::download(new DaftarDZ(), 'Data Semua Relawan.xlsx');
     }
 
     public function profil()

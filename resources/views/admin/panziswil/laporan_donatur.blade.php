@@ -94,7 +94,7 @@
 
         $('select').selectpicker();
         $('#pilih_wilayah').change(function() {
-            table.ajax.url('laporan/donatur/getdata/'+$(this).val()).load();
+            table.ajax.url('donatur/getdata/'+$(this).val()).load();
         });
         $('#pilih_wilayah').trigger("change");
     });

@@ -24,7 +24,7 @@
                             <th> No </th>
                             <th> Tgl Trf/Kirim </th>
                             <th> Muzakki </th>
-                            <th> Duta Zakat </th>
+                            <th> Relawan </th>
                             <th> Lembaga </th>
                             <th> Paket Zakat </th>
                             <th> Jenis Transaksi </th>
@@ -285,7 +285,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('transaksi/getdata') }}",
+                url: "{{ url('pic_jurusan/transaksi/getdata') }}",
             },
             "columnDefs": [
                 {"className": "dt-center", "targets": [7, 8]}

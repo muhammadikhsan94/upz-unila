@@ -638,10 +638,10 @@ class PanziswilController extends Controller
             ->join('wilayah','wilayah.id','=','users.id_wilayah')
             ->leftJoin('role','role.id_users','=','users.id')
             ->leftJoin('jabatan','jabatan.id','=','role.id_jabatan')
-            ->select('users.id', 'users.nama', 'users.no_punggung', DB::raw('group_concat(jabatan.id SEPARATOR ",") as jabatan'), 'wilayah.nama_wilayah as wilayah', DB::raw('group_concat(IF(role.id_atasan IS NULL, "null", role.id_atasan)) as id_atasan'), DB::raw('group_concat(IF(role.id_group IS NULL, "null", role.id_group)) as id_group'), DB::raw('group_concat(IF(role.id_lembaga IS NULL, "null", role.id_lembaga)) as id_lembaga'))
+            ->select('users.id', 'users.nama', 'users.no_punggung', DB::raw('group_concat(jabatan.nama_jabatan SEPARATOR ",") as jabatan'), 'wilayah.nama_wilayah as wilayah', DB::raw('group_concat(IF(role.id_atasan IS NULL, "null", role.id_atasan)) as id_atasan'), DB::raw('group_concat(IF(role.id_group IS NULL, "null", role.id_group)) as id_group'), DB::raw('group_concat(IF(role.id_lembaga IS NULL, "null", role.id_lembaga)) as id_lembaga'))
             ->where('users.no_punggung', '!=', '000001')
-            ->orderBy(DB::raw('MIN(role.id_jabatan) IS NULL'), 'DESC')
-            ->orderBy(DB::raw('MIN(role.id_atasan) IS NULL'), 'DESC')
+            // ->orderBy(DB::raw('MIN(role.id_jabatan) IS NULL'), 'DESC')
+            // ->orderBy(DB::raw('MIN(role.id_atasan) IS NULL'), 'DESC')
             ->orderBy('users.id', 'ASC')
             ->groupBy('users.id','users.no_punggung','users.nama','wilayah.nama_wilayah')
             ->get();
@@ -1498,8 +1498,8 @@ class PanziswilController extends Controller
 				->join('role','role.id_users','=','users.id')->where('role.id_jabatan', 5)
 				->join('lembaga','lembaga.id','=','transaksi.id_lembaga')
 				->join('wilayah','wilayah.id','=','users.id_wilayah')
-				->select('wilayah.nama_wilayah', 'lembaga.nama_lembaga', 'paketzakat.nama_paket_zakat', DB::raw('CAST(SUM(detail_transaksi.jumlah) as UNSIGNED) as jumlah'))
-				->groupBy('wilayah.nama_wilayah', 'lembaga.nama_lembaga', 'paketzakat.nama_paket_zakat')
+				->select('wilayah.nama_wilayah', 'lembaga.nama_lembaga', 'paketzakat.nama_paket_zakat', DB::raw('CAST(SUM(detail_transaksi.jumlah) as UNSIGNED) as jumlah'), 'wilayah.id','lembaga.id','paketzakat.id')
+				->groupBy('wilayah.id', 'lembaga.id', 'paketzakat.id', 'wilayah.nama_wilayah', 'lembaga.nama_lembaga', 'paketzakat.nama_paket_zakat')
 				->orderBy('wilayah.id', 'ASC')
 				->orderBy('lembaga.id', 'ASC')
 				->orderBy('paketzakat.id', 'ASC')
@@ -1516,8 +1516,8 @@ class PanziswilController extends Controller
 				->join('lembaga','lembaga.id','=','transaksi.id_lembaga')
 				->join('wilayah','wilayah.id','=','users.id_wilayah')
 				->where('wilayah.id', $id)
-				->select('wilayah.nama_wilayah', 'lembaga.nama_lembaga', 'paketzakat.nama_paket_zakat', DB::raw('CAST(SUM(detail_transaksi.jumlah) as UNSIGNED) as jumlah'))
-				->groupBy('wilayah.nama_wilayah', 'lembaga.nama_lembaga', 'paketzakat.nama_paket_zakat')
+				->select('wilayah.id', 'lembaga.id', 'paketzakat.id', 'wilayah.nama_wilayah', 'lembaga.nama_lembaga', 'paketzakat.nama_paket_zakat', DB::raw('CAST(SUM(detail_transaksi.jumlah) as UNSIGNED) as jumlah'))
+				->groupBy('wilayah.id', 'lembaga.id', 'paketzakat.id', 'wilayah.nama_wilayah', 'lembaga.nama_lembaga', 'paketzakat.nama_paket_zakat')
 				->orderBy('wilayah.id', 'ASC')
 				->orderBy('lembaga.id', 'ASC')
 				->orderBy('paketzakat.id', 'ASC')
@@ -3217,7 +3217,7 @@ class PanziswilController extends Controller
 
 				$item->target       = 1;
 				$item->manajer		= $mjr->nama;
-				$item->daerah		= $wilayah->nama_wilayah;
+				$item->daerah		= $wilayah->nama_wilayah ?? null;
 				$item->jumlah_nama  = (is_null($temp->jumlah_nama)) ? 0 : count(explode(";", $temp->jumlah_nama));
 				$item->jumlah       = (is_null($temp->jumlah)) ? 0 : $temp->jumlah;
 				$item->sapi         = (is_null($sapi->jumlah)) ? 0 : $sapi->jumlah;

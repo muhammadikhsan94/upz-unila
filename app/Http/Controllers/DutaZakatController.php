@@ -279,7 +279,7 @@ class DutaZakatController extends Controller
 
         $pdf = PDF::loadView('new_kuitansi', compact('data'));
         $pdf->save(public_path('kuitansi/'.$id.'.pdf'));
-        return $pdf->download('Kuitansi ZISWAF atas nama '.$data->donatur->nama.'.pdf');
+        return $pdf->stream('Kuitansi ZISWAF atas nama '.$data->donatur->nama.'.pdf');
     }
 
     public function simpanDonatur(Request $request)

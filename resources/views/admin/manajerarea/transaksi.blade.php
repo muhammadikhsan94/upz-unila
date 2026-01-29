@@ -24,7 +24,7 @@
                         <tr class="bg-primary">
                             <th> No </th>
                             <th> Muzakki </th>
-                            <th> Duta Zakat </th>
+                            <th> Relawan </th>
                             <th> Penyalur </th>
                             <th> Paket </th>
                             <th> Item </th>
@@ -194,7 +194,7 @@
                 "sSearch": "Cari Data:",
             },
             ajax: {
-                url: "{{ url('/pic_jurusanarea/transaksi/getdata') }}",
+                url: "{{ url('/pic_fakultas/transaksi/getdata') }}",
             },
             columns: [{
                 data: "transaks.id",
@@ -237,7 +237,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/pic_jurusanarea/transaksi/" + id,
+                url: "/pic_fakultas/transaksi/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#id').val(id);
@@ -283,7 +283,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/pic_jurusanarea/transaksi/detail/" + id,
+                url: "/pic_fakultas/transaksi/detail/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#id').val(id);

@@ -226,7 +226,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('transaksi_kurban/getdata') }}",
+                url: "{{ url('pic_jurusan/transaksi_kurban/getdata') }}",
             },
             "columnDefs": [
                 {"className": "dt-center", "targets": [0, 4, 5, 6]}

@@ -325,7 +325,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('/realawan/donatur/getdata') }}",
+                url: "{{ url('relawan/donatur/getdata') }}",
             },
             "columnDefs": [
                 {"className": "dt-center", "targets": [0, 1, 4, 5, 7]}
@@ -371,7 +371,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/realawan/donatur/detail/" + id,
+                url: "/relawan/donatur/detail/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#nama').val(data.nama);
@@ -425,7 +425,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/realawan/donatur/edit/" + id,
+                url: "/relawan/donatur/edit/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('.selectpicker').selectpicker('refresh');

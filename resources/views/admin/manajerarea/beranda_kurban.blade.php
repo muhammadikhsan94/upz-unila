@@ -6,7 +6,7 @@
 
 	<div class="alert alert-warning alert-dismissible">
 		<h5><i class="fa fa-exclamation-circle red"></i> Selamat Datang, <b>{{ strtoupper(Auth::user()->nama) }}</b>.</h5>
-		<span style="text-align: justify;">Berikut ini adalah halaman aplikasi zakat untuk anda sebagai Manajer Area. Jika anda bukan sebagai Manajer Area, silahkan hubungi Panzisda wilayah anda. Terima Kasih.</span>
+		<span style="text-align: justify;">Berikut ini adalah halaman aplikasi zakat untuk anda sebagai PIC Fakultas. Jika anda bukan sebagai PIC Fakultas, silahkan hubungi Fakultas/Jurusan/Biro anda. Terima Kasih.</span>
 	</div>
 
 </div>
@@ -33,10 +33,10 @@
 				type: 'column'
 			},
 			title: {
-				text: 'Realisasi Pengumpulan Manajer Group'
+				text: 'Realisasi Pengumpulan PIC Jurusan'
 			},
 			subtitle: {
-				text: 'Data Duta Zakat'
+				text: 'Data Relawan'
 			},
 			accessibility: {
 				announceNewData: {
@@ -73,7 +73,7 @@
 				useHTML: true,
 				headerFormat: '<table>',
 				pointFormat: '<tr>'+
-					'<td style="color: {series.color}">Duta Zakat: </td>' +
+					'<td style="color: {series.color}">Relawan: </td>' +
 					'<td style="text-align: right"><b>{point.name}</b></td>' +
 					'</tr><tr>' +
 					'<tr><td style="color: {series.color}">{series.name}: </td>' +

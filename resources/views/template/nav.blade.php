@@ -50,7 +50,7 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="{{ route('panziswil.laporanDZ') }}"><i class="fa fa-files-o"></i>  <span>Duta Zakat</span></a></li>
+                            <li><a href="{{ route('panziswil.laporanDZ') }}"><i class="fa fa-files-o"></i>  <span>Relawan</span></a></li>
                             <li class="treeview">
                                 <a href="#">
                                     <i class="fa fa-list"></i>  <span>Monitoring Validasi</span>
@@ -67,7 +67,7 @@
                             <li><a href="{{ route('panziswil.laporanRealisasiDistribusi') }}"><i class="fa fa-files-o"></i>  <span>Realisasi Distribusi</span></a></li>
                             <li><a href="{{ route('panziswil.laporanJenisZiswaf') }}"><i class="fa fa-files-o"></i>  <span>Realisasi Jenis Ziswaf</span></a></li>
                             <li><a href="{{ route('panziswil.laporanRealisasiPaketZiswaf') }}"><i class="fa fa-files-o"></i>  <span>Realisasi Paket Ziswaf</span></a></li>
-                            <li><a href="{{ route('panziswil.laporanRealisasiDutaZakat') }}"><i class="fa fa-files-o"></i>  <span>Realisasi Duta Zakat</span></a></li>
+                            <li><a href="{{ route('panziswil.laporanRealisasiDutaZakat') }}"><i class="fa fa-files-o"></i>  <span>Realisasi Relawan</span></a></li>
                         </ul>
                     </li>
                     <li class="header" style="background-color:#1c2529;color:#fff"><strong>Kurban</strong></li>
@@ -115,14 +115,14 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="{{ route('panzisda.laporanDZ') }}"><i class="fa fa-files-o"></i>  <span>Duta Zakat</span></a></li>
+                            <li><a href="{{ route('panzisda.laporanDZ') }}"><i class="fa fa-files-o"></i>  <span>Relawan</span></a></li>
                             <li><a href="{{ route('panzisda.laporanValidasi') }}"><i class="fa fa-files-o"></i>  <span>Monitoring Validasi</span></a></li>
                             <li><a href="{{ route('panzisda.laporanDonatur') }}"><i class="fa fa-files-o"></i>  <span>Muzakki</span></a></li>
-                            <li><a href="{{ route('panzisda.laporanRealisasi') }}"><i class="fa fa-files-o"></i>  <span>Realisasi Duta Zakat</span></a></li>
+                            <li><a href="{{ route('panzisda.laporanRealisasi') }}"><i class="fa fa-files-o"></i>  <span>Realisasi Relawan</span></a></li>
                             <li><a href="{{ route('panzisda.laporanRealisasiDistribusi') }}"><i class="fa fa-files-o"></i>  <span>Realisasi Distribusi</span></a></li>
                             <li><a href="{{ route('panzisda.laporanRealisasiPaketZiswaf') }}"><i class="fa fa-files-o"></i>  <span>Realisasi Paket Ziswaf</span></a></li>
                             <li><a href="{{ route('panzisda.laporanRekonsiliasi') }}"><i class="fa fa-files-o"></i>  <span>Rekonsiliasi Ziswaf</span></a></li>
-                            <li><a href="{{ route('panzisda.laporanRealisasiDutaZakat') }}"><i class="fa fa-files-o"></i>  <span>Realisasi Duta Zakat</span></a></li>
+                            <li><a href="{{ route('panzisda.laporanRealisasiDutaZakat') }}"><i class="fa fa-files-o"></i>  <span>Realisasi Relawan</span></a></li>
                         </ul>
                     </li>
                     <li class="header" style="background-color:#1c2529;color:#fff"><strong>Kurban</strong></li>
@@ -179,7 +179,7 @@
                     <li class="header" style="background-color:#1c2529;color:#fff;margin-top: 10px"><strong>Zakat</strong></li>
                     <li><a href="{{route('manajer.beranda')}}"><i class="fa fa-home"></i>  <span>Beranda Zakat</span></a></li>
                     <li><a href="{{route('manajer.transaksi')}}"><i class="fa fa-list"></i>  <span>Kelola Transaksi Zakat</span></a></li>
-                    <li><a href="{{route('manajer.user')}}"><i class="fa  fa-users"></i>  <span>Kelola Duta Zakat</span></a></li>
+                    <li><a href="{{route('manajer.user')}}"><i class="fa  fa-users"></i>  <span>Kelola Relawan</span></a></li>
                     <li><a href="{{route('manajer.donatur')}}"><i class="fa  fa-users"></i>  <span>Kelola Muzakki</span></a></li>
                     <li><a href="{{ route('manajer.laporan') }}"><i class="fa fa-list"></i>  <span>Kelola Laporan Zakat</span></a></li>
                     <li class="header" style="background-color:#1c2529;color:#fff"><strong>Kurban</strong></li>

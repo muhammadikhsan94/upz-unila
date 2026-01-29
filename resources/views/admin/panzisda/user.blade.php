@@ -88,7 +88,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('user/getdata') }}",
+                url: "{{ url('fakultas_lembaga/user/getdata') }}",
             },
             columnDefs: [{
                 targets: 3,

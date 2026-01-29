@@ -22,8 +22,8 @@
                     <option value="0">Tampil Semua</option>
                     <option value="1">Valid</option>
                     <option value="2">Tidak Valid</option>
-                    <option value="3">Proses Panzisda</option>
-                    <option value="4">Proses Manajer Group</option>
+                    <option value="3">Proses Fakultas/Lembaga/Biro</option>
+                    <option value="4">Proses PIC Jurusan</option>
                 </select>
             </div>
         </div>

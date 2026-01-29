@@ -51,7 +51,7 @@
 				text: 'Transaksi'
 			},
 			subtitle: {
-				text: 'Data Duta Zakat'
+				text: 'Data Relawan'
 			},
 			accessibility: {
 				announceNewData: {
@@ -88,7 +88,7 @@
 				useHTML: true,
 				headerFormat: '<table>',
 				pointFormat: '<tr>'+
-					'<td style="color: {series.color}">Duta Zakat: </td>' +
+					'<td style="color: {series.color}">Relawan: </td>' +
 					'<td style="text-align: right"><b>{point.name}</b></td>' +
 					'</tr><tr>' +
 					'<td style="color: blue">Persentase: </td>' +
@@ -138,7 +138,7 @@
 				type: 'column'
 			},
 			title: {
-				text: 'Realisasi Pengumpulan Manajer Group'
+				text: 'Realisasi Pengumpulan PIC Jurusan'
 			},
 			accessibility: {
 				announceNewData: {
@@ -181,7 +181,7 @@
 					useHTML: true,
 					headerFormat: '<table>',
 					pointFormat: '<tr>' +
-						'<td style="color: red">Manajer Group: </td>' +
+						'<td style="color: red">PIC Jurusan: </td>' +
 						'<td style="text-align: right"><b>{point.name}</b></td>' +
 						'</tr><tr>' +
 						'<td style="color: blue">Persentase: </td>' +

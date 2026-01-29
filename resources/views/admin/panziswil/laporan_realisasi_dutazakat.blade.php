@@ -1,7 +1,7 @@
 @extends('template.app')
 
 @section('title')
-- Laporan Realisasi Paket Ziswaf Berdasarkan Duta Zakat
+- Laporan Realisasi Paket Ziswaf Berdasarkan Relawan
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
 <div class="box box-info">
 
     <div class="box-header with-border">
-        <h3 class="box-title"><strong>Laporan Realisasi Paket Ziswaf Berdasarkan Duta Zakat</strong></h3>
+        <h3 class="box-title"><strong>Laporan Realisasi Paket Ziswaf Berdasarkan Relawan</strong></h3>
     </div>
 
     <form class="form-horizontal">
@@ -87,9 +87,9 @@
         var table = $('#tabel-realisasi').DataTable({
             dom: 'Blfrtip',
             buttons: [
-                {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Duta Zakat - PANZISWIL', className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
-                {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Duta Zakat - PANZISWIL', className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true},
-                {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Duta Zakat - PANZISWIL', className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true}
+                {name: 'excelHtml5', extend: 'excelHtml5', text: 'Export to EXCEL', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Relawan - PANZISWIL', className: 'btn btn-default btn-sm', pageSize: 'A4', autoFilter: true, customize: function ( xlsx ){ var sheet = xlsx.xl.worksheets['sheet1.xml']; $('row c', sheet).attr( 's', '25' ); }, footer: true},
+                {name: 'pdfHtml5', extend: 'pdfHtml5', text: 'Export to PDF', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Relawan - PANZISWIL', className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true},
+                {name: 'print', extend: 'print', text: 'PRINT', messageTop: 'Laporan Realisasi Paket Ziswaf Berdasarkan Relawan - PANZISWIL', className: 'btn btn-default btn-sm', pageSize: 'A4', footer: true}
             ],
             "language": {
                 "sEmptyTable": "DATA KOSONG ATAU TIDAK DITEMUKAN !",
@@ -163,7 +163,7 @@
 
         $('select').selectpicker();
         $('#pilih_wilayah').change(function() {
-            table.ajax.url('laporan/realisasi-paketziswaf-dutazakat/getdata/'+$(this).val()).load();
+            table.ajax.url('realisasi-paketziswaf-dutazakat/getdata/'+$(this).val()).load();
         });
         $('#pilih_wilayah').trigger("change");
     });

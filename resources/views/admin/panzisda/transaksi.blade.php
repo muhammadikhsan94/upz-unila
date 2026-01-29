@@ -23,8 +23,8 @@
                     <option value="0">Tampil Semua</option>
                     <option value="1">Valid</option>
                     <option value="2">Tidak Valid</option>
-                    <option value="3">Proses Panzisda</option>
-                    <option value="4">Proses Manajer Group</option>
+                    <option value="3">Proses Fakultas/Lembaga/Biro</option>
+                    <option value="4">Proses PIC Jurusan</option>
                 </select>
             </div>
         </div>
@@ -40,8 +40,8 @@
                             <th> No </th>
                             <th> Tgl Trf/Kirim </th>
                             <th> Muzakki </th>
-                            <th> Duta Zakat </th>
-                            <th> Manajer Group </th>
+                            <th> Relawan </th>
+                            <th> PIC Jurusan </th>
                             <th> Lembaga </th>
                             <th> Paket Zakat </th>
                             <th> Jenis Transaksi </th>

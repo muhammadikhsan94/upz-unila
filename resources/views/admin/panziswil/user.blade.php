@@ -86,7 +86,7 @@
     </div>
 </div>
 
-<!-- Form Modal Start Edit Panzisda -->
+<!-- Form Modal Start Edit Fakultas/Lembaga/Biro -->
 <div id="formModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -151,9 +151,9 @@
                     </div>
 
                     <div class="form-group " id="atasan_panzisda">
-                        <label for="panzisda_id" class="col-sm-3 control-label">Koordinator Panzisda</label>
+                        <label for="panzisda_id" class="col-sm-3 control-label">Koordinator Fakultas/Lembaga/Biro</label>
                         <div class="col-sm-5">
-                            <select data-size="5" id="panzisda_id" name="panzisda_id" class="selectpicker" data-live-search="true" title="Pilih Panzisda.." oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')">
+                            <select data-size="5" id="panzisda_id" name="panzisda_id" class="selectpicker" data-live-search="true" title="Pilih Fakultas/Lembaga/Biro.." oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')">
                                 @foreach($data['panzisda'] as $key => $atasan)
                                 <option value="{{ $atasan->id }}">{{ $atasan->nama }}</option>
                                 @endforeach
@@ -162,7 +162,7 @@
                     </div>
 
                     <div class="form-group " id="atasan_manajerarea">
-                        <label for="manajerarea_id" class="col-sm-3 control-label">Koordinator Manajer Area</label>
+                        <label for="manajerarea_id" class="col-sm-3 control-label">Koordinator PIC Fakultas</label>
                         <div class="col-sm-5">
                             <select data-size="5" id="manajerarea_id" name="manajerarea_id" class="selectpicker" data-live-search="true" title="Pilih Manajer.." oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')">
                                 @foreach($data['manajerarea'] as $key => $atasan)
@@ -173,7 +173,7 @@
                     </div>
 
                     <div class="form-group " id="atasan_manajer">
-                        <label for="manajer_id" class="col-sm-3 control-label">Koordinator Manajer Group</label>
+                        <label for="manajer_id" class="col-sm-3 control-label">Koordinator PIC Jurusan</label>
                         <div class="col-sm-5">
                             <select data-size="5" id="manajer_id" name="manajer_id" class="selectpicker" data-live-search="true" title="Pilih Manajer.." oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')">
                                 @foreach($data['manajer'] as $key => $atasan)
@@ -213,7 +213,7 @@
         </div>
     </div>
 </div>
-<!-- Form Modal End Edit Panzisda -->
+<!-- Form Modal End Edit Fakultas/Lembaga/Biro -->
 
 <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">

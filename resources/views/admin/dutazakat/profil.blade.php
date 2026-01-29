@@ -118,7 +118,7 @@
         });
 
         $(document).on('click', '.batal', function() {
-            window.location = "/realawan";
+            window.location = "/relawan";
         });
 
         //Submit

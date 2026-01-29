@@ -23,7 +23,7 @@
                             <th> Lembaga </th>
                             <th> Jenis Transaksi </th>
                             <th> Rek Bank </th>
-                            <th> Duta Zakat </th>
+                            <th> Relawan </th>
                             <th> Paket Zakat </th>
                             <th> Tanggal Transaksi </th>
                             <th> Keterangan </th>
@@ -87,7 +87,7 @@
                 {"className": "dt-right", "targets": [9]}
             ],
             ajax: {
-                url: "{{ url('laporan/rekonsiliasi/getdata') }}",
+                url: "{{ url('fakultas_lembaga/laporan/rekonsiliasi/getdata') }}",
             },
             columns: [{
                 data: "id",

@@ -16,7 +16,7 @@
 
     <div class="box-body">
         <div class="col-md-6" style="margin-bottom: 20px;">
-            <a class="btn btn-primary btn-md" href="{{url('/realawan/transaksi_kurban/tambah')}}">
+            <a class="btn btn-primary btn-md" href="{{url('/relawan/transaksi_kurban/tambah')}}">
                 <i class="fa fa-plus"> Tambah Transaksi </i>
             </a>
         </div>
@@ -159,7 +159,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('/realawan/transaksi_kurban/getdata') }}",
+                url: "{{ url('relawan/transaksi_kurban/getdata') }}",
             },
             "columnDefs": [
                 {"className": "dt-center", "targets": [0, 4, 5, 6]}
@@ -185,7 +185,7 @@
 
             $.ajax({
                 method: "GET",
-                url: "/realawan/transaksi_kurban/detail/" + id,
+                url: "/relawan/transaksi_kurban/detail/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#id').val(id);
@@ -242,7 +242,7 @@
 
         $(document).on('click', '.edit', function() {
             var id = $(this).attr('id');
-            window.location = "/realawan/transaksi_kurban/edit/"+id;
+            window.location = "/relawan/transaksi_kurban/edit/"+id;
         });
 
         $(document).on('click', '.delete', function() {
@@ -252,7 +252,7 @@
 
         $('#ok-button').click(function() {
             $.ajax({
-                url: "/realawan/transaksi_kurban/delete/" + trxId,
+                url: "/relawan/transaksi_kurban/delete/" + trxId,
                 method: "DELETE",
                 data: {
                     "_token": "{{ csrf_token() }}",

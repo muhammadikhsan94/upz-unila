@@ -92,7 +92,7 @@
                 {"className": "dt-right", "targets": [6]}
             ],
             ajax: {
-                url: "{{ url('/realawan/laporan/transaksi') }}",
+                url: "{{ url('relawan/laporan/transaksi') }}",
             },
             columns: [{
                 data: "id",

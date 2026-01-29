@@ -60,7 +60,7 @@
             </div>
 
             <div class="form-group " id="atasan_manajerarea">
-                <label for="manajerarea_id" class="col-sm-3 control-label">Koordinator Manajer Area</label>
+                <label for="manajerarea_id" class="col-sm-3 control-label">Koordinator PIC Fakultas</label>
                 <div class="col-sm-5">
                     <select data-size="5" id="manajerarea_id" name="manajerarea_id" class="selectpicker" data-live-search="true" title="Pilih Manajer.." oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')">
                         @foreach($data['manajerarea'] as $key => $atasan)
@@ -71,7 +71,7 @@
             </div>
 
             <div class="form-group " id="atasan_manajer">
-                <label for="manajer_id" class="col-sm-3 control-label">Koordinator Manajer Group</label>
+                <label for="manajer_id" class="col-sm-3 control-label">Koordinator PIC Jurusan</label>
                 <div class="col-sm-5">
                     <select data-size="5" id="manajer_id" name="manajer_id" class="selectpicker" data-live-search="true" title="Pilih Manajer.." oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')">
                         @foreach($data['manajer'] as $key => $atasan)

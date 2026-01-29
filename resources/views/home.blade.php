@@ -38,7 +38,7 @@
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
-            <p class="login-box-msg">Status Login Anda Belum Di Verifikasi.<br>Silahkan Hubungi Panzisda Wilayah Anda.<br>Terima Kasih.</p>
+            <p class="login-box-msg">Status Login Anda Belum Di Verifikasi.<br>Silahkan Hubungi Fakultas/Lembaga/Biro Anda.<br>Terima Kasih.</p>
             <p class="login-box-msg"><a type="button" class="btn btn-danger" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span>Logout</span></a></p>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf

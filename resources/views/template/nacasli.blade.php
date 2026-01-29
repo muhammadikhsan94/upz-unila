@@ -10,17 +10,17 @@
                     <p><small>{{ strtoupper(Auth::user()->nama) }}</small></p>
                     <!-- Status -->
                     @if($data['user']->id_jabatan == 1)
-                    <small>Panziswil</small>
+                    <small>Universitas</small>
                     @elseif($data['user']->id_jabatan == 2)
-                    <small>Panzisda</small>
+                    <small>Fakultas/Biro/Lembaga</small>
                     @elseif($data['user']->id_jabatan == 3)
-                    <small>Manajer Area</small>
+                    <small>PIC Fakultas</small>
                     @elseif($data['user']->id_jabatan == 4)
-                    <small>Manajer Group</small>
+                    <small>PIC Jurusan</small>
                     @elseif($data['user']->id_jabatan == 5)
-                    <small>Duta Zakat</small>
+                    <small>Relawan</small>
                     @elseif($data['user']->id_jabatan == 99)
-                    <small>Lazis</small>
+                    <small>UPZ</small>
                     @else
                     @endif
                 </div>
@@ -40,7 +40,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Panziswil</span>
+                    <span>Sebagai Universitas</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -60,7 +60,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Duta Zakat</span>
+                    <span>Sebagai Relawan</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -76,7 +76,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Manajer Group</span>
+                    <span>Sebagai PIC Jurusan</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -89,7 +89,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Manajer Area</span>
+                    <span>Sebagai PIC Fakultas</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -102,7 +102,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Panzisda</span>
+                    <span>Sebagai Fakultas/Lembaga/Biro</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -131,7 +131,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Panzisda</span>
+                    <span>Sebagai Fakultas/Lembaga/Biro</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -147,7 +147,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Duta Zakat</span>
+                    <span>Sebagai Relawan</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -163,7 +163,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Manajer Group</span>
+                    <span>Sebagai PIC Jurusan</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -176,7 +176,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Manajer Area</span>
+                    <span>Sebagai PIC Fakultas</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -189,7 +189,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Panziswil</span>
+                    <span>Sebagai Universitas</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -219,7 +219,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Duta Zakat</span>
+                    <span>Sebagai Relawan</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -235,7 +235,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Manajer Group</span>
+                    <span>Sebagai PIC Jurusan</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -248,7 +248,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Panziswil</span>
+                    <span>Sebagai Universitas</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -261,7 +261,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Panzisda</span>
+                    <span>Sebagai Fakultas/Lembaga/Biro</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -297,16 +297,16 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{route('manajer.user')}}"><i class="fa fa-users"></i>  <span>Data Duta Zakat</span></a></li>
+                    <li><a href="{{route('manajer.user')}}"><i class="fa fa-users"></i>  <span>Data Relawan</span></a></li>
                     <li><a href="{{route('manajer.transaksi')}}"><i class="fa fa-shopping-cart"></i>  <span>Kelola Transaksi</span></a></li>
                 </ul>
             </li>
-            
+
             @if ($data['user_duta'] != NULL)
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Duta Zakat</span>
+                    <span>Sebagai Relawan</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -322,7 +322,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Panziswil</span>
+                    <span>Sebagai Universitas</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -335,7 +335,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Manajer Area</span>
+                    <span>Sebagai PIC Fakultas</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -348,7 +348,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Panzisda</span>
+                    <span>Sebagai Fakultas/Lembaga/Biro</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -385,7 +385,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Duta Zakat</span>
+                    <span>Sebagai Relawan</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -401,7 +401,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Panziswil</span>
+                    <span>Sebagai Universitas</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -414,7 +414,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Manajer Area</span>
+                    <span>Sebagai PIC Fakultas</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -427,7 +427,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Panzisda</span>
+                    <span>Sebagai Fakultas/Lembaga/Biro</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -440,7 +440,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>Sebagai Manajer Group</span>
+                    <span>Sebagai PIC Jurusan</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>

@@ -134,7 +134,7 @@ class PanzisdaController extends Controller
 			$dummy['y_']            = format_uang($y->y);
 			$dummy['target']        = ($targets->target != NULL) ? $targets->target : 0;
 			$dummy['targets']       = format_uang($targets->target);
-			$dummy['persentase']    = ($y->y != 0) ? number_format(($y->y / $targets->target) * 100, 2) : 0;
+			$dummy['persentase']    = ($y->y != 0 && $targets->target != 0) ? number_format(($y->y / $targets->target) * 100, 2) : 0;
 			$dummy['drilldown']     = $item->no_punggung;
 			$tmp1[]                 = $dummy;
 		}
@@ -175,8 +175,8 @@ class PanzisdaController extends Controller
 				$dummyss['nama'] = ucwords($value1->nama);
 				$dummyss['y'] = ($y->y != NULL) ? $y->y : 0;
 				$dummyss['y_'] = format_uang($dummyss['y']);
-				$dummyss['target'] = format_uang($target->target);
-				$dummyss['persentase'] = ($dummyss['y'] != 0) ? number_format(($dummyss['y'] / $target->target) * 100, 2) : 0;
+				$dummyss['target'] = format_uang($targets->target);
+				$dummyss['persentase'] = ($dummyss['y'] != 0 && $targets->target != 0) ? number_format(($dummyss['y'] / $targets->target) * 100, 2) : 0;
 				$tmp3[] = $dummyss;
 			}
 
@@ -529,14 +529,12 @@ class PanzisdaController extends Controller
 					->where('users.deleted_at', NULL)
 					->leftJoin('role','role.id_users','=','users.id')
 					->leftJoin('jabatan','jabatan.id','=','role.id_jabatan')
-					->select('users.id', 'users.nama', 'users.no_hp', 'users.no_punggung', DB::raw('group_concat(jabatan.id SEPARATOR ", ") as jabatan'), DB::raw('group_concat(IF(role.id_atasan IS NULL, "null", role.id_atasan)) as id_atasan'), DB::raw('group_concat(IF(role.id_group IS NULL, "null", role.id_group)) as id_group'))
-					->where('users.id_wilayah', Auth::user()->id_wilayah)
 					->whereNotIn('jabatan.id', [1,2,6])
+					->select('users.id', 'users.nama', 'users.no_hp', 'users.no_punggung', DB::raw('group_concat(jabatan.nama_jabatan SEPARATOR ", ") as jabatan'), DB::raw('group_concat(IF(role.id_atasan IS NULL, "null", role.id_atasan)) as id_atasan'), DB::raw('group_concat(IF(role.id_group IS NULL, "null", role.id_group)) as id_group'))
+					->where('users.id_wilayah', Auth::user()->id_wilayah)
 					->where('users.no_punggung', '!=', '000001')
-					->orderBy(DB::raw('role.id_jabatan IS NULL'), 'DESC')
-					->orderBy(DB::raw('role.id_atasan IS NULL'), 'DESC')
-					->orderBy('users.id', 'ASC')
-					->groupBy('users.id','users.no_punggung','users.nama', 'users.no_hp','jabatan.id')
+					->groupBy('users.id','users.no_punggung','users.nama', 'users.no_hp')
+					->orderBy('users.no_punggung', 'ASC')
 					->get();
 
 		return DataTables::of($user)
@@ -1015,7 +1013,7 @@ class PanzisdaController extends Controller
 
 	public function getDataLaporanDZ()
 	{
-		$duta = DB::table('users')->where('users.deleted_at', NULL)->join('role','role.id_users','=','users.id')->whereNotIn('role.id_jabatan', [1, 2, 3, 6])->join('wilayah','wilayah.id','=','users.id_wilayah')->select(DB::raw('ROW_NUMBER() OVER(order by users.id_wilayah ASC) AS nomor'), 'users.id', 'users.no_punggung', 'users.nama', 'wilayah.nama_wilayah', DB::raw('group_concat(role.id_jabatan SEPARATOR ",") as id_jabatan'), DB::raw('group_concat(IF(role.id_atasan IS NULL, "null", role.id_atasan)) as id_atasan'))->where('users.id_wilayah', Auth::user()->id_wilayah)->groupBy('users.id','users.no_punggung','users.nama','wilayah.nama_wilayah')->orderBy('users.id_wilayah', 'ASC')->orderBy('users.nama', 'ASC')->get();
+		$duta = DB::table('users')->whereNull('users.deleted_at')->join('role','role.id_users','=','users.id')->whereNotIn('role.id_jabatan', [1, 2, 3, 6])->join('wilayah','wilayah.id','=','users.id_wilayah')->select('users.id', 'users.no_punggung', 'users.nama', 'wilayah.nama_wilayah', DB::raw('group_concat(role.id_jabatan SEPARATOR ",") as id_jabatan'), DB::raw('group_concat(IF(role.id_atasan IS NULL, "null", role.id_atasan)) as id_atasan'))->where('users.id_wilayah', Auth::user()->id_wilayah)->groupBy('users.id','users.no_punggung','users.nama','wilayah.nama_wilayah')->orderBy('users.id_wilayah', 'ASC')->orderBy('users.nama', 'ASC')->get();
 
 		$tmp = [];
 		foreach ($duta as $item) {
@@ -1193,7 +1191,7 @@ class PanzisdaController extends Controller
 			$tmp['valid_mg']    = $valid_mg;
 			$tmp['valid_pz']    = $valid_pz;
 			$tmp['valid_lz']    = $valid_lz;
-			$tmp['persentase']  = ($valid_lz != 0) ? number_format(($valid_lz / $target->target) * 100, 2) : 0;
+			$tmp['persentase']  = ($valid_lz != 0 && $target->target != 0) ? number_format(($valid_lz / $target->target) * 100, 2) : 0;
 			$dummy[]            = $tmp;
 		}
 		$data = collect($dummy);

@@ -1,7 +1,7 @@
 @extends('template.app')
 
 @section('title')
-- Data Duta Zakat
+- Data Relawan
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
 
     <div class="box-header with-border">
         <div class="col-md-6">
-            <h3 class="box-title"><strong>Data Duta Zakat</strong></h3>
+            <h3 class="box-title"><strong>Data Relawan</strong></h3>
         </div>
     </div>
 
@@ -139,7 +139,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('user/getdata') }}",
+                url: "{{ url('pic_jurusan/user/getdata') }}",
             },
             columns: [{
                 data: "id",

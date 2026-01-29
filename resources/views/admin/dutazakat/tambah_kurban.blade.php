@@ -234,7 +234,7 @@
                     var html = '';
                     alert("Data berhasil disimpan!")
                     html = '<div class="alert alert-default">' + data + '</div>';
-                    window.location.replace("{{url('/duta/transaksi_kurban')}}");
+                    window.location.replace("{{url('/realawan/transaksi_kurban')}}");
                 },
                 error: function (data) {
                     $('#ok-button').text('Kirim');

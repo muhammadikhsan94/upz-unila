@@ -6,7 +6,7 @@
 
 	<div class="alert alert-warning alert-dismissible">
 		<h5><i class="fa fa-exclamation-circle red"></i> Selamat Datang, <b>{{ strtoupper(Auth::user()->nama) }}</b>.</h5>
-		<span style="text-align: justify;">Berikut ini adalah halaman aplikasi zakat untuk anda sebagai LAZIS. Jika anda bukan sebagai LAZIS, silahkan hubungi Panziswil anda. Terima Kasih.</span>
+		<span style="text-align: justify;">Berikut ini adalah halaman aplikasi zakat untuk anda sebagai UPZ. Jika anda bukan sebagai UPZ, silahkan hubungi Universitas anda. Terima Kasih.</span>
 	</div>
 
 </div>

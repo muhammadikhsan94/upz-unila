@@ -96,26 +96,26 @@ class HomeController extends Controller
         foreach ($user as $role) {
             if ($role->id_jabatan != 5) {
                 if($role->id_jabatan == 1){
-                    return redirect()->to('/panziswil');
+                    return redirect()->to('/universitas');
                 }
                 if($role->id_jabatan == 2){
-                    return redirect()->to('/panzisda');
+                    return redirect()->to('/fakultas_lembaga');
                 }
                 if($role->id_jabatan == 3){
-                    return redirect()->to('/manajerarea');
+                    return redirect()->to('/pic_jurusanarea');
                 }
                 if($role->id_jabatan == 4){
-                    return redirect()->to('/manajer');
+                    return redirect()->to('/pic_jurusan');
                 }
                 if($role->id_jabatan == 6){
-                    return redirect()->to('/lazis');
+                    return redirect()->to('/upz');
                 }
             }
         }
 
         foreach ($user as $role) {
             if ($role->id_jabatan == 5) {
-                return redirect()->to('/duta');
+                return redirect()->to('/realawan');
             }
             if ($role->id_jabatan == null) {
                 return redirect()->to('/user');

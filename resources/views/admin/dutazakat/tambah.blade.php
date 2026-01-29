@@ -236,7 +236,7 @@
                     </select>
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <label for="tanggal_transfer" class="col-sm-3 control-label">Tanggal Transfer/Kirim<i style="color: red;">*</i></label>
                 <div class="col-sm-5">
@@ -290,11 +290,11 @@
 
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" data-dismiss="modal">
-        <div class="modal-content"  >              
+        <div class="modal-content"  >
             <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <img src="" class="imagePreviewFull" style="width: 100%;" >
-            </div> 
+            </div>
         </div>
     </div>
 </div>
@@ -309,7 +309,7 @@
         for (var x=1;x<=5;x++) {
             subtotal += Number($('#jumlah_'+x).val().replace(".", "").replace(".", ""));
         }
-        
+
         if (total != subtotal) {
             $('#submitBtn').removeAttr("data-target", "#confirmModal");
             $('#submitBtn').removeAttr("data-toggle", "modal");
@@ -337,7 +337,7 @@
                 document.getElementById('imagePreview').style.display = 'none';
             } else {
                 document.getElementById('imagePreview').style.display = 'block';
-                document.getElementById('imagePreview').src = window.URL.createObjectURL(images); 
+                document.getElementById('imagePreview').src = window.URL.createObjectURL(images);
                 this.setCustomValidity('');
             }
         });
@@ -345,7 +345,7 @@
         var barang = <?php echo json_encode($data['jenis']->where('jenis_transaksi', 'barang')->first()); ?>;
         var non_tunai = <?php echo json_encode($data['jenis']->where('jenis_transaksi', 'transfer')->first()); ?>;
         var lapor = <?php echo json_encode($data['jenis']->where('jenis_transaksi', 'lapor')->first()); ?>;
-        
+
         $( function() {
             $( "#tanggal_transfer" ).datepicker({
                 autoclose:true,
@@ -358,22 +358,22 @@
         $( "#npwp" ).on('input', function() {
             if ($(this).val().length>15) {
                 $('#npwp').val('');
-                alert('Nomor NPWP tidak lebih dari 15 !');       
+                alert('Nomor NPWP tidak lebih dari 15 !');
             }
         });
 
         $( "#no_hp" ).on('input', function() {
             if ($(this).val().length>13) {
                 $('#no_hp').val('');
-                alert('Nomor HP tidak lebih dari 13 !');       
+                alert('Nomor HP tidak lebih dari 13 !');
             }
         });
 
         $(function() {
             $('.pop').on('click', function() {
                 $('.imagePreviewFull').attr('src', $(this).find('img').attr('src'));
-                $('#imagemodal').modal('show');   
-            });     
+                $('#imagemodal').modal('show');
+            });
         });
 
         //select picker
@@ -398,7 +398,7 @@
             $('.selectpicker').selectpicker('refresh');
 
             $.ajax({
-                url: '/duta/rekening/lembaga/'+lembaga,
+                url: '/realawan/rekening/lembaga/'+lembaga,
                 type: "GET",
                 dataType: "JSON",
                 success:function(data){
@@ -407,7 +407,7 @@
 
                     target.empty();
                     $.each(data, function(key, value) {
-                        target.append('<option value="'+ value.norek +'">'+ value.norek +'</option>');   
+                        target.append('<option value="'+ value.norek +'">'+ value.norek +'</option>');
                     });
                     $('#rek_bank').selectpicker('refresh');
                 }
@@ -680,7 +680,7 @@
                     var html = '';
                     alert("Data berhasil disimpan!")
                     html = '<div class="alert alert-default">' + data + '</div>';
-                    window.location.replace("{{url('/duta/transaksi')}}");
+                    window.location.replace("{{url('/realawan/transaksi')}}");
                 },
                 error: function (data) {
                     $('#ok-button').text('Kirim');

@@ -115,7 +115,7 @@
                     </select>
                 </div>
             </div>
-            
+
             <div class="form-group " id="lembaga">
                 <label for="edit_lembaga" class="col-sm-3 control-label">Lembaga</label>
                 <div class="col-sm-5">
@@ -189,12 +189,12 @@
 
     $(document).ready(function() {
 
-        var role = <?php 
+        var role = <?php
             echo json_encode($data['role']->toArray());
         ?>;
 
         $(document).on('click', '.batal', function() {
-            window.location = "/panziswil/user/";
+            window.location = "/universitas/user/";
         });
 
         var tmp = <?php echo json_encode($data['tmp']); ?>;
@@ -260,7 +260,7 @@
             if (tmp[i] == 4) {
                 $('#edit-spv').show();
                 $('select[id=spv_id]').val(role[i].id_atasan);
-            } 
+            }
             if (tmp[i] == 3) {
                 $('#edit-panzisda').show();
                 $('select[id=panzisda_id]').val(role[i].id_atasan);
@@ -284,7 +284,7 @@
                     alert("Data berhasil diupdate!");
                     html = '<div class="alert alert-success">' + data + '</div>';
                     $('#editUser')[0].reset();
-                    window.location.replace("{{url('/panziswil/user')}}");
+                    window.location.replace("{{url('/universitas/user')}}");
                 },
                 error: function (data) {
                     var html = '';

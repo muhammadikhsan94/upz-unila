@@ -258,7 +258,7 @@
                     var html = '';
                     alert("Data berhasil disimpan!")
                     html = '<div class="alert alert-default">' + data + '</div>';
-                    window.location.replace("{{url('/panziswil/transaksi_kurban')}}");
+                    window.location.replace("{{url('/universitas/transaksi_kurban')}}");
                 },
                 error: function (data) {
                     $('#ok-button').text('Kirim');

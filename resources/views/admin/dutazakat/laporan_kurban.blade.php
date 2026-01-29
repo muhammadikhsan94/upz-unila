@@ -70,7 +70,7 @@
             ],
             // "order": [[ 6, "DESC" ]],
             ajax: {
-                url: "{{ url('/duta/laporan/kurban/getdata') }}",
+                url: "{{ url('/realawan/laporan/kurban/getdata') }}",
             },
             columns: [{
                     data: "id",

@@ -88,7 +88,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('/panzisda/user/getdata') }}",
+                url: "{{ url('/fakultas_lembaga/user/getdata') }}",
             },
             columnDefs: [{
                 targets: 3,
@@ -128,7 +128,7 @@
 
         $(document).on('click', '.edit', function() {
             var id = $(this).attr('id');
-            window.location = "/panzisda/user/edit/"+id;
+            window.location = "/fakultas_lembaga/user/edit/"+id;
         });
 
         $(document).on('click', '.delete', function() {
@@ -138,7 +138,7 @@
 
         $('#ok-button').click(function() {
             $.ajax({
-                url: "/panzisda/user/delete/" + user_id,
+                url: "/fakultas_lembaga/user/delete/" + user_id,
                 method: "DELETE",
                 data: {
                     "_token": "{{ csrf_token() }}",

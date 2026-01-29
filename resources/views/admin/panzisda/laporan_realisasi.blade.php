@@ -84,7 +84,7 @@
             ],
             // "order": [[ 6, "DESC" ]],
             ajax: {
-                url: "{{ url('/panzisda/laporan/realisasi/getdata') }}",
+                url: "{{ url('/fakultas_lembaga/laporan/realisasi/getdata') }}",
             },
             columns: [{
                 data: "id",

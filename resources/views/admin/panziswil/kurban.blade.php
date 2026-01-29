@@ -284,7 +284,7 @@
 
         $('select').selectpicker();
         $('#status_transaksi').change(function() {
-            table.ajax.url('/panziswil/transaksi_kurban/getdata/'+$(this).val()).load();
+            table.ajax.url('/universitas/transaksi_kurban/getdata/'+$(this).val()).load();
         });
         $('#status_transaksi').trigger("change");
 
@@ -293,7 +293,7 @@
 
             $.ajax({
                 method: "GET",
-                url: "/panziswil/transaksi_kurban/detail/" + id,
+                url: "/universitas/transaksi_kurban/detail/" + id,
                 dataType: "json",
                 success: function(data) {
                     id_trx = id;
@@ -406,7 +406,7 @@
 
         $(document).on('click', '.edit', function() {
             var id = $(this).attr('id');
-            window.location = "/panziswil/transaksi_kurban/edit/"+id;
+            window.location = "/universitas/transaksi_kurban/edit/"+id;
         });
 
         $(document).on('click', '.delete', function() {
@@ -416,7 +416,7 @@
 
         $('#ok-button').click(function() {
             $.ajax({
-                url: "/panziswil/transaksi_kurban/delete/" + trxId,
+                url: "/universitas/transaksi_kurban/delete/" + trxId,
                 method: "DELETE",
                 data: {
                     "_token": "{{ csrf_token() }}",

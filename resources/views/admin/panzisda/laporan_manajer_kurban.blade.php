@@ -165,7 +165,7 @@
 
         $('select').selectpicker();
         $('#user').change(function() {
-            table.ajax.url('/panzisda/laporan/realisasi_manajer/getdata/'+$(this).val()).load();
+            table.ajax.url('/fakultas_lembaga/laporan/realisasi_manajer/getdata/'+$(this).val()).load();
         });
         $('#user').trigger("change");
     });

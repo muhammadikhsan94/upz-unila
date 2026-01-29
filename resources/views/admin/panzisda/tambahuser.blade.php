@@ -123,19 +123,19 @@
 
         $( "#npwp" ).on('input', function() {
             if ($(this).val().length>15) {
-                alert('Nomor NPWP tidak lebih dari 15 !');       
+                alert('Nomor NPWP tidak lebih dari 15 !');
             }
         });
 
         $( "#no_hp" ).on('input', function() {
             if ($(this).val().length>13) {
-                alert('Nomor HP tidak lebih dari 13 !');       
+                alert('Nomor HP tidak lebih dari 13 !');
             }
         });
 
         $( "#password" ).on('change', function() {
             if ($(this).val().length<8) {
-                alert('Password harus terdiri dari 8 kata !');       
+                alert('Password harus terdiri dari 8 kata !');
             }
         });
 
@@ -186,7 +186,7 @@
                     alert("Data berhasil ditambahkan !");
                     html = '<div class="alert alert-success">' + data + '</div>';
                     $('#tambah_user')[0].reset();
-                    window.location.replace("{{url('/panzisda/user')}}");
+                    window.location.replace("{{url('/fakultas_lembaga/user')}}");
                 },
                 error: function (data) {
                     var html = '';

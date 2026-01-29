@@ -194,7 +194,7 @@
                 "sSearch": "Cari Data:",
             },
             ajax: {
-                url: "{{ url('/manajerarea/transaksi/getdata') }}",
+                url: "{{ url('/pic_jurusanarea/transaksi/getdata') }}",
             },
             columns: [{
                 data: "transaks.id",
@@ -237,7 +237,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/manajerarea/transaksi/" + id,
+                url: "/pic_jurusanarea/transaksi/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#id').val(id);
@@ -283,7 +283,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/manajerarea/transaksi/detail/" + id,
+                url: "/pic_jurusanarea/transaksi/detail/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#id').val(id);

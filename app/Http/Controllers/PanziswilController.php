@@ -224,7 +224,7 @@ class PanziswilController extends Controller
 		Session::flash('sukses','Data Siswa Berhasil Diimport!');
 
 		// alihkan halaman kembali
-		return redirect('/panziswil/user');
+		return redirect('/universitas/user');
 	}
 
 	public function export_excel()
@@ -782,10 +782,10 @@ class PanziswilController extends Controller
 		$user->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
 
 		if(!$user->save()) {
-			return redirect('/panziswil/user')->with(['errors' => 'Gagal reset password!']);
+			return redirect('/universitas/user')->with(['errors' => 'Gagal reset password!']);
 		} else {
 			// Mail::to($user->email)->send(new ResetPasswordNotify($user));
-			return redirect('/panziswil/user')->with(['success' => 'Password pengguna "'.$user->no_punggung.'" berhasil di reset!']);
+			return redirect('/universitas/user')->with(['success' => 'Password pengguna "'.$user->no_punggung.'" berhasil di reset!']);
 		}
 	}
 

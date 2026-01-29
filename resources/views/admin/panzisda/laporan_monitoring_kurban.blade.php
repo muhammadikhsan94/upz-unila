@@ -224,7 +224,7 @@
 
         $('select').selectpicker();
         $('#user').change(function() {
-            table.ajax.url('/panzisda/laporan/monitoring_kurban/getdata/'+$(this).val()).load();
+            table.ajax.url('/fakultas_lembaga/laporan/monitoring_kurban/getdata/'+$(this).val()).load();
         });
         $('#user').trigger("change");
     });

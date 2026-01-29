@@ -226,7 +226,7 @@
 
         $('select').selectpicker();
         $('#wilayah').change(function() {
-            table.ajax.url('/panziswil/laporan/monitoring_kurban/getdata/'+$(this).val()).load();
+            table.ajax.url('/universitas/laporan/monitoring_kurban/getdata/'+$(this).val()).load();
         });
         $('#wilayah').trigger("change");
     });

@@ -285,7 +285,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('/manajer/transaksi/getdata') }}",
+                url: "{{ url('/pic_jurusan/transaksi/getdata') }}",
             },
             "columnDefs": [
                 {"className": "dt-center", "targets": [7, 8]}
@@ -398,7 +398,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/manajer/transaksi/detail/" + id,
+                url: "/pic_jurusan/transaksi/detail/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#id').val(id);

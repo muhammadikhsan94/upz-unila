@@ -74,7 +74,7 @@
             ],
             // "order": [[ 6, "DESC" ]],
             ajax: {
-                url: "{{ url('/manajer/laporan/kurban/getdata') }}",
+                url: "{{ url('/pic_jurusan/laporan/kurban/getdata') }}",
             },
             columns: [{
                     data: "id",

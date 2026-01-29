@@ -721,10 +721,10 @@ class PanzisdaController extends Controller
 		$user->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
 
 		if(!$user->save()) {
-			return redirect('/panzisda/user')->with(['errors' => 'Gagal reset password!']);
+			return redirect('/fakultas_lembaga/user')->with(['errors' => 'Gagal reset password!']);
 		} else {
 			// Mail::to($user->email)->send(new ResetPasswordNotify($user));
-			return redirect('/panzisda/user')->with(['success' => 'Password pengguna "'.$user->no_punggung.'" berhasil di reset!']);
+			return redirect('/fakultas_lembaga/user')->with(['success' => 'Password pengguna "'.$user->no_punggung.'" berhasil di reset!']);
 		}
 	}
 

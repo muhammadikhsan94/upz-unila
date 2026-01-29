@@ -62,7 +62,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('/panziswil/laporan/dutazakat/getdata') }}",
+                url: "{{ url('/universitas/laporan/realawanzakat/getdata') }}",
             },
             columns: [{
                 data: 'no_punggung',

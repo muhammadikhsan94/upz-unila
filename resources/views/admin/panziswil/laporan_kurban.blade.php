@@ -59,7 +59,7 @@
             },
             // "order": [[ 6, "DESC" ]],
             ajax: {
-                url: "{{ url('/panziswil/laporan/kurban/getdata') }}",
+                url: "{{ url('/universitas/laporan/kurban/getdata') }}",
             },
             columns: [{
                     data: "id",

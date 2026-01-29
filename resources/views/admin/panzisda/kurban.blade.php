@@ -264,7 +264,7 @@
 
         $('select').selectpicker();
         $('#status_transaksi').change(function() {
-            table.ajax.url('/panzisda/transaksi_kurban/getdata/'+$(this).val()).load();
+            table.ajax.url('/fakultas_lembaga/transaksi_kurban/getdata/'+$(this).val()).load();
         });
         $('#status_transaksi').trigger("change");
 
@@ -273,7 +273,7 @@
 
             $.ajax({
                 method: "GET",
-                url: "/panzisda/transaksi_kurban/detail/" + id,
+                url: "/fakultas_lembaga/transaksi_kurban/detail/" + id,
                 dataType: "json",
                 success: function(data) {
                     id_trx = id;

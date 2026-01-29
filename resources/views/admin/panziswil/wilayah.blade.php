@@ -132,7 +132,7 @@
                 "sSearch": "Cari Data:",
             },
             ajax: {
-                url: "{{ url('/panziswil/wilayah/getdata') }}",
+                url: "{{ url('/universitas/wilayah/getdata') }}",
             },
             columns: [{
                 data: "id",
@@ -191,7 +191,7 @@
 
         $('#ok-button').click(function() {
             $.ajax({
-                url: "/panziswil/wilayah/delete/" + user_id,
+                url: "/universitas/wilayah/delete/" + user_id,
                 method: "DELETE",
                 data: {
                     "_token": "{{ csrf_token() }}",
@@ -224,7 +224,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/panziswil/wilayah/edit/" + id,
+                url: "/universitas/wilayah/edit/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#id').val(id);

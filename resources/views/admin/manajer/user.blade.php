@@ -139,7 +139,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('/manajer/user/getdata') }}",
+                url: "{{ url('/pic_jurusan/user/getdata') }}",
             },
             columns: [{
                 data: "id",
@@ -174,7 +174,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/manajer/user/detail/" + id,
+                url: "/pic_jurusan/user/detail/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#id').val(id);

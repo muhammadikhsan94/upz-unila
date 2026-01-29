@@ -101,7 +101,7 @@
                 "sSearch": "Cari Data:",
             },
             ajax: {
-                url: "{{ url('/panziswil/group/getdata') }}",
+                url: "{{ url('/universitas/group/getdata') }}",
             },
             columns: [{
                 data: "id",
@@ -120,7 +120,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/panziswil/group/edit/" + id,
+                url: "/universitas/group/edit/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#id').val(id);
@@ -167,7 +167,7 @@
 
         $('#ok-button').click(function() {
             $.ajax({
-                url: "/panziswil/group/delete/" + user_id,
+                url: "/universitas/group/delete/" + user_id,
                 method: "DELETE",
                 data: {
                     "_token": "{{ csrf_token() }}",

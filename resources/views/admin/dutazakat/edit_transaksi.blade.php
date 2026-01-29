@@ -218,7 +218,7 @@
                     </select>
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <label for="tanggal_transfer" class="col-sm-3 control-label">Tanggal Transfer/Kirim</label>
                 <div class="col-sm-5">
@@ -239,7 +239,7 @@
             <div class="form-group ">
                 <label for="bukti_transaksi" class="col-sm-3 control-label">Bukti Transaksi</label>
                 <div class="col-sm-5">
-                    <input class="form-control" id="bukti_transaksi" name="bukti_transaksi" type="file" 
+                    <input class="form-control" id="bukti_transaksi" name="bukti_transaksi" type="file"
                         onchange="document.getElementById('imagePreview').style.display = 'block'; document.getElementById('imagePreview').src = window.URL.createObjectURL(this.files[0]); document.getElementById('imagePrevious').style.display = 'none';">
                     <p style="padding: 10px 0">
                         <a class="pop"><img src="{{asset('bukti/'.$data['transaksi']->bukti_transaksi)}}" id="imagePrevious" alt="bukti transaksi" style="width: 100%;cursor:zoom-in;" /></a>
@@ -282,11 +282,11 @@
 
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" data-dismiss="modal">
-        <div class="modal-content"  >              
+        <div class="modal-content"  >
             <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <img src="" class="imagePreviewFull" style="width: 100%;" >
-            </div> 
+            </div>
         </div>
     </div>
 </div>
@@ -301,7 +301,7 @@
         for (var x=1;x<=5;x++) {
             subtotal += Number($('#jumlah_'+x).val().replace(".", "").replace(".", ""));
         }
-        
+
         if (total != subtotal) {
             $('#submitBtn').removeAttr("data-target", "#confirmModal");
             $('#submitBtn').removeAttr("data-toggle", "modal");
@@ -316,12 +316,12 @@
 
         function convertToRupiah(angka)
         {
-            var rupiah = '';		
+            var rupiah = '';
             var angkarev = angka.toString().split('').reverse().join('');
             for(var i = 0; i < angkarev.length; i++) if(i%3 == 0) rupiah += angkarev.substr(i,3)+'.';
             return rupiah.split('',rupiah.length-1).reverse().join('');
         }
-        
+
         $( function() {
             $( "#tanggal_transfer" ).datepicker({
                 autoclose:true,
@@ -383,7 +383,7 @@
             $('.selectpicker').selectpicker('refresh');
 
             $.ajax({
-                url: '/duta/rekening/lembaga/'+lembaga,
+                url: '/realawan/rekening/lembaga/'+lembaga,
                 type: "GET",
                 dataType: "JSON",
                 success:function(datas){
@@ -397,7 +397,7 @@
                         if (value.norek == data.rek_bank) {
                             $('.selectpicker').selectpicker('refresh');
                             $('select[id=rek_bank]').selectpicker('val', data.rek_bank);
-                        }   
+                        }
                     });
 
                     $('#rek_bank').selectpicker('refresh');
@@ -557,8 +557,8 @@
         $(function() {
             $('.pop').on('click', function() {
                 $('.imagePreviewFull').attr('src', $(this).find('img').attr('src'));
-                $('#imagemodal').modal('show');   
-            });     
+                $('#imagemodal').modal('show');
+            });
         });
 
         var total = document.getElementById('total');
@@ -669,7 +669,7 @@
                         var html = '';
                         alert("Data berhasil disimpan!")
                         html = '<div class="alert alert-default">' + data + '</div>';
-                        window.location.replace("{{url('/duta/transaksi')}}");
+                        window.location.replace("{{url('/realawan/transaksi')}}");
                     },
                     error: function (data) {
                         var html = '';

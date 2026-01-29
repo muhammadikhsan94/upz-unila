@@ -127,7 +127,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('/panzisda/donatur/getdata') }}",
+                url: "{{ url('/fakultas_lembaga/donatur/getdata') }}",
             },
             columns: [{
                 data: "id",
@@ -164,7 +164,7 @@
         var id = $(this).attr('id');
         $.ajax({
             method: "GET",
-            url: "/panzisda/donatur/detail/" + id,
+            url: "/fakultas_lembaga/donatur/detail/" + id,
             dataType: "json",
             success: function(data) {
                 $('#nama').val(data.nama);

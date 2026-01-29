@@ -101,18 +101,18 @@
 
         $( "#npwp" ).on('input', function() {
             if ($(this).val().length>15) {
-                alert('Nomor NPWP tidak lebih dari 15 !');       
+                alert('Nomor NPWP tidak lebih dari 15 !');
             }
         });
 
         $( "#no_hp" ).on('input', function() {
             if ($(this).val().length>13) {
-                alert('Nomor HP tidak lebih dari 13 !');       
+                alert('Nomor HP tidak lebih dari 13 !');
             }
         });
 
         $(document).on('click', '.batal', function() {
-            window.location = "/duta";
+            window.location = "/realawan";
         });
 
         //Submit

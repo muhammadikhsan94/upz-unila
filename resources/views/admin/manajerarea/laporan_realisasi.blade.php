@@ -82,7 +82,7 @@
             ],
             // "order": [[ 6, "DESC" ]],
             ajax: {
-                url: "{{ url('/manajerarea/laporan/realisasi/getdata') }}",
+                url: "{{ url('/pic_jurusanarea/laporan/realisasi/getdata') }}",
             },
             columns: [{
                 data: "id",

@@ -155,7 +155,7 @@
                 "sSearch": "Cari Data:",
             },
             ajax: {
-                url: "{{ url('/panziswil/rekening-lembaga/getdata') }}",
+                url: "{{ url('/universitas/rekening-lembaga/getdata') }}",
             },
             columns: [{
                 data: "id",
@@ -219,7 +219,7 @@
 
         $('#ok-button').click(function() {
             $.ajax({
-                url: "/panziswil/rekening-lembaga/delete/" + user_id,
+                url: "/universitas/rekening-lembaga/delete/" + user_id,
                 method: "DELETE",
                 data: {
                     "_token": "{{ csrf_token() }}",
@@ -253,7 +253,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "/panziswil/rekening-lembaga/edit/" + id,
+                url: "/universitas/rekening-lembaga/edit/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#id').val(id);

@@ -38,7 +38,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 	Route::get('cetak', [App\Http\Controllers\HomeController::class, 'buatSuratTugas'])->name('buatSuratTugas');
 	Route::get('faq', [App\Http\Controllers\HomeController::class, 'faq'])->name('faq');
 
-    Route::group(['prefix' => 'duta', 'middleware' => ['dutazakat']], function() {
+    Route::group(['prefix' => 'relawan', 'middleware' => ['dutazakat']], function() {
 		Route::get('/', [App\Http\Controllers\DutaZakatController::class, 'index'])->name('duta.beranda');
 		Route::post('/getrekening', [App\Http\Controllers\DutaZakatController::class, 'getRekening'])->name('duta.rekening');
 
@@ -89,7 +89,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 		Route::get('/laporan/kurban/getdata', [App\Http\Controllers\DutaZakatController::class, 'getDataLaporanKurban'])->name('duta.getDataLaporanKurban');
     });
 
-    Route::group(['prefix' => 'manajer', 'middleware' => ['manajer']], function() {
+    Route::group(['prefix' => 'pic_jurusan', 'middleware' => ['manajer']], function() {
     	Route::get('/', [App\Http\Controllers\ManajerController::class, 'index'])->name('manajer.beranda');
 
     	//USER
@@ -129,7 +129,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     });
 
-    Route::group(['prefix' => 'manajerarea', 'middleware' => ['manajerarea']], function() {
+    Route::group(['prefix' => 'pic_fakultas', 'middleware' => ['manajerarea']], function() {
     	Route::get('/', [App\Http\Controllers\ManajerAreaController::class, 'index'])->name('manajerarea.beranda');
 
     	//TRANSAKSI
@@ -149,7 +149,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 		Route::get('/laporan/kurban/getdata', [App\Http\Controllers\ManajerAreaController::class, 'getDataLaporanKurban'])->name('manajerarea.getDataLaporanKurban');
     });
 
-    Route::group(['prefix' => 'panzisda', 'middleware' => ['panzisda']], function() {
+    Route::group(['prefix' => 'fakultas_lembaga', 'middleware' => ['panzisda']], function() {
     	Route::get('/', [App\Http\Controllers\PanzisdaController::class, 'index'])->name('panzisda.beranda');
 
     	//USER
@@ -187,11 +187,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 		Route::post('/profil/update', [App\Http\Controllers\PanzisdaController::class, 'updateProfil'])->name('panzisda.updateProfil');
 
 		//LAPORAN
-		Route::get('/laporan/dutazakat', [App\Http\Controllers\PanzisdaController::class, 'getLaporanDZ'])->name('panzisda.laporanDZ');
+		Route::get('/laporan/realawanzakat', [App\Http\Controllers\PanzisdaController::class, 'getLaporanDZ'])->name('panzisda.laporanDZ');
 		Route::get('/laporan/realisasi', [App\Http\Controllers\PanzisdaController::class, 'getLaporanRealisasi'])->name('panzisda.laporanRealisasi');
 		Route::get('/laporan/validasi', [App\Http\Controllers\PanzisdaController::class, 'getLaporanValidasi'])->name('panzisda.laporanValidasi');
 		Route::get('/laporan/rekonsiliasi', [App\Http\Controllers\PanzisdaController::class, 'getLaporanRekonsiliasi'])->name('panzisda.laporanRekonsiliasi');
-		Route::get('/laporan/dutazakat/getdata', [App\Http\Controllers\PanzisdaController::class, 'getDataLaporanDZ'])->name('panzisda.getDataLaporanDZ');
+		Route::get('/laporan/realawanzakat/getdata', [App\Http\Controllers\PanzisdaController::class, 'getDataLaporanDZ'])->name('panzisda.getDataLaporanDZ');
 		Route::get('/laporan/validasi/getdata', [App\Http\Controllers\PanzisdaController::class, 'getDataLaporanValidasi'])->name('panzisda.getDataLaporanValidasi');
 		Route::get('/laporan/realisasi/getdata', [App\Http\Controllers\PanzisdaController::class, 'getDataLaporanRealisasi'])->name('panzisda.getDataLaporanRealisasi');
 		Route::get('/laporan/rekonsiliasi/getdata', [App\Http\Controllers\PanzisdaController::class, 'getDataLaporanRekonsiliasi'])->name('panzisda.getDataLaporanRekonsiliasi');
@@ -211,7 +211,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 		Route::get('/laporan/realisasi_manajer/getdata/{id}', [App\Http\Controllers\PanzisdaController::class, 'getDataLaporanRealisasiManajer'])->name('panzisda.getDataLaporanRealisasiManajer');
     });
 
-    Route::group(['prefix' => 'panziswil', 'middleware' => ['panziswil']], function() {
+    Route::group(['prefix' => 'universitas', 'middleware' => ['panziswil']], function() {
     	Route::get('/', [App\Http\Controllers\PanziswilController::class, 'index'])->name('panziswil.beranda');
 
     	//USER
@@ -308,12 +308,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 		Route::delete('/group/delete/{id}', [App\Http\Controllers\PanziswilController::class, 'deleteGroup'])->name('panziswil.deleteGroup');
 
 		//LAPORAN
-		Route::get('/laporan/dutazakat', [App\Http\Controllers\PanziswilController::class, 'getLaporanDZ'])->name('panziswil.laporanDZ');
+		Route::get('/laporan/realawanzakat', [App\Http\Controllers\PanziswilController::class, 'getLaporanDZ'])->name('panziswil.laporanDZ');
 		Route::get('/laporan/wilayah', [App\Http\Controllers\PanziswilController::class, 'getLaporanWilayah'])->name('panziswil.laporanWilayah');
 		Route::get('/laporan/validasi/wilayah', [App\Http\Controllers\PanziswilController::class, 'getLaporanValidasiWilayah'])->name('panziswil.laporanValidasiWilayah');
 		Route::get('/laporan/validasi/lembaga', [App\Http\Controllers\PanziswilController::class, 'getLaporanValidasiLembaga'])->name('panziswil.laporanValidasiLembaga');
 		Route::get('/laporan/jenisziswaf', [App\Http\Controllers\PanziswilController::class, 'getLaporJenisZiswaf'])->name('panziswil.laporanJenisZiswaf');
-		Route::get('/laporan/dutazakat/getdata', [App\Http\Controllers\PanziswilController::class, 'getDataLaporanDZ'])->name('panziswil.getDataLaporanDZ');
+		Route::get('/laporan/realawanzakat/getdata', [App\Http\Controllers\PanziswilController::class, 'getDataLaporanDZ'])->name('panziswil.getDataLaporanDZ');
 		Route::get('/laporan/validasi/wilayah/getdata', [App\Http\Controllers\PanziswilController::class, 'getDataLaporanValidasiWilayah'])->name('panziswil.getDataLaporanValidasiWilayah');
 		Route::get('/laporan/validasi/lembaga/getdata', [App\Http\Controllers\PanziswilController::class, 'getDataLaporanValidasiLembaga'])->name('panziswil.getDataLaporanValidasiLembaga');
 		Route::get('/laporan/jenisziswaf/getdata/{id}', [App\Http\Controllers\PanziswilController::class, 'getDataLaporanJenisZiswaf'])->name('panziswil.getDataLaporanJenisZiswaf');
@@ -342,7 +342,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 		Route::get('/laporan/realisasi_kurban_daerah/getdata', [App\Http\Controllers\PanziswilController::class, 'getDataLaporanRealisasiKurbanDaerah'])->name('panziswil.getDataLaporanRealisasiKurbanDaerah');
     });
 
-	Route::group(['prefix' => 'lazis', 'middleware' => ['lazis']], function() {
+	Route::group(['prefix' => 'upz', 'middleware' => ['lazis']], function() {
     	Route::get('/', [App\Http\Controllers\LazisController::class, 'index'])->name('lazis.beranda');
 
 		//TRANSAKSI

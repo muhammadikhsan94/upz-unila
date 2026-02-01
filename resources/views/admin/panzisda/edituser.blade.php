@@ -275,7 +275,7 @@
                     alert("Data berhasil diupdate!");
                     html = '<div class="alert alert-success">' + data + '</div>';
                     $('#editUser')[0].reset();
-                    window.location.replace("{{url('user')}}");
+                    window.location.replace("{{route('panzisda.user')}}");
                 },
                 error: function (data) {
                     var html = '';

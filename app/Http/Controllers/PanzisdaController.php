@@ -354,7 +354,7 @@ class PanzisdaController extends Controller
 			}
 		}
 
-		Mail::to($user->email)->send(new MailNotify($user));
+		// Mail::to($user->email)->send(new MailNotify($user));
 
 		return response()->json(['success' => 'success stored!']);
 	}

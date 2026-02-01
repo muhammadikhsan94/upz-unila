@@ -389,7 +389,7 @@
             //END
 
             $.ajax({
-                url: '/universitas/rekening/lembaga/'+lembaga,
+                url: "{{ route('panziswil.getRekening', '') }}/"+lembaga,
                 type: "GET",
                 dataType: "JSON",
                 success:function(datas){

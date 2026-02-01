@@ -398,7 +398,7 @@
             $('.selectpicker').selectpicker('refresh');
 
             $.ajax({
-                url: '/relawan/rekening/lembaga/'+lembaga,
+                url: "{{ route('duta.getRekening', '') }}/"+lembaga,
                 type: "GET",
                 dataType: "JSON",
                 success:function(data){

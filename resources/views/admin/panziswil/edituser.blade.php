@@ -194,7 +194,7 @@
         ?>;
 
         $(document).on('click', '.batal', function() {
-            window.location = "/universitas/user/";
+            window.location = "{{ route('panziswil.user') }}";
         });
 
         var tmp = <?php echo json_encode($data['tmp']); ?>;
@@ -284,7 +284,7 @@
                     alert("Data berhasil diupdate!");
                     html = '<div class="alert alert-success">' + data + '</div>';
                     $('#editUser')[0].reset();
-                    window.location.replace("{{url('user')}}");
+                    window.location.replace("{{ route('panziswil.user')}}");
                 },
                 error: function (data) {
                     var html = '';

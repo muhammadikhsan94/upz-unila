@@ -246,7 +246,7 @@
                 "sSearch": "Cari Data/Filter:",
             },
             ajax: {
-                url: "{{ url('universitas/user/getdata') }}",
+                url: "{{ route('panziswil.getUser') }}",
             },
             columns: [{
                 data: "id",
@@ -281,7 +281,7 @@
 
         $(document).on('click', '.edit', function() {
             var id = $(this).attr('id');
-            window.location = "user/edit/"+id;
+            window.location = "{{ route('panziswil.editUser', '') }}/"+id;
         });
 
         $(document).on('click', '.delete', function() {
@@ -291,7 +291,7 @@
 
         $('#ok-button').click(function() {
             $.ajax({
-                url: "user/delete/" + user_id,
+                url: "{{ route('panziswil.deleteUser', '') }}/" + user_id,
                 method: "DELETE",
                 data: {
                     "_token": "{{ csrf_token() }}",

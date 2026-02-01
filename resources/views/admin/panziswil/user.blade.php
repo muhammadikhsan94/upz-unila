@@ -281,7 +281,7 @@
 
         $(document).on('click', '.edit', function() {
             var id = $(this).attr('id');
-            window.location = "universitas/user/edit/"+id;
+            window.location = "user/edit/"+id;
         });
 
         $(document).on('click', '.delete', function() {

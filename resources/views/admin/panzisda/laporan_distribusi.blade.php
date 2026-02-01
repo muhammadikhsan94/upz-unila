@@ -20,7 +20,7 @@
                         <tr class="bg-primary">
                             <th width="5%"> No </th>
                             <th width="15%"> Paket Ziswaf </th>
-                            <th width="10%"> Panzisnas </th>
+                            <th width="10%"> BAZNAS </th>
                             <th width="10%"> Universitas </th>
                             <th width="10%"> Fakultas/Biro/Lembaga </th>
                             {{-- <th colspan="{{ $data['jumlah_lembaga'] }}" style="text-align: center"> Mitra </th> --}}

@@ -35,7 +35,7 @@
                             <th > No </th>
                             <th > Wilayah </th>
                             <th > Paket Ziswaf </th>
-                            <th  width="10%"> Panzisnas </th>
+                            <th  width="10%"> BAZNAS </th>
                             <th  width="10%"> Universitas </th>
                             <th  width="10%"> Fakultas/Lembaga/Biro </th>
                             {{-- <th colspan="4"> <center>Mitra</center> </th> --}}

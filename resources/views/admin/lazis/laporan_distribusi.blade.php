@@ -20,7 +20,7 @@
                         <tr class="bg-primary">
                             <th width="5%"> No </th>
                             <th width="20%"> Paket Ziswaf </th>
-                            <th width="15%"> Panzisnas </th>
+                            <th width="15%"> BAZNAS </th>
                             <th width="15%"> Universitas </th>
                             <th width="15%"> Fakultas/Biro/Lembaga </th>
                             <th width="15%"> Mitra ( {{ strtoupper(strtolower($data['lembaga']->nama_lembaga)) }} ) </th>

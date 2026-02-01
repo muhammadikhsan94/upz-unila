@@ -28,7 +28,7 @@
                         <tr class="bg-primary">
                             <th> No </th>
                             <th> Jenis Paket Zakat </th>
-                            <th> Panzisnas (%) </th>
+                            <th> BAZNAS (%) </th>
                             <th> Universitas (%) </th>
                             <th> Fakultas/Biro/Lembaga (%) </th>
                             <th> Cabang (%) </th>
@@ -71,9 +71,9 @@
                     </div>
 
                     <div class="form-group ">
-                        <label for="panzisnas" class="col-sm-3 control-label">Panzisnas</label>
+                        <label for="panzisnas" class="col-sm-3 control-label">BAZNAS</label>
                         <div class="col-sm-5">
-                            <input class="form-control" id="panzisnas" name="panzisnas" placeholder="Masukkan Persentase Panzisnas" oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')" required>
+                            <input class="form-control" id="panzisnas" name="panzisnas" placeholder="Masukkan Persentase BAZNAS" oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')" required>
                         </div>
                     </div>
 
@@ -146,9 +146,9 @@
                     </div>
 
                     <div class="form-group ">
-                        <label for="edit_panzisnas" class="col-sm-3 control-label">Panzisnas</label>
+                        <label for="edit_panzisnas" class="col-sm-3 control-label">BAZNAS</label>
                         <div class="col-sm-5">
-                            <input class="form-control" id="edit_panzisnas" name="edit_panzisnas" placeholder="Masukkan Persentase Panzisnas" oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')" required>
+                            <input class="form-control" id="edit_panzisnas" name="edit_panzisnas" placeholder="Masukkan Persentase BAZNAS" oninvalid="this.setCustomValidity('data tidak boleh kosong!')" onchange="setCustomValidity('')" required>
                         </div>
                     </div>
 

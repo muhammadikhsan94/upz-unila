@@ -282,11 +282,11 @@ class ManajerController extends Controller
         })
         ->editColumn('status', function($transaksi){
             if (($transaksi->status == null and $transaksi->komentar == null) or $transaksi->update != null) {
-                $text = '<b style="color:brown;">TUNGGU PROSES MG</b>';
+                $text = '<b style="color:brown;">TUNGGU PROSES JURUSAN</b>';
             } else if ($transaksi->status != NULL and $transaksi->panzisda_status == null and $transaksi->lazis_status == null) {
-                $text = '<b style="color:brown;">TUNGGU PROSES ZISDA</b>';
+                $text = '<b style="color:brown;">TUNGGU PROSES FAKULTAS</b>';
             } else if ($transaksi->status != NULL and $transaksi->panzisda_status != null and $transaksi->lazis_status == null) {
-                $text = '<b style="color:brown;">TUNGGU PROSES LAZ</b>';
+                $text = '<b style="color:brown;">TUNGGU PROSES UPZ</b>';
             } else if ($transaksi->status == null and $transaksi->komentar != null) {
                 $text = '<b style="color:red;">TIDAK VALID</b>';
             } else if ($transaksi->lazis_status != NULL) {
@@ -600,9 +600,9 @@ class ManajerController extends Controller
             })
             ->editColumn('manajer_status', function($transaksi){
                 if (($transaksi->manajer_status == null and $transaksi->komentar == null) or $transaksi->update != null) {
-                    $text = '<b style="color:brown;">TUNGGU PROSES MG</b>';
+                    $text = '<b style="color:brown;">TUNGGU PROSES JURUSAN</b>';
                 } else if ($transaksi->manajer_status != NULL and $transaksi->panzisda_status == null) {
-                    $text = '<b style="color:brown;">TUNGGU PROSES ZISDA</b>';
+                    $text = '<b style="color:brown;">TUNGGU PROSES FAKULTAS</b>';
                 } else if ($transaksi->manajer_status == null and $transaksi->komentar != null) {
                     $text = '<b style="color:red;">TIDAK VALID</b>';
                 } else if ($transaksi->panzisda_status != NULL) {

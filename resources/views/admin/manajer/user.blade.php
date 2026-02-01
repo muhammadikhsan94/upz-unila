@@ -22,7 +22,7 @@
                     <thead>
                         <tr class="bg-primary">
                             <th> No </th>
-                            <th> No Punggung </th>
+                            <th> Kode Relawan </th>
                             <th> Nama </th>
                             <th> No HP </th>
                             <th> Email </th>

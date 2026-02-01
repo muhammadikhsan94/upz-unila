@@ -19,7 +19,7 @@
                     <thead>
                         <tr class="bg-primary">
                             <th> No </th>
-                            <th> No Punggung </th>
+                            <th> Kode Relawan </th>
                             <th> Relawan </th>
                             <th> PIC Jurusan </th>
                             <th> Target </th>

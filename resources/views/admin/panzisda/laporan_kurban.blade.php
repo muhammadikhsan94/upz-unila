@@ -20,7 +20,7 @@
                         <tr class="bg-primary">
                             <th> No </th>
                             <th> Tgl Transaksi </th>
-                            <th> No Punggung </th>
+                            <th> Kode Relawan </th>
                             <th> Relawan </th>
                             <th> Pekurban </th>
                             <th> Jenis Kurban </th>

@@ -45,7 +45,7 @@
                     <thead>
                         <tr class="bg-primary">
                             <th> No </th>
-                            <th> No Punggung </th>
+                            <th> Kode Relawan </th>
                             <th> Nama </th>
                             <th> Jabatan </th>
                             <th> Wilayah </th>
@@ -281,7 +281,7 @@
 
         $(document).on('click', '.edit', function() {
             var id = $(this).attr('id');
-            window.location = "/universitas/user/edit/"+id;
+            window.location = "universitas/user/edit/"+id;
         });
 
         $(document).on('click', '.delete', function() {

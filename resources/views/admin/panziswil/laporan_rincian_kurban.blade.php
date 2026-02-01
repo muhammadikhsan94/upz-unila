@@ -35,7 +35,7 @@
                             <th> No </th>
                             <th> Daerah </th>
                             <th> Tgl Transaksi </th>
-                            <th> No Punggung </th>
+                            <th> Kode Relawan </th>
                             <th> Relawan </th>
                             <th width="30%"> Pekurban </th>
                             <th> Realisasi Sapi/Kerbau </th>

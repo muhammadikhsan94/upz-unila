@@ -26,7 +26,7 @@
                                 <thead>
                                     <tr class="bg-primary">
                                         <th> No </th>
-                                        <th> No Punggung </th>
+                                        <th> Kode Relawan </th>
                                         <th> Tanggal Transfer/Kirim </th>
                                         <th> Nomor Rekening </th>
                                         <th> Paket Ziswaf </th>

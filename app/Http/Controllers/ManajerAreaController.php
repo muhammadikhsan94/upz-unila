@@ -125,10 +125,10 @@ class ManajerAreaController extends Controller
             $dummy['y_'] = format_uang($y->y);
             $dummy['target'] = ($target->target != NULL) ? $target->target : 0;
             $dummy['drilldown'] = $item->nama;
-            $dummy['persentase'] = ($y->y != 0) ? number_format(($y->y / $target->target) * 100, 2) : 0;
+            $dummy['persentase'] = ($y->y != 0 && $target->target != 0) ? number_format(($y->y / $target->target) * 100, 2) : 0;
 
             $tmp1[] = $dummy;
-            
+
         }
         $data['manajer'] = $tmp1;
 
@@ -172,10 +172,10 @@ class ManajerAreaController extends Controller
                 $dummyss['y'] = ($y->y != NULL) ? $y->y : 0;
                 $dummyss['y_'] = format_uang($dummyss['y']);
                 $dummyss['target'] = ($target->target != NULL) ? format_uang($target->target) : 0;
-                $dummyss['persentase'] = ($dummyss['y'] != 0) ? number_format(($dummyss['y'] / $target->target) * 100, 2) : 0;
+                $dummyss['persentase'] = ($dummyss['y'] != 0 && $target->target != 0) ? number_format(($dummyss['y'] / $target->target) * 100, 2) : 0;
                 $tmp3[] = $dummyss;
             }
-            
+
             $dummys['data'] = $tmp3;
             $tmp2[] = $dummys;
         }
@@ -363,7 +363,7 @@ class ManajerAreaController extends Controller
         $data['user_manajerarea']   = $this->user_manajerarea->where('id', Auth::user()->id)->first();
         $data['user_panzisda']      = $this->user_panzisda->where('id', Auth::user()->id)->first();
         $data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
-        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();      
+        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();
         return view('admin.manajerarea.laporan_realisasi', compact('data'));
     }
 
@@ -398,7 +398,7 @@ class ManajerAreaController extends Controller
                         ->first();
 
             $item->realisasi = ($realisasi->jumlah != NULL) ? $realisasi->jumlah : 0;
-            $item->persentase = ($realisasi->jumlah != NULL) ? number_format(($realisasi->jumlah / $item->target) * 100, 2) : 0;
+            $item->persentase = ($realisasi->jumlah != NULL && $item->target != 0) ? number_format(($realisasi->jumlah / $item->target) * 100, 2) : 0;
         }
         $data = $duta->sortbyDesc('realisasi');
 
@@ -461,7 +461,7 @@ class ManajerAreaController extends Controller
             $dummy['y'] 			= ($y->y != NULL) ? count(explode(";", $y->y)) : 0;
             $dummy['kambing']		= ($kambing->y != NULL) ? $kambing->y : 0;
             $dummy['sapi']			= ($sapi->y != NULL) ? $sapi->y : 0;
-            $dummy['persentase'] 	= ($dummy['y'] != 0) ? number_format(($dummy['y'] / $dummy['target']) * 100, 2) : 0;
+            $dummy['persentase'] 	= ($dummy['y'] != 0 && $dummy['target'] != 0) ? number_format(($dummy['y'] / $dummy['target']) * 100, 2) : 0;
             $tmp[] 				= $dummy;
         }
         $data['duta'] = $tmp;
@@ -477,7 +477,7 @@ class ManajerAreaController extends Controller
         $data['user_manajerarea']   = $this->user_manajerarea->where('id', Auth::user()->id)->first();
         $data['user_panzisda']      = $this->user_panzisda->where('id', Auth::user()->id)->first();
         $data['user_lazis']         = $this->user_lazis->where('id', Auth::user()->id)->first();
-        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();      
+        $data['user_panziswil']     = $this->user_panziswil->where('id', Auth::user()->id)->first();
         return view('admin.manajerarea.laporan_kurban', compact('data'));
     }
 
@@ -486,7 +486,7 @@ class ManajerAreaController extends Controller
         $manajer    = Role::where('id_atasan', Auth::user()->id)->where('id_jabatan', 4)->pluck('id_users');
         $duta       = Role::whereIn('id_atasan', $manajer)->where('id_jabatan', 5)->pluck('id_users');
         $data       = DB::table('users')->whereIn('id', $duta)->select('id', 'nama', 'no_punggung')->get();
-        
+
         foreach($data as $item) {
             $item->target       = 1;
             $transaksi          = TransaksiKurban::where('id_users', $item->id)->pluck('id');
@@ -521,7 +521,7 @@ class ManajerAreaController extends Controller
             $item->jumlah       = (is_null($temp->jumlah)) ? 0 : $temp->jumlah;
             $item->sapi         = (is_null($sapi->jumlah)) ? 0 : $sapi->jumlah;
             $item->kambing      = (is_null($kambing->jumlah)) ? 0 : $kambing->jumlah;
-            $item->persentase   = ($item->jumlah_nama != 0) ? ($item->jumlah_nama / $item->target) * 100 : 0;
+            $item->persentase   = ($item->jumlah_nama != 0 && $item->target != 0) ? ($item->jumlah_nama / $item->target) * 100 : 0;
         }
 
         return DataTables::of($data)

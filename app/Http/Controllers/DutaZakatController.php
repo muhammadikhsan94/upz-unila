@@ -105,7 +105,7 @@ class DutaZakatController extends Controller
         $data['terkumpul'] = DB::table('transaksi')->join('status_transaksi','status_transaksi.id_transaksi','=','transaksi.id')->join('detail_transaksi','detail_transaksi.id_transaksi','=','transaksi.id')->select('transaksi.*','detail_transaksi.id_paket_zakat','detail_transaksi.jumlah')->whereYear('transaksi.created_at', date('Y'))->where('transaksi.id_users', Auth::user()->id)->where('status_transaksi.lazis_status', '!=', NULL)->get();
 
         $data['perencanaan'] = DB::table('perencanaan')->join('donatur', 'donatur.id','=','perencanaan.id_donatur')->select('perencanaan.*', 'donatur.nama')->where('perencanaan.id_duta', Auth::user()->id)->get()->toArray();
-        $data['persentase'] = ($data['terkumpul']->sum('jumlah') / $data['user']->target) * 100;
+        $data['persentase'] = $data['user']->target != 0 ? ($data['terkumpul']->sum('jumlah') / $data['user']->target) * 100 : 0;
 
         return view('admin.dutazakat.beranda', compact('data'));
     }

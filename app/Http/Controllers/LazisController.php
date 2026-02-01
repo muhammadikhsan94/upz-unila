@@ -451,7 +451,7 @@ class LazisController extends Controller
             $tmp['valid_mg']    = $valid_mg;
             $tmp['valid_pz']    = $valid_pz;
             $tmp['valid_lz']    = $valid_lz;
-            $tmp['persentase']  = ($valid_lz != 0) ? number_format(($valid_lz / $target->target) * 100, 2) : 0;
+            $tmp['persentase']  = ($valid_lz != 0 && $target->target != 0) ? number_format(($valid_lz / $target->target) * 100, 2) : 0;
             $dummy[]            = $tmp;
         }
         $data = collect($dummy);

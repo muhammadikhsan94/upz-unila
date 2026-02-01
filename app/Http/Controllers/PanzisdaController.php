@@ -1120,7 +1120,7 @@ class PanzisdaController extends Controller
 						->first();
 
 			$item->realisasi = ($realisasi->jumlah != NULL) ? $realisasi->jumlah : 0;
-			$item->persentase = ($realisasi->jumlah != NULL) ? number_format(($realisasi->jumlah / $item->target) * 100, 2) : 0;
+			$item->persentase = ($realisasi->jumlah != NULL && $item->target != 0) ? number_format(($realisasi->jumlah / $item->target) * 100, 2) : 0;
 		}
 		$data = $duta->sortbyDesc('realisasi');
 
@@ -1485,7 +1485,7 @@ class PanzisdaController extends Controller
 			$dummy['y'] 			= ($y->y != NULL) ? count(explode(";", $y->y)) : 0;
 			$dummy['kambing']		= ($kambing->y != NULL) ? $kambing->y : 0;
 			$dummy['sapi']			= ($sapi->y != NULL) ? $sapi->y : 0;
-			$dummy['persentase'] 	= ($dummy['y'] != 0) ? number_format(($dummy['y'] / $dummy['target']) * 100, 2) : 0;
+			$dummy['persentase'] 	= ($dummy['y'] != 0 && $dummy['target'] != 0) ? number_format(($dummy['y'] / $dummy['target']) * 100, 2) : 0;
 			$dummy['drilldown']     = $item->no_punggung;
             $tmp[] 					= $dummy;
         }
@@ -1532,7 +1532,7 @@ class PanzisdaController extends Controller
 				$dummyss['y'] 			= ($y->y != NULL) ? count(explode(";", $y->y)) : 0;
 				$dummyss['kambing']		= ($kambing->y != NULL) ? $kambing->y : 0;
 				$dummyss['sapi']		= ($sapi->y != NULL) ? $sapi->y : 0;
-				$dummyss['persentase'] 	= ($dummyss['y'] != 0) ? number_format(($dummyss['y'] / $dummyss['target']) * 100, 2) : 0;
+				$dummyss['persentase'] 	= ($dummyss['y'] != 0 && $dummyss['target'] != 0) ? number_format(($dummyss['y'] / $dummyss['target']) * 100, 2) : 0;
 				$tmp3[] = $dummyss;
 			}
 
@@ -1579,7 +1579,7 @@ class PanzisdaController extends Controller
 			$dummy_['y'] 			= ($y->y != NULL) ? count(explode(";", $y->y)) : 0;
 			$dummy_['kambing']		= ($kambing->y != NULL) ? $kambing->y : 0;
 			$dummy_['sapi']			= ($sapi->y != NULL) ? $sapi->y : 0;
-			$dummy_['persentase'] 	= ($dummy_['y'] != 0) ? number_format(($dummy_['y'] / $dummy_['target']) * 100, 2) : 0;
+			$dummy_['persentase'] 	= ($dummy_['y'] != 0 && $dummy_['target'] != 0) ? number_format(($dummy_['y'] / $dummy_['target']) * 100, 2) : 0;
             $tmp_[] 				= $dummy_;
         }
         $data['realisasi'] = $tmp_;
@@ -1612,7 +1612,7 @@ class PanzisdaController extends Controller
 			$dummy__['y'] 			= ($y->y != NULL) ? $y->y : 0;
 			$dummy__['pekurban'] 	= ($y->pekurban != NULL) ? count(explode(";", $y->pekurban)) : 0;
 			$dummy__['transaksi'] 	= ($transaksi->y != NULL) ? $transaksi->y : 0;
-			$dummy__['persentase'] 	= ($dummy__['y'] != 0) ? number_format(($dummy__['y'] / $dummy__['transaksi']) * 100, 2) : 0;
+			$dummy__['persentase'] 	= ($dummy__['y'] != 0 && $dummy__['transaksi'] != 0) ? number_format(($dummy__['y'] / $dummy__['transaksi']) * 100, 2) : 0;
             $tmp__[] 				= $dummy__;
         }
         $data['persentase'] = $tmp__;
@@ -2139,7 +2139,7 @@ class PanzisdaController extends Controller
 				$item->jumlah       = (is_null($temp->jumlah)) ? 0 : $temp->jumlah;
 				$item->sapi         = (is_null($sapi->jumlah)) ? 0 : $sapi->jumlah;
 				$item->kambing      = (is_null($kambing->jumlah)) ? 0 : $kambing->jumlah;
-				$item->persentase   = ($item->jumlah_nama != 0) ? ($item->jumlah_nama / $item->target) * 100 : 0;
+				$item->persentase   = ($item->jumlah_nama != 0 && $item->target != 0) ? ($item->jumlah_nama / $item->target) * 100 : 0;
 			}
 		} else {
 			$data	= DB::table('users')
@@ -2188,7 +2188,7 @@ class PanzisdaController extends Controller
 				$item->jumlah       = (is_null($temp->jumlah)) ? 0 : $temp->jumlah;
 				$item->sapi         = (is_null($sapi->jumlah)) ? 0 : $sapi->jumlah;
 				$item->kambing      = (is_null($kambing->jumlah)) ? 0 : $kambing->jumlah;
-				$item->persentase   = ($item->jumlah_nama != 0) ? ($item->jumlah_nama / $item->target) * 100 : 0;
+				$item->persentase   = ($item->jumlah_nama != 0 && $item->target != 0) ? ($item->jumlah_nama / $item->target) * 100 : 0;
 			}
 		}
 

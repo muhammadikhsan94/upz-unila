@@ -1586,7 +1586,7 @@ class PanziswilController extends Controller
 			$tmp['valid_pz']    = $valid_pz;
 			$tmp['valid_lz']    = $valid_lz;
 			$tmp['persentase']  = ($valid_lz != 0) ? number_format(($valid_lz / $total) * 100, 2) : 0;
-			$tmp['realisasi']  = ($valid_lz != 0) ? number_format(($valid_lz / $target->target) * 100, 2) : 0;
+			$tmp['realisasi']  = ($valid_lz != 0 && $target->target != 0) ? number_format(($valid_lz / $target->target) * 100, 2) : 0;
 			$dummy[]            = $tmp;
 		}
 		$data = collect($dummy);
@@ -3222,7 +3222,7 @@ class PanziswilController extends Controller
 				$item->jumlah       = (is_null($temp->jumlah)) ? 0 : $temp->jumlah;
 				$item->sapi         = (is_null($sapi->jumlah)) ? 0 : $sapi->jumlah;
 				$item->kambing      = (is_null($kambing->jumlah)) ? 0 : $kambing->jumlah;
-				$item->persentase   = ($item->jumlah_nama != 0) ? ($item->jumlah_nama / $item->target) * 100 : 0;
+				$item->persentase   = ($item->jumlah_nama != 0 && $item->target != 0) ? ($item->jumlah_nama / $item->target) * 100 : 0;
 			}
 		} else {
 
@@ -3269,7 +3269,7 @@ class PanziswilController extends Controller
 				$item->jumlah       = (is_null($temp->jumlah)) ? 0 : $temp->jumlah;
 				$item->sapi         = (is_null($sapi->jumlah)) ? 0 : $sapi->jumlah;
 				$item->kambing      = (is_null($kambing->jumlah)) ? 0 : $kambing->jumlah;
-				$item->persentase   = ($item->jumlah_nama != 0) ? ($item->jumlah_nama / $item->target) * 100 : 0;
+				$item->persentase   = ($item->jumlah_nama != 0 && $item->target != 0) ? ($item->jumlah_nama / $item->target) * 100 : 0;
 			}
 		}
 

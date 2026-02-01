@@ -709,7 +709,7 @@ class ManajerController extends Controller
             $dummy['target'] 		= 1;
             $dummy['kambing']		= ($kambing->y != NULL) ? $kambing->y : 0;
             $dummy['sapi']			= ($sapi->y != NULL) ? $sapi->y : 0;
-            $dummy['persentase'] 	= ($dummy['y'] != 0) ? number_format(($dummy['y'] / $dummy['target']) * 100, 2) : 0;
+            $dummy['persentase'] 	= ($dummy['y'] != 0 && $dummy['target'] != 0) ? number_format(($dummy['y'] / $dummy['target']) * 100, 2) : 0;
             $tmp[] = $dummy;
         }
         $data['duta'] = $tmp;
@@ -753,7 +753,7 @@ class ManajerController extends Controller
 			$dummy_['y'] 			= ($y->y != NULL) ? count(explode(";", $y->y)) : 0;
 			$dummy_['kambing']		= ($kambing->y != NULL) ? $kambing->y : 0;
 			$dummy_['sapi']			= ($sapi->y != NULL) ? $sapi->y : 0;
-			$dummy_['persentase'] 	= ($dummy_['y'] != 0) ? number_format(($dummy_['y'] / $dummy_['target']) * 100, 2) : 0;
+			$dummy_['persentase'] 	= ($dummy_['y'] != 0 && $dummy_['target'] != 0) ? number_format(($dummy_['y'] / $dummy_['target']) * 100, 2) : 0;
             $tmp_[] 				= $dummy_;
         }
         $data['realisasi'] = $tmp_;
@@ -812,7 +812,7 @@ class ManajerController extends Controller
             $item->jumlah       = (is_null($temp->jumlah)) ? 0 : $temp->jumlah;
             $item->sapi         = (is_null($sapi->jumlah)) ? 0 : $sapi->jumlah;
             $item->kambing      = (is_null($kambing->jumlah)) ? 0 : $kambing->jumlah;
-            $item->persentase   = ($item->jumlah_nama != 0) ? ($item->jumlah_nama / $item->target) * 100 : 0;
+            $item->persentase   = ($item->jumlah_nama != 0 && $item->target != 0) ? ($item->jumlah_nama / $item->target) * 100 : 0;
         }
 
         return DataTables::of($data)

@@ -221,7 +221,7 @@ class PanzisdaController extends Controller
 			$value1->y = $sumY;
 			$value1->y_ = format_uang($sumY);
 			$value1->target_ = format_uang($value1->target);
-			$value1->persentase = ($sumY != 0) ? number_format(($sumY / $value1->target) * 100, 2) : 0;
+			$value1->persentase = ($sumY != 0 && $value1->target != 0) ? number_format(($sumY / $value1->target) * 100, 2) : 0;
 		}
 
 		$data['realisasi']        = $target;

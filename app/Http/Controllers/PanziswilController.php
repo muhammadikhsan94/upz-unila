@@ -136,7 +136,7 @@ class PanziswilController extends Controller
 
 			$dummy['y'] = ($y->y != 0) ? $y->y : 0;
 			$dummy['target'] = $target->target;
-			$dummy['persentase'] = ($y->y != 0) ? number_format(($y->y / $target->target) * 100, 2) : 0;
+			$dummy['persentase'] = ($y->y != 0 && $target->target != 0) ? number_format(($y->y / $target->target) * 100, 2) : 0;
 			$tmp1[] = $dummy;
 		}
 		$data['panzisda'] = $tmp1;
@@ -2446,7 +2446,7 @@ class PanziswilController extends Controller
 			$dummy['target'] 		= $target;
 			$dummy['kambing']		= ($kambing->y != NULL) ? $kambing->y : 0;
 			$dummy['sapi']			= ($sapi->y != NULL) ? $sapi->y : 0;
-			$dummy['persentase'] 	= ($dummy['y'] != 0) ? number_format(($dummy['y'] / $target) * 100, 2) : 0;
+			$dummy['persentase'] 	= ($dummy['y'] != 0 && $target != 0) ? number_format(($dummy['y'] / $target) * 100, 2) : 0;
 			$tmp[] 					= $dummy;
 		}
 		$data['wilayah'] = $tmp;

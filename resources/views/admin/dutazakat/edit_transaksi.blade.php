@@ -368,16 +368,16 @@
         $("#id_lembaga").change(function() {
             var lembaga = $(this).val();
 
-            var lembaga_dm = <?php echo json_encode($data['lembaga']->whereIn('nama_lembaga', ['dana mandiri', 'DANA MANDIRI'])->first()); ?>;
+            // var lembaga_dm = <?php echo json_encode($data['lembaga']->whereIn('nama_lembaga', ['dana mandiri', 'DANA MANDIRI'])->first()); ?>;
             var lapor = <?php echo json_encode($data['jenis']->whereIn('jenis_transaksi', ['lapor', 'Lapor', 'LAPOR'])->first()); ?>;
 
-            if (lembaga == lembaga_dm.id) {
-                $('select[name=jenis_transaksi]').val(lapor.id);
-                $('#jenis_transaksi').attr('required', '');
-                $('#tambah_barang').hide();
-                $('#tambah_bank').hide();
-                $('#norek').removeAttr('required', '');
-            }
+            // if (lembaga == lembaga_dm.id) {
+            //     $('select[name=jenis_transaksi]').val(lapor.id);
+            //     $('#jenis_transaksi').attr('required', '');
+            //     $('#tambah_barang').hide();
+            //     $('#tambah_bank').hide();
+            //     $('#norek').removeAttr('required', '');
+            // }
             //END
 
             $('.selectpicker').selectpicker('refresh');

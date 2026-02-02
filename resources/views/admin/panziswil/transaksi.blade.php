@@ -338,7 +338,7 @@
                 {"className": "dt-center", "targets": [0, 7, 8, 9]}
             ],
             ajax: {
-                url: "{{ url('universitas/transaksi/getdata/0') }}",
+                url: "{{ route('panziswil.getTransaksi', '') }}/0",
             },
             columns: [{
                 data: "id",
@@ -397,7 +397,7 @@
 
         $('select').selectpicker();
         $('#status_transaksi').change(function() {
-            table.ajax.url('transaksi/getdata/'+$(this).val()).load();
+            table.ajax.url("{{ route('panziswil.getTransaksi', '') }}/"+$(this).val()).load();
         });
         $('#status_transaksi').trigger("change");
 
@@ -405,7 +405,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 method: "GET",
-                url: "transaksi/detail/" + id,
+                url: "{{ route('panziswil.detailTransaksi', '') }}/" + id,
                 dataType: "json",
                 success: function(data) {
                     $('#id').val(id);
@@ -466,7 +466,7 @@
 
         $(document).on('click', '.edit', function() {
             var id = $(this).attr('id');
-            window.location = "/universitas/transaksi/edit/"+id;
+            window.location = "{{ route('panziswil.editTransaksi', '') }}/"+id;
         });
 
         $('#formNonValid').submit(function (e) {
@@ -499,7 +499,7 @@
 
         $('#ok-button').click(function() {
             $.ajax({
-                url: "transaksi/delete/" + trxId,
+                url: "{{ route('panziswil.deleteTransaksi', '') }}/" + trxId,
                 method: "DELETE",
                 data: {
                     "_token": "{{ csrf_token() }}",

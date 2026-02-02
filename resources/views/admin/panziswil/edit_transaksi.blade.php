@@ -675,7 +675,7 @@
                         var html = '';
                         alert("Data berhasil disimpan!")
                         html = '<div class="alert alert-default">' + data + '</div>';
-                        window.location.replace("{{url('transaksi')}}");
+                        window.location.replace("{{route('panziswil.transaksi')}}");
                     },
                     error: function (data) {
                         var html = '';
